@@ -3,7 +3,11 @@ const bodyParser = require('body-parser')
 const router = express()
 const methods = require('../methods')
 const profile = require('../Controllers/profile')
-const port = 3001
+// const port = 3001
+const port = process.env.PORT || 3001;
+const login = require("../Controllers/login")
+const reg = require("../Controllers/register")
+require("../database/dotenv");
 
 router.use(bodyParser.json())
 router.use(
@@ -24,9 +28,10 @@ router.put('/users/:id', methods.updateUser)
 router.delete('/users/:id', methods.deleteUser)
 
 //routes for login
-
+router.post('/users/login', login.login)
 
 //routes for registering
+router.post('/users/register', reg.registerUser)
 
 //routes for profile
 router.get('/profile/users/:id', profile.getUserProfile)
