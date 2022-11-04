@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +10,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  UserLoginForm = new FormGroup({
+    email: new FormControl(),
+    password: new FormControl()
+  })
+
+  constructor(private userServive:UserService, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  UserLogin()
+  {
+    
+      let logingDetails = {
+        email: this.UserLoginForm.value.email,
+        password: this.UserLoginForm.value.password
+      }
+  
+      console.log(logingDetails);
+  
+      this.userServive.UserLogin(logingDetails).subscribe((next:any) => {
+          console.log('Successfully logged in');
+          this.router.navigate(['/home']);
+        }, (err) => {
+      });
+   
   }
 
 }

@@ -1,5 +1,5 @@
 <div class="mycontainer">
-    <Form>
+    <Form [formGroup] = "UserLoginForm">
         <ul>
             <div class="d-flex justify-content-center">
             
@@ -10,13 +10,13 @@
                     <div class="input-group-prepend">
                       <span style="background-color: #fff;border: none;"class="input-group-text" id="basic-addon1"><i class="bi bi-envelope-fill"></i></span>
                     </div>
-                    <input style="border-left: none;" type="text" class="font-weight-light form-control" placeholder="E-MAIL" aria-label="Username" aria-describedby="basic-addon1">
+                    <input formControlName="email"  style="border-left: none;" type="text" class="font-weight-light form-control" placeholder="E-MAIL" aria-label="Username" aria-describedby="basic-addon1">
                 </div>
                 <div class="input-group col-auto mb-3">
                     <div class="input-group-prepend">
                       <span style="background-color: #fff;border: none;"class="input-group-text" id="basic-addon1"><i class="bi bi-lock-fill"></i></span>
                     </div>
-                    <input style="border-left: none;" type="text" class="font-weight-light form-control" placeholder="PASSWORD" aria-label="Username" aria-describedby="basic-addon1">
+                    <input formControlName="password"  style="border-left: none;" type="text" class="font-weight-light form-control" placeholder="PASSWORD" aria-label="Username" aria-describedby="basic-addon1">
                 </div>
                 <div class="col-auto">
                     <div class="form-check">
@@ -28,10 +28,10 @@
                     </div>
                   </div>
                   <div class="mb-3 col-auto">
-                    <button type="submit" class="btn btn-sm"> LOGIN</button>
+                    <button type="submit" (click)="UserLogin()" class="btn btn-sm"> LOGIN</button>
                   </div>
                   <div class="mb-3 col-auto">
-                    <button type="submit" class="btn">REGISTER</button>
+                    <button type="submit" [routerLink]="['/register']" class="btn">REGISTER</button>
                   </div>
                 </div>
               </div>

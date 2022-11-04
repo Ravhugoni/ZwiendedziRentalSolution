@@ -22,6 +22,11 @@ export class UserService {
     return this.httpClient.post(API_URL, userDetails)
   }
 
+  UserLogin(loginDetails:any): Observable<any> {
+    let API_URL = this.REST_API + '/users/login';
+    return this.httpClient.post(API_URL, loginDetails)
+  }
+
 //   // Get all objects
 //   GetList() {
 //     return this.httpClient.get(this.REST_API + '/list');

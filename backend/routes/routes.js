@@ -8,6 +8,9 @@ const port = process.env.PORT || 3001;
 const login = require("../Controllers/login")
 const reg = require("../Controllers/register")
 require("../database/dotenv");
+const cors = require('cors');
+
+router.use(cors());
 
 router.use(bodyParser.json())
 router.use(
