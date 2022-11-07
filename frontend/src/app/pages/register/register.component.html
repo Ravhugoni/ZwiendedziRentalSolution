@@ -1,0 +1,63 @@
+<div class="mycontainer">
+    <Form [formGroup] = "AddUserForm">
+        <ul>
+            <div class="d-flex justify-content-center">
+            
+                <div class="card text-center">
+                <div class="card-body">
+                  <h5 class="card-title">REGISTER</h5>
+                    <div class="input-group col-auto mb-3">
+                        <div class="input-group-prepend">
+                          <span style="background-color: #fff;border: none;"class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
+                        </div>
+                        <input formControlName="firstname" style="border-left: none;" type="text" class="font-weight-light form-control" placeholder="FIRST NAME" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                  <div class="input-group col-auto mb-3">
+                    <div class="input-group-prepend">
+                      <span style="background-color: #fff;border: none;"class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
+                    </div>
+                    <input formControlName="lastname"  style="border-left: none;" type="text" class="font-weight-light form-control" placeholder="LAST NAME" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                  <div class="input-group col-auto mb-3">
+                    <div class="input-group-prepend">
+                      <span style="background-color: #fff;border: none;"class="input-group-text" id="basic-addon1"><i class="bi bi-envelope-fill"></i></span>
+                    </div>
+                    <input formControlName="phone"  style="border-left: none;" type="text" class="font-weight-light form-control" placeholder="PHONE" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group col-auto mb-3">
+                  <div class="input-group-prepend">
+                    <span style="background-color: #fff;border: none;"class="input-group-text" id="basic-addon1"><i class="bi bi-envelope-fill"></i></span>
+                  </div>
+                  <input formControlName="email"  style="border-left: none;" type="text" class="font-weight-light form-control" placeholder="E-MAIL" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+                  <div class="input-group col-auto mb-3">
+                    <div class="input-group-prepend">
+                      <span style="background-color: #fff;border: none;"class="input-group-text" id="basic-addon1"><i class="bi bi-lock-fill"></i></span>
+                    </div>
+                    <input formControlName="password"  style="border-left: none;" type="password" class="font-weight-light form-control" placeholder="PASSWORD" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                  <div class="input-group col-auto mb-3">
+                    <div class="input-group-prepend">
+                      <span style="background-color: #fff;border: none;"class="input-group-text" id="basic-addon1"><i class="bi bi-lock-fill"></i></span>
+                    </div>
+                    <input formControlName="confirmPass"  style="border-left: none;" type="password" class="font-weight-light form-control" placeholder="CONFIRM PASSWORD" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                  <div class="col-auto">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="autoSizingCheck">
+                      <label class="text mb-3 text-white form-check-label" for="autoSizingCheck">
+                        Terms & Conditions
+                      </label>
+                    </div>
+                  </div>
+                  <div class="mb-3 col-auto">
+                    <button type="submit" class="btn" (click)="AddUser()">REGISTER</button>
+                  </div>
+                  <label for="verirfy" class="text text-white form-label">Already Registered?</label>
+                  <a [routerLink]="['/login']" class="login text-decoration-none"> LOGIN</a>
+                </div>
+              </div>
+        </div>
+        </ul>
+    </Form>
+</div>
