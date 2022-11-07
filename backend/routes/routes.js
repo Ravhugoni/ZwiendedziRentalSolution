@@ -3,9 +3,11 @@ const bodyParser = require('body-parser')
 const router = express()
 const methods = require('../methods')
 const profile = require('../Controllers/profile')
-const login = require('../Controllers/login')
-const register = require('../Controllers/Register')
-const multer = require('multer');
+const products = require('../Controllers/products')
+
+//const login = require('../Controllers/login')
+//const register = require('../Controllers/Register')
+//const multer = require('multer');
 
 const port = 3001
 
@@ -33,7 +35,7 @@ router.put('/users/:id', methods.updateUser)
 router.delete('/users/:id', methods.deleteUser)
 
 //routes for login
-router.post('/login/users', login.postUser)
+//router.post('/login/users', login.postUser)
 
 //routes for registering
 
@@ -41,8 +43,9 @@ router.post('/login/users', login.postUser)
 router.get('/profile/users/:id', profile.getUserProfile)
 router.put('/profile/users/:id', profile.updateUserProfile)
 
-//routes for registration
-router.post('/Register/users', register.postUser)
+//routes for cars/products
+router.post('/uploadImage', products.postCars)
+router.get('/cars', products.getCars)
 
 
 

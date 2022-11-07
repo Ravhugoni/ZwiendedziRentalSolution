@@ -10,6 +10,21 @@ const pool = new Pool({
 // app.get('/', (req, res) => { 
 //     res.send('Hello People'); 
 // });
+const express = require('express');
+const multer = require('multer');
+const path = require('path');
+const fs = require('fs-extra');
+const router = express();
+
+ router.use(express.static('public')); 
+ router.use('/images', express.static('bin/images'));
+
+ const getCars = (request, response) => {
+  pool.query('SELECT * FROM cars', (error, results) => {
+   
+    response.status(200).json(results.rows)
+  }),handleErr
+}
 
 
 const handleErr = (error, req, res, next) => {
@@ -45,37 +60,43 @@ const imageUpload = multer({
 
 
 
-const cheyeza = (req, res, next) => {
-    req.user = {
-        name: "cheyeza",
-        lastname: "Mlondo"
-    }
+// const cheyeza = (req, res, next) => {
+//     req.user = {
+//         name: "cheyeza",
+//         lastname: "Mlondo"
+//     }
 
-    next()
-}
+//     next()
+// }
 // For Single image uploads
-app.post('/uploadImage', cheyeza, imageUpload.single('image'), (req, res) => {
+const postCars=('/', imageUpload.single('images'), (req, res) => {
 
   
+  //res.send(req.file)
+    //console.log("posted")
 
-    console.log(req.user)
-
-    const img = req.file.filename;
+    const carImage = req.file.filename;
+    const carName = req.body.carName;
+    const model = req.body.model;
+    const numberPlate = req.body.numberPlate;
+    const make = req.body.make;
+    const price = req.body.price;
+    const companyID = req.body.companyID;
     
 
- mariadb.query(`INSERT INTO Cars(carName,carImage,model,numberPlate,make,price,companyID) VALUES('${carName}','${img}','${model}','${numberPlate}','${make}','${price}','${companyID}')`, (err,result) => {
+ pool.query(`INSERT INTO cars(carName,carImage,model,numberPlate,make,price,companyID) VALUES('${carName}','${carImage}','${model}','${numberPlate}','${make}','${price}','${companyID}')`, (err,result) => {
    if(err) throw err
    console.log("Image uploaded");
 //    res.send(req.file)
+return
  })
-
+ return
 },handleErr)
 
 
 
 
-app.listen(port, () => {
-    console.log('Server is up on port ' + port);
-})
-
-module.exports = app;
+module.exports = {
+  getCars,
+  postCars
+};
