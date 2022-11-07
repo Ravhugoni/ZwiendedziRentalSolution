@@ -1,3 +1,13 @@
+const express = require('express');
+const multer = require('multer');
+const path = require('path');
+const fs = require('fs-extra');
+const router = express();
+const cloudinary = require('../clodinary')
+const upload = require('../multer');
+const bodyParser = require('body-parser');
+
+
 const Pool = require('pg').Pool
 const pool = new Pool({
   user: 'admin',
@@ -7,73 +17,49 @@ const pool = new Pool({
   port: 5432,
 })
 
-// app.get('/', (req, res) => { 
-//     res.send('Hello People'); 
-// });
-const express = require('express');
-const multer = require('multer');
-const path = require('path');
-const fs = require('fs-extra');
-const router = express();
+router.use(bodyParser.urlencoded({
+  extended: false
+}))
+
+router.use(bodyParser.json());
 
  router.use(express.static('public')); 
  router.use('/images', express.static('bin/images'));
 
- const getCars = (request, response) => {
-  pool.query('SELECT * FROM cars', (error, results) => {
-   
-    response.status(200).json(results.rows)
-  }),handleErr
-}
+//  const getCars = (request, response) => {
+//   pool.query('SELECT * FROM cars', (error, results) => {
 
 
-const handleErr = (error, req, res, next) => {
-    res.status(400).send({ error: error.message })
-}
-
-const imageStorage = multer.diskStorage({
-    // Destination to store image     
-    destination: 'images', 
-      filename: (req, file, cb) => {
-          cb(null, file.fieldname + '_' + Date.now() 
-             + path.extname(file.originalname))
-            // file.fieldname is name of the field (image)
-            // path.extname get the uploaded file extension
-    }
-});
-
-
-const imageUpload = multer({
-    storage: imageStorage,
-    limits: {
-      fileSize: 1000000 // 1000000 Bytes = 1 MB
-    },
-    fileFilter(req, file, cb) {
-      if (!file.originalname.match(/\.(png|jpg)$/)) { 
-         // upload only png and jpg format
-         return cb(new Error('Please upload a Image'))
-       }
-     cb(undefined, true)
-  }
-})
-
-
-
-
-// const cheyeza = (req, res, next) => {
-//     req.user = {
-//         name: "cheyeza",
-//         lastname: "Mlondo"
-//     }
-
-//     next()
+// const handleErr = (error, req, res, next) => {
+//     res.status(400).send({ error: error.message })
 // }
-// For Single image uploads
-const postCars=('/', imageUpload.single('images'), (req, res) => {
 
-  
-  //res.send(req.file)
-    //console.log("posted")
+
+// // For Single image uploads
+router.post('/upload-images', imageUpload.array('image'), async(req, res) => {
+
+  const uploader = async (path) => await cloudinary.uploads(path,'Images');
+ 
+  if (require.method === 'POST') {
+    const urls = []
+    const files = req.files;
+    for (const file of files) {
+      const {path} = file;
+      const newPath = await uploader(path)
+      urls.push(newPath)
+      files.unlinkSync(path)
+    }
+
+    res.status(200).json({
+      message: 'images uploaded successfully',
+      data: urls
+    })
+  } else {
+
+    res.status(405).json({
+      err:`${req.method} method not allowed`
+    })
+  }
 
     const carImage = req.file.filename;
     const carName = req.body.carName;
@@ -96,7 +82,4 @@ return
 
 
 
-module.exports = {
-  getCars,
-  postCars
-};
+module.exports = router;
