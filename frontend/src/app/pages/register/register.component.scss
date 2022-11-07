@@ -6,12 +6,16 @@
 .card-title{
     color: #ffbe16;
 }
-
-.container{
+.mycontainer{
     background-image: url("../../../assets/bg5.jpg");
     background-size: cover;
-    height:100%;
+    background-position: center;
+    background-repeat: no-repeat;
     width: 100%;
+   height: auto;
+   padding: 0;
+   margin: 0;
+   height: 50rem;
 }
 
 .btn{

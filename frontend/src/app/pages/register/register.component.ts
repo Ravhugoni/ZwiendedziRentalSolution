@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
-
+import { NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-register',
@@ -22,10 +22,12 @@ export class RegisterComponent implements OnInit {
     confirmPass: new FormControl()
   })
 
-  constructor(private userServive:UserService, private router: Router) { }
+  constructor(private userServive:UserService, private router: Router, private toast: NgToastService) { }
 
   ngOnInit(): void {
 
+    // AddUserForm =
+    // '', [Validators.required, Validators.email]
   }
   
   AddUser()
@@ -45,15 +47,25 @@ export class RegisterComponent implements OnInit {
   
       this.userServive.AddUser(userDetails).subscribe((next:any) => {
           console.log('Add successfully!');
-          this.router.navigate(['/home']);
+          this.openSuccess();
+          this.router.navigate(['/']);
         }, (err) => {
       });
     }
     else
     {
+      this.openWarning();
       console.log("password does not match");
+      
     }
    
   }
 
+  openWarning(){
+    this.toast.warning({detail:'Warning',summary:'Password does not match', sticky:true,position:'tr'})
+  }
+  openSuccess(){
+    this.toast.success({detail:'Success',summary:'Successfully register!', sticky:true,position:'tr'})
+  }
+ 
 }

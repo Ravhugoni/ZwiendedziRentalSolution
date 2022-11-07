@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+import {NgToastService} from 'ng-angular-popup';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
     password: new FormControl()
   })
 
-  constructor(private userServive:UserService, private router: Router) { }
+  constructor(private userServive:UserService, private router: Router, private toast: NgToastService) { }
 
   ngOnInit(): void {
   }
@@ -32,7 +33,7 @@ export class LoginComponent implements OnInit {
   
       this.userServive.UserLogin(logingDetails).subscribe((next:any) => {
           console.log('Successfully logged in');
-          this.router.navigate(['/home']);
+          this.router.navigate(['/']);
         }, (err) => {
       });
    
