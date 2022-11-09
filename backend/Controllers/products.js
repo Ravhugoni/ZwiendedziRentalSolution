@@ -1,13 +1,3 @@
-const express = require('express');
-const multer = require('multer');
-const path = require('path');
-const fs = require('fs-extra');
-const router = express();
-const cloudinary = require('../clodinary')
-const upload = require('../multer');
-const bodyParser = require('body-parser');
-
-
 const Pool = require('pg').Pool
 const pool = new Pool({
   user: 'admin',
@@ -17,69 +7,69 @@ const pool = new Pool({
   port: 5432,
 })
 
-router.use(bodyParser.urlencoded({
-  extended: false
-}))
+const handleErr = (err, req, res, next) => {
+  res.status(400).send({ error: err.message })
+}
 
-router.use(bodyParser.json());
-
- router.use(express.static('public')); 
- router.use('/images', express.static('bin/images'));
-
-//  const getCars = (request, response) => {
-//   pool.query('SELECT * FROM cars', (error, results) => {
-
-
-// const handleErr = (error, req, res, next) => {
-//     res.status(400).send({ error: error.message })
-// }
-
-
-// // For Single image uploads
-router.post('/upload-images', imageUpload.array('image'), async(req, res) => {
-
-  const uploader = async (path) => await cloudinary.uploads(path,'Images');
- 
-  if (require.method === 'POST') {
-    const urls = []
-    const files = req.files;
-    for (const file of files) {
-      const {path} = file;
-      const newPath = await uploader(path)
-      urls.push(newPath)
-      files.unlinkSync(path)
-    }
-
-    res.status(200).json({
-      message: 'images uploaded successfully',
-      data: urls
-    })
-  } else {
-
-    res.status(405).json({
-      err:`${req.method} method not allowed`
-    })
+const getCars = (request, response) => {
+    pool.query('SELECT * FROM cars', (error, results) => {
+     
+      response.status(200).json(results.rows)
+    }),handleErr
   }
 
-    const carImage = req.file.filename;
-    const carName = req.body.carName;
-    const model = req.body.model;
-    const numberPlate = req.body.numberPlate;
-    const make = req.body.make;
-    const price = req.body.price;
-    const companyID = req.body.companyID;
+  const getCarById = (request, response) => {
+    const id = parseInt(request.params.id)
+  
+    pool.query('SELECT * FROM cars WHERE id = $1', [id], (error, results) => {
+     
+      response.status(200).json(results.rows)
+    }),handleErr
+  }
+  
+  const postCar = (req, res) => {
+
+    const { carName,carImage,model,numberPlate,make,price,companyID } = req.body
+
+    pool.query('INSERT INTO public.cars("carName", "carImage", model, "numberPlate", make, price, "companyID") VALUES ($1, $2,$3,$4,$5,$6,$7)', [carName,carImage,model,numberPlate,make,price,companyID], (error, results) => {
+      if (error) {
+        throw error
+      }
+      res.status(201).send(`Car has been added successfully`)
+    })
     
+}
+  
+  const updateCar = (request, response) => {
+    const id = parseInt(request.params.id);
+    const { carName,carImage,model,numberPlate,make,price,companyID } = request.body
+  
+    pool.query('UPDATE public.cars SET "carName"=$1, "carImage"=$2, model=$3, "numberPlate"=$4, make=$5, price=$6, "companyID"=$7 WHERE id=$8',[carName ,carImage ,model ,numberPlate ,make ,price , companyID, id], (error, results) => {
+        if (error) {
+          throw error
+        }
+        //response.send(JSON.stringify(results));
+        response.status(200).send(`User modified with ID: ${results.id}`)
+      }
+    )
+  }
 
- pool.query(`INSERT INTO cars(carName,carImage,model,numberPlate,make,price,companyID) VALUES('${carName}','${carImage}','${model}','${numberPlate}','${make}','${price}','${companyID}')`, (err,result) => {
-   if(err) throw err
-   console.log("Image uploaded");
-//    res.send(req.file)
-return
- })
- return
-},handleErr)
+  
+  const deleteCar = (request, response) => {
+    const id = parseInt(request.params.id)
+  
+    pool.query('DELETE FROM public.cars WHERE id = $1', [id], (error, results) => {
+     
+      response.status(200).send(`User deleted with ID: ${id}`)
+    }),handleErr
+  }
+  
+  module.exports = {
+    getCars,
+    getCarById,
+    postCar,
+    updateCar,
+    deleteCar
+  }
 
-
-
-
-module.exports = router;
+  
