@@ -50,7 +50,7 @@ const getCars = (request, response) => {
           throw error
         }
         //response.send(JSON.stringify(results));
-        response.status(200).send(`User modified with ID: ${results.id}`)
+        response.status(200).send(`User modified with ID: ${id}`)
       }
     )
   }
@@ -61,7 +61,7 @@ const getCars = (request, response) => {
   
     pool.query('DELETE FROM public.cars WHERE id = $1', [id], (error, results) => {
      
-      response.status(200).send(`User deleted with ID: ${id}`)
+      response.status(200).send(`car successfully deleted: ${id}`)
     }),handleErr
   }
   
