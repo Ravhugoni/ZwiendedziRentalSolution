@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "210206e4-a313-4dc6-a518-f03a1f15e941",
+		"name": "PostCars",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23806595"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3001/cars",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"carName\": \"Autech Nissa\",\n        \"carImage\": \"https://res.cloudinary.com/dhtppljex/image/upload/v1667982854/DEV/ym8zigc39vf4w9sjggp1.jpg\",\n        \"numberPlate\": \"Gp 71HRS12\",\n        \"make\": \"Autech Nissan NV350 Caravan \",\n        \"price\": 15000,\n        \"companyID\": 1,\n        \"category\": \"MINIBUSES\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/cars",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"cars"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
