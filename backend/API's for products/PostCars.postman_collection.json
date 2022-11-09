@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n        \"carName\": \"Autech Nissa\",\n        \"carImage\": \"https://res.cloudinary.com/dhtppljex/image/upload/v1667982854/DEV/ym8zigc39vf4w9sjggp1.jpg\",\n        \"numberPlate\": \"Gp 71HRS12\",\n        \"make\": \"Autech Nissan NV350 Caravan \",\n        \"price\": 15000,\n        \"companyID\": 1,\n        \"category\": \"MINIBUSES\"\n    }",
+					"raw": "{\n        \"carName\": \"Autech Nissa\",\n        \"carImage\": \"https://res.cloudinary.com/dhtppljex/image/upload/v1667982854/DEV/ym8zigc39vf4w9sjggp1.jpg\",\n        \"model\": \"Range Rover\",\n        \"numberPlate\": \"Gp 71HRS12\",\n        \"make\": \"Autech Nissan NV350 Caravan \",\n        \"price\": 15000,\n        \"companyID\": 1,\n        \"category\": \"MINIBUSES\"\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
