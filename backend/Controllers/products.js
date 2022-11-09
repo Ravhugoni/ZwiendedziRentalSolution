@@ -19,9 +19,10 @@ const getCars = (request, response) => {
   }
 
   const getCarById = (request, response) => {
-    const id = parseInt(request.params.id)
+    //const id = parseInt(request.params.id)
+    const category = req.body;
   
-    pool.query('SELECT * FROM cars WHERE id = $1', [id], (error, results) => {
+    pool.query('SELECT * FROM cars WHERE category = $1', [categoty], (error, results) => {
      
       response.status(200).json(results.rows)
     }),handleErr
@@ -29,9 +30,9 @@ const getCars = (request, response) => {
   
   const postCar = (req, res) => {
 
-    const { carName,carImage,model,numberPlate,make,price,companyID } = req.body
+    const { carName,carImage,model,numberPlate,make,price,companyID,category } = req.body
 
-    pool.query('INSERT INTO public.cars("carName", "carImage", model, "numberPlate", make, price, "companyID") VALUES ($1, $2,$3,$4,$5,$6,$7)', [carName,carImage,model,numberPlate,make,price,companyID], (error, results) => {
+    pool.query('INSERT INTO public.cars("carName", "carImage", model, "numberPlate", make, price, "companyID", category) VALUES ($1, $2,$3,$4,$5,$6,$7,$8)', [carName,carImage,model,numberPlate,make,price,companyID,category], (error, results) => {
       if (error) {
         throw error
       }
@@ -42,9 +43,9 @@ const getCars = (request, response) => {
   
   const updateCar = (request, response) => {
     const id = parseInt(request.params.id);
-    const { carName,carImage,model,numberPlate,make,price,companyID } = request.body
+    const { carName,carImage,model,numberPlate,make,price,companyID,category } = request.body
   
-    pool.query('UPDATE public.cars SET "carName"=$1, "carImage"=$2, model=$3, "numberPlate"=$4, make=$5, price=$6, "companyID"=$7 WHERE id=$8',[carName ,carImage ,model ,numberPlate ,make ,price , companyID, id], (error, results) => {
+    pool.query('UPDATE public.cars SET "carName"=$1, "carImage"=$2, model=$3, "numberPlate"=$4, make=$5, price=$6, "companyID"=$7, category = $8 WHERE id=$9',[carName ,carImage ,model ,numberPlate ,make ,price , companyID,category, id], (error, results) => {
         if (error) {
           throw error
         }
