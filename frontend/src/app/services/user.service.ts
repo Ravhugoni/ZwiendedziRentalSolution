@@ -27,6 +27,11 @@ export class UserService {
     return this.httpClient.post(API_URL, loginDetails)
   }
 
+  GetUserByEmail(email:any): Observable<any> {
+    let API_URL = this.REST_API+ '/profile/usersByEmail';
+    return this.httpClient.get(API_URL, email)
+  }
+
 //   // Get all objects
 //   GetList() {
 //     return this.httpClient.get(this.REST_API + '/list');

@@ -1,5 +1,5 @@
 <div class="mycontainer">
-    <Form [formGroup] = "UserLoginForm">
+    <Form [formGroup] = "UserLoginForm" novalidate>
         <ul>
             <div class="d-flex justify-content-center">
             
@@ -10,14 +10,27 @@
                     <div class="input-group-prepend">
                       <span style="background-color: #fff;border: none;"class="input-group-text" id="basic-addon1"><i class="bi bi-envelope-fill"></i></span>
                     </div>
-                    <input formControlName="email"  style="border-left: none;" type="text" class="font-weight-light form-control" placeholder="E-MAIL" aria-label="Username" aria-describedby="basic-addon1">
+                    <input formControlName="email"  style="border-left: none;" type="text" class="font-weight-light form-control" placeholder="E-MAIL" 
+                    [ngClass]="{ 'is-invalid': submitted && formValidation['email'].errors }"
+                    />
+                    <div *ngIf="submitted && formValidation['email'].errors" class="invalid-feedback">
+                      <div *ngIf="formValidation['email'].errors['required']">Email is required</div>
+                      <div *ngIf="formValidation['email'].errors['email']">Email is invalid</div>
+                    </div>
                 </div>
                 <div class="input-group col-auto mb-3">
                     <div class="input-group-prepend">
                       <span style="background-color: #fff;border: none;"class="input-group-text" id="basic-addon1"><i class="bi bi-lock-fill"></i></span>
                     </div>
-                    <input formControlName="password"  style="border-left: none;" type="password" class="font-weight-light form-control" placeholder="PASSWORD" aria-label="Username" aria-describedby="basic-addon1">
-                </div>
+                    <input formControlName="password"  style="border-left: none;" type="password" class="font-weight-light form-control" placeholder="PASSWORD" 
+                    [ngClass]="{ 'is-invalid': submitted && formValidation['password'].errors }"
+                    />
+
+                    <div *ngIf="submitted && formValidation['password'].errors" class="invalid-feedback">
+                      <div *ngIf="formValidation['password'].errors['required']">Password is required</div>
+                    </div>
+                  </div>
+
                 <div class="col-auto">
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" id="autoSizingCheck">
