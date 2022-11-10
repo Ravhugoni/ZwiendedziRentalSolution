@@ -41,19 +41,38 @@ const getCars = (request, response) => {
     
 }
   
-  const updateCar = (request, response) => {
-    const id = parseInt(request.params.id);
-    const { carName,carImage,model,numberPlate,make,price,companyID,category } = request.body
+  // const updateCar = (request, response) => {
+  //   const id = parseInt(request.params.id);
+  //   const { carName,carImage,model,numberPlate,make,price,companyID,category,status } = request.body
   
-    pool.query('UPDATE public.cars SET "carName"=$1, "carImage"=$2, model=$3, "numberPlate"=$4, make=$5, price=$6, "companyID"=$7, category = $8 WHERE id=$9',[carName ,carImage ,model ,numberPlate ,make ,price , companyID,category, id], (error, results) => {
-        if (error) {
-          throw error
-        }
-        //response.send(JSON.stringify(results));
-        response.status(200).send(`User modified with ID: ${id}`)
+  //   pool.query('UPDATE public.cars SET "carName"=$1, "carImage"=$2, model=$3, "numberPlate"=$4, make=$5, price=$6, "companyID"=$7, category = $8, status = $9 WHERE id=$10',[carName ,carImage ,model ,numberPlate ,make ,price , companyID,category,status, id], (error, results) => {
+  //       if (error) {
+  //         throw error
+  //       }
+  //       //response.send(JSON.stringify(results));
+  //       response.status(200).send(`User modified with ID: ${id}`)
+  //     }
+  //   )
+  // }
+
+const updateCar = (req, res) => {
+    //const id = parseInt(req.params.id);
+    let field;
+    let updateString="";
+
+    const { id,carName,carImage,model,numberPlate,make,price,companyID,category,status } = req.body
+    if (req.body.field) {
+    pool.query(`UPDATE public.cars SET  ${req.body.field} = '${req.body.updateString}' WHERE id = ${req.body.id}`, (error, results,field) => {
+
+      if (error) {
+      throw error
       }
-    )
-  }
+        //response.send(JSON.stringify(results));
+        res.status(200).send(`User modified with ID: ${id}`)
+
+    });
+    }
+}
 
   
   const deleteCar = (request, response) => {

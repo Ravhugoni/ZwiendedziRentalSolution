@@ -7,6 +7,7 @@ const products = require('../Controllers/Products')
 // const port = 3001
 const port = process.env.PORT || 3001;
 const login = require("../Controllers/login")
+const numCars = require("../Controllers/numCars")
 const reg = require("../Controllers/register")
 require("../database/dotenv");
 const cors = require('cors');
@@ -76,12 +77,14 @@ router.get('/profile/users/:id', profile.getUserProfile)
 router.put('/profile/users/:id', profile.updateUserProfile)
 
 //Routes for Cars
-
 router.get('/cars', products.getCars)
 router.get('/cars/:id', products.getCarById)
 router.post('/cars', products.postCar)
 router.put('/cars/:id', products.updateCar)
 router.delete('/cars/:id', products.deleteCar)
+
+//route for number of products
+router.get('/num', numCars.getNum)
 
 
 router.listen(port, () => {
