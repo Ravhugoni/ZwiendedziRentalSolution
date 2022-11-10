@@ -3,6 +3,7 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import {NgToastService} from 'ng-angular-popup';
+import jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,8 @@ export class LoginComponent implements OnInit {
     email: new FormControl(''),
     password: new FormControl('')
   });
+
+  decoded: any;
 
   submitted = false;
 
@@ -46,14 +49,14 @@ export class LoginComponent implements OnInit {
         password: this.UserLoginForm.value.password
       }
   
-      console.log(logingDetails);
-  
-      this.userServive.UserLogin(logingDetails).subscribe((next:any) => {
-          console.log('Successfully logged in');
+      this.userServive.UserLogin(logingDetails).subscribe(res => {
+          this.decoded = jwt_decode(res.token); 
+
           this.toast.success({detail:'Success',summary:'Successfully login!', sticky:true,position:'tr'})
           this.router.navigate(['/']);
 
-          sessionStorage.setItem('loginuser', logingDetails.email);
+          sessionStorage.setItem('loggedInToken', res.token);
+          sessionStorage.setItem('loggedEmail', this.decoded.email);
 
           this.submitted = false;
         }, (err) => {

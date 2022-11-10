@@ -8,6 +8,9 @@ import { RouterModule } from '@angular/router';
 import { LayoutRoutes } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
 import { SearchComponent } from '../pages/search/search.component';
+import { BookingComponent } from '../pages/booking/booking.component';
+import { BookingModalComponent } from '../pages/booking/booking-modal/booking-modal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -16,7 +19,8 @@ import { SearchComponent } from '../pages/search/search.component';
     HeaderComponent,
     FooterComponent,
     LandingComponent,
-    SearchComponent
+    SearchComponent,
+    BookingComponent,
   ],
   imports: [
     CommonModule,
@@ -24,3 +28,4 @@ import { SearchComponent } from '../pages/search/search.component';
   ]
 })
 export class LayoutModule { }
+
