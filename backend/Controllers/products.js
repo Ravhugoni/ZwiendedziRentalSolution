@@ -30,9 +30,9 @@ const getCars = (request, response) => {
   
   const postCar = (req, res) => {
 
-    const { carName,carImage,model,numberPlate,make,price,companyID,category } = req.body
+    const { carName,carImage,model,numberPlate,make,price,companyID,category, status} = req.body
 
-    pool.query('INSERT INTO public.cars("carName", "carImage", model, "numberPlate", make, price, "companyID", category) VALUES ($1, $2,$3,$4,$5,$6,$7,$8)', [carName,carImage,model,numberPlate,make,price,companyID,category], (error, results) => {
+    pool.query('INSERT INTO public.cars("carName", "carImage", model, "numberPlate", make, price, "companyID", category,status) VALUES ($1, $2,$3,$4,$5,$6,$7,$8,$9)', [carName,carImage,model,numberPlate,make,price,companyID,category,status], (error, results) => {
       if (error) {
         throw error
       }
