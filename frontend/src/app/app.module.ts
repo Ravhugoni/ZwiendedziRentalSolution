@@ -9,7 +9,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import {NgToastModule} from 'ng-angular-popup';
-import { SuvsComponent } from './pages/suvs/suvs.component';
+import { SedenComponent } from './pages/seden/seden.component';
+import { HatchbackComponent } from './pages/hatchback/hatchback.component';
 
 
 @NgModule({
@@ -17,7 +18,9 @@ import { SuvsComponent } from './pages/suvs/suvs.component';
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    SuvsComponent
+    SedenComponent,
+    HatchbackComponent,
+  
   ],
   imports: [
     BrowserModule,

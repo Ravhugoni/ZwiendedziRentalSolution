@@ -7,6 +7,7 @@ const profile = require('../Controllers/profile')
 const port = process.env.PORT || 3001;
 const login = require("../Controllers/login")
 const reg = require("../Controllers/register")
+const bookings = require ("../Controllers/bookings")
 require("../database/dotenv");
 const cors = require('cors');
 
@@ -40,6 +41,12 @@ router.post('/users/register', reg.registerUser)
 router.get('/profile/users/:id', profile.getUserProfile)
 router.put('/profile/users/:id', profile.updateUserProfile)
 
+//routes for bookings
+router.post('/bookings', bookings.addBooking)
+router.get('/bookings', bookings.getAllBookings)
+router.get('/bookings/:id', bookings.getBookingById)
+router.put('/bookings/:id', bookings.updateBooking)
+router.delete('/bookings/:id', bookings.deleteBooking)
 
 router.listen(port, () => {
     console.log(`App running on port ${port}.`)

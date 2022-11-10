@@ -7,6 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { LayoutRoutes } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
+import { SuvsComponent } from '../pages/suvs/suvs.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { LayoutComponent } from './layout.component';
     LayoutComponent,
     HeaderComponent,
     FooterComponent,
-    LandingComponent
+    LandingComponent,
+    SuvsComponent
   ],
   imports: [
     CommonModule,
