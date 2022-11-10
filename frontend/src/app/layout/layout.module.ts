@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { LayoutRoutes } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
 import { SearchComponent } from '../pages/search/search.component';
+import { PromotionsComponent } from '../pages/promotions/promotions.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { SearchComponent } from '../pages/search/search.component';
     HeaderComponent,
     FooterComponent,
     LandingComponent,
-    SearchComponent
+    SearchComponent,
+    PromotionsComponent
   ],
   imports: [
     CommonModule,
