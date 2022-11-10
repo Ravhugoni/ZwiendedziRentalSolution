@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import {NgToastModule} from 'ng-angular-popup';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { SedenComponent } from './pages/seden/seden.component';
 import { HatchbackComponent } from './pages/hatchback/hatchback.component';
 =======
@@ -19,6 +20,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BookingModalComponent } from './pages/booking/booking-modal/booking-modal.component';
 >>>>>>> origin/main
 
+=======
+import { ProfileComponent } from './profile/profile.component';
+>>>>>>> seden-page
 
 @NgModule({
   declarations: [
@@ -26,11 +30,15 @@ import { BookingModalComponent } from './pages/booking/booking-modal/booking-mod
     RegisterComponent,
     LoginComponent,
 <<<<<<< HEAD
+<<<<<<< HEAD
     SedenComponent,
     HatchbackComponent,
   
 =======
 >>>>>>> origin/main
+=======
+    ProfileComponent,
+>>>>>>> seden-page
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,145 @@
+
+.profile{
+    color: rgb(253, 252, 251);
+    margin-top: -7rem;
+    padding: 2rem;
+    max-width: 50rem;
+    height: 30rem;
+    left: 60px;
+    background: linear-gradient(180deg, rgba(255, 190, 22, 0.6) 0%, rgba(217, 217, 217, 0) 100%);
+}
+
+.logout{
+    font-weight: bold;
+    background: #FFBE16;
+    border: none;
+    color: rgb(251, 248, 244);
+    border-radius: 1rem;
+    text-align: center;
+ }
+
+
+.ba{
+
+    max-width: 20%;
+    height: 100rem !important; 
+    color: #FFD233;
+
+}
+
+.bi{
+    color: black;
+}
+
+.name{
+    color: rgb(253, 252, 251);
+    font-weight: bolder;
+}
+
+.form-control{
+    color: white;
+    border: none;
+    background: #FFBE16;
+}
+
+input{
+    border-radius: 1rem;
+    border: none;
+    background: #1b1a18;
+    width: 10rem;
+    margin-left: 0.5rem;
+}
+
+.logdiv{  
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+// .row{
+//     padding: 2rem;
+// }
+
+.bg{
+    background-image: url('../../assets/bg5.jpg');
+    background-size: cover;
+    background-color: black;
+    height: 43rem;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.ab{
+    background-color: white;
+
+}
+
+.head{
+    margin-left: 1rem;
+}
+
+
+form{
+    margin-top: 2rem;
+    margin-left: 2rem;
+}
+.bookings{
+    font-size: xx-large;
+    font-weight: bolder ;
+    color: #FFBE16;
+    justify-content: space-between;
+    display: flex;
+}
+.rentButton{
+    padding-top: -10rem;
+    text-align: right;
+    
+}
+
+.rentbut{
+    border-radius: 0.6rem;
+    border: none;
+    background: #FFBE16;
+    width: 10rem ;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.bookingbutton{
+    border-radius: 0.6rem;
+    border: none;
+    background: #FFBE16;
+    width: 7rem ;
+    height: 2rem;
+    // width: 10rem;
+    
+}
+
+.btn{
+    border-radius: 0.6rem;
+    margin-top: 0.8rem;
+    max-width: 7rem ;
+    height: 2rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+
+
+
+table { 
+    border-radius: 15px;
+    margin: auto; 
+}
