@@ -38,6 +38,7 @@ router.post('/users/register', reg.registerUser)
 
 //routes for profile
 router.get('/profile/users/:id', profile.getUserProfile)
+router.get('/profile/usersByEmail', profile.getUserByEmail)
 router.put('/profile/users/:id', profile.updateUserProfile)
 
 

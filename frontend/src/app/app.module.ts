@@ -11,6 +11,8 @@ import { RouterModule, Routes } from '@angular/router';
 import {NgToastModule} from 'ng-angular-popup';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BookingModalComponent } from './pages/booking/booking-modal/booking-modal.component';
 
 
 @NgModule({
@@ -28,8 +30,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RouterModule,
     NgToastModule,
     BrowserAnimationsModule,
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    NgbModule
   ],
+  entryComponents: [BookingModalComponent],
+
   providers: [],
   bootstrap: [AppComponent]
 })
