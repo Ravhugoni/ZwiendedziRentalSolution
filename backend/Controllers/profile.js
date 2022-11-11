@@ -2,11 +2,11 @@
 
 const Pool = require('pg').Pool
 const pool = new Pool({
-  user: 'admin',
+  user: 'postgres',
   host: 'localhost',
   database: 'car_rental',
-  password: 'admin12345',
-  port: 5432,
+  password: 'Letsdoit!',
+  port: 5433,
 })
 
   const getUserProfile= (request, response) => {
@@ -20,6 +20,18 @@ const pool = new Pool({
     })
   }
   
+
+
+  const getUserByEmail= (request, response) => {
+    const {email} = request.body
+  
+    pool.query('SELECT * FROM public.users WHERE email = $1', [email], (error, results) => {
+        if (error) {
+            throw error
+          }
+      response.status(200).json(results.rows)
+    })
+  }
 
   
   const updateUserProfile = (request, response) => {
@@ -41,6 +53,7 @@ const pool = new Pool({
   
   module.exports = {
     getUserProfile,
+    getUserByEmail,
     updateUserProfile
   }
 

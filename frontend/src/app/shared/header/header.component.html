@@ -33,8 +33,10 @@
                 <p><i class="bi bi-basket-fill"></i> Promotions</p>
                 <p><i class="bi bi-person-fill"></i> My Profile</p>
 
-                <p><a [routerLink]="['/login']" class="text-decoration-none d-lg-none .d-xl-block"><i class="bi bi-box-arrow-in-right"></i> LOGIN</a></p>
-                <p><a [routerLink]="['/register']" class="text-decoration-none d-lg-none .d-xl-block"><i class="bi bi-person-plus-fill"></i> REGISTER</a></p>
+                <p><a  *ngIf="!logEmail" [routerLink]="['/login']" class="text-decoration-none d-lg-none .d-xl-block"><i class="bi bi-box-arrow-in-right"></i> LOGIN</a></p>
+                <p><a  *ngIf="logEmail" (click)="LogOut()" class="text-decoration-none d-lg-none .d-xl-block"><i class="bi bi-box-arrow-in-right"></i> LOGOUT</a></p>
+                <p><a *ngIf="!logEmail" [routerLink]="['/register']" class="text-decoration-none d-lg-none .d-xl-block"><i class="bi bi-person-plus-fill"></i> REGISTER</a></p>
+                <p><a *ngIf="logEmail" [routerLink]="['/register']" class="text-decoration-none d-lg-none .d-xl-block"><i class="bi bi-person-plus-fill"></i> {{ logEmail }}</a></p>
     
                 
                 </div>
@@ -52,8 +54,10 @@
 
         <div class="col-lg-2 col-md-2 col-sm-12 align-items-center orange-color d-none d-lg-block">
             <div class="row justify-content-center mx-auto collapsed" id="navbarToggleExternalContent">
-                <a [routerLink]="['/login']" class="text text-warning text-decoration-none">LOGIN</a>
-                <a [routerLink]="['/register']" class="text1 text-warning text-decoration-none">REGISTER</a>
+                <a *ngIf="!logEmail" [routerLink]="['/login']" class="text text-warning text-decoration-none">LOGIN</a>
+                <a *ngIf="logEmail" (click)="LogOut()" class="text text-warning text-decoration-none">LOGOUT</a>
+                <a *ngIf="!logEmail" [routerLink]="['/register']" class="text1 text-warning text-decoration-none">REGISTER</a>
+                <a *ngIf="logEmail" [routerLink]="['/register']" class="text1 text-warning text-decoration-none">{{ logEmail }}</a>
             </div>
         </div>    
     </div>   
