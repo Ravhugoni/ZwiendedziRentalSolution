@@ -78,25 +78,12 @@ router.get('/profile/users/:id', profile.getUserProfile)
 router.get('/profile/usersByEmail', profile.getUserByEmail)
 router.put('/profile/users/:id', profile.updateUserProfile)
 
-<<<<<<< HEAD
 //routes for bookings
 router.post('/bookings', bookings.addBooking)
 router.get('/bookings', bookings.getAllBookings)
 router.get('/bookings/:id', bookings.getBookingById)
 router.put('/bookings/:id', bookings.updateBooking)
 router.delete('/bookings/:id', bookings.deleteBooking)
-=======
-//Routes for Cars
-router.get('/cars', products.getCars)
-router.get('/cars/:id', products.getCarById)
-router.post('/cars', products.postCar)
-router.put('/cars/:id', products.updateCar)
-router.delete('/cars/:id', products.deleteCar)
-
-//route for number of products
-router.get('/num', numCars.getNum)
-
->>>>>>> origin/main
 
 router.listen(port, () => {
     console.log(`App running on port ${port}.`)

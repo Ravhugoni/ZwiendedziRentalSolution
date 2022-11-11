@@ -65,13 +65,24 @@ const getUsers = (request, response) => {
       response.status(200).send(`User deleted with ID: ${id}`)
     }),handleErr
   }
+  const addBooking = (req,res)=>{
+    const {car_make, car_model, pick_up, pickup_time, drop_off, dropoff_time} = req.body;
+     pool.query('INSERT INTO public.bookings (car_make, car_model, pick_up, pickup_time, drop_off, dropoff_time) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *', 
+     [car_make, car_model, pick_up, pickup_time, drop_off, dropoff_time], (error, results) =>{
   
+      if(error){
+        throw error
+      }
+      res.status(201).send(`Booking added with ID: HAPPY DRIVING`)
+     })
+  }
   module.exports = {
     getUsers,
     getUserById,
     postUsers,
     updateUser,
-    deleteUser
+    deleteUser,
+    addBooking
   }
 
   

@@ -1,3 +1,31 @@
-<p>booking works!</p>
 
-<button class="btn btn-warning" (click)="open_booking_modal()" >Booking</button>
+  <table class="table-responsive" >
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">UserID</th>
+        <th scope="col">CarID</th>
+        <th scope="col">Make</th>
+        <th scope="col">Model</th>
+        <th scope="col">Pick-Up</th>
+        <th scope="col">Time</th>
+        <th scope="col">Drop-Off</th>
+        <th scope="col">Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let booking of bookings">
+        <th scope="row">{{booking.id}}</th>
+        <td>{{booking.useID}}</td>
+        <td>{{booking.carID}}</td>
+        <td>{{booking.car_model}}</td>
+        <td>{{booking.car_make}}</td>
+        <td>{{booking.pick_up}}</td>
+        <td>{{booking.pickup_time}}</td>
+        <td>{{booking.drop_off}}</td>
+        <td>{{booking.dropoff_time}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  

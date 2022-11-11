@@ -20,7 +20,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HeaderComponent,
     FooterComponent,
     LandingComponent,
-    SuvsComponent
+    SuvsComponent,
     SearchComponent,
     BookingComponent,
   ],
