@@ -9,36 +9,26 @@ import { LoginComponent } from './pages/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import {NgToastModule} from 'ng-angular-popup';
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { SedenComponent } from './pages/seden/seden.component';
 import { HatchbackComponent } from './pages/hatchback/hatchback.component';
-=======
+
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BookingModalComponent } from './pages/booking/booking-modal/booking-modal.component';
->>>>>>> origin/main
 
-=======
 import { ProfileComponent } from './profile/profile.component';
->>>>>>> seden-page
+
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
-<<<<<<< HEAD
-<<<<<<< HEAD
     SedenComponent,
     HatchbackComponent,
-  
-=======
->>>>>>> origin/main
-=======
     ProfileComponent,
->>>>>>> seden-page
+
   ],
   imports: [
     BrowserModule,
