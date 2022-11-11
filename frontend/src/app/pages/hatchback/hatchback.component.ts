@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-hatchback',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HatchbackComponent implements OnInit {
 
-  constructor() { }
+  constructor(private productsService: ProductsService) { }
 
   ngOnInit(): void {
+
+    let carCategory = {
+      category: "HATCHBACK"
+    }
+
+    this.productsService.GetCarsByCategory(carCategory).subscribe(res => {
+      // this.cars = res
+      console.log(res)
+    }, (err) => {
+      // this.toast.warning({detail:'Warning',summary:'Email or Password is invalid', sticky:true,position:'tr'})
+    });
+
   }
 
 }

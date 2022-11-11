@@ -31,7 +31,7 @@
                 
         
                 <p><a [routerLink]="['/promotion']"><i class="bi bi-basket-fill"></i> Promotions</a></p>
-                <p><a [routerLink]="['/suvs']"><i class="bi bi-person-fill"></i> My Profile</a></p>
+                <p><a [routerLink]="['/profile']"><i class="bi bi-person-fill"></i> My Profile</a></p>
 
                 <p><a  *ngIf="!logEmail" [routerLink]="['/login']" class="text-decoration-none d-lg-none .d-xl-block"><i class="bi bi-box-arrow-in-right"></i> LOGIN</a></p>
                 <p><a  *ngIf="logEmail" (click)="LogOut()" class="text-decoration-none d-lg-none .d-xl-block"><i class="bi bi-box-arrow-in-right"></i> LOGOUT</a></p>
@@ -45,7 +45,7 @@
         </div>
 
         <div class="col-lg-8 col-md-8 col-sm-10 text-center">
-            <h1 class="text-dark"><b>ZWIENDEDZI</b></h1>
+            <h1 class="text-white"><b>ZWIENDEDZI</b></h1>
             <p class="orange-color rent-text">RENTAL SOLUTIONS</p>
            
         </div>
@@ -57,7 +57,7 @@
                 <a *ngIf="!logEmail" [routerLink]="['/login']" class="text text-warning text-decoration-none">LOGIN</a>
                 <a *ngIf="logEmail" (click)="LogOut()" class="text text-warning text-decoration-none">LOGOUT</a>
                 <a *ngIf="!logEmail" [routerLink]="['/register']" class="text1 text-warning text-decoration-none">REGISTER</a>
-                <a *ngIf="logEmail" [routerLink]="['/register']" class="text1 text-warning text-decoration-none">{{ logEmail }}</a>
+                <a *ngIf="logEmail" [routerLink]="['/profile']" class="text1 text-warning text-decoration-none">{{ logEmail }}</a>
             </div>
         </div>    
     </div>   
