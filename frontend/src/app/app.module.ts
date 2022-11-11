@@ -9,10 +9,15 @@ import { LoginComponent } from './pages/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import {NgToastModule} from 'ng-angular-popup';
+import { SedenComponent } from './pages/seden/seden.component';
+import { HatchbackComponent } from './pages/hatchback/hatchback.component';
+
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BookingModalComponent } from './pages/booking/booking-modal/booking-modal.component';
+
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -20,6 +25,12 @@ import { BookingModalComponent } from './pages/booking/booking-modal/booking-mod
     AppComponent,
     RegisterComponent,
     LoginComponent,
+    SedenComponent,
+    HatchbackComponent,
+    ProfileComponent,
+    HatchbackComponent,
+  
+
   ],
   imports: [
     BrowserModule,
