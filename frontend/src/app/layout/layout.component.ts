@@ -17,6 +17,10 @@ export class LayoutComponent implements OnInit {
     if(this.router.url === "/"){
       this.rout = this.router.url;
     }
+    if(this.router.url === "/promotion")
+    {
+      this.rout = this.router.url;
+    }
     
   }
 

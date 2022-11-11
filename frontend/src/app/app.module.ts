@@ -28,6 +28,8 @@ import { ProfileComponent } from './profile/profile.component';
     SedenComponent,
     HatchbackComponent,
     ProfileComponent,
+    HatchbackComponent,
+  
 
   ],
   imports: [

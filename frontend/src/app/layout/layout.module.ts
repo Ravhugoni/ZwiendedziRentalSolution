@@ -9,6 +9,7 @@ import { LayoutRoutes } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
 import { SuvsComponent } from '../pages/suvs/suvs.component';
 import { SearchComponent } from '../pages/search/search.component';
+import { PromotionsComponent } from '../pages/promotions/promotions.component';
 import { BookingComponent } from '../pages/booking/booking.component';
 import { BookingModalComponent } from '../pages/booking/booking-modal/booking-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -23,6 +24,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SuvsComponent,
     SearchComponent,
     BookingComponent,
+
   ],
   imports: [
     CommonModule,
