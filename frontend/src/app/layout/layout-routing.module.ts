@@ -16,6 +16,6 @@ export const LayoutRoutes: Routes = [
   {  path: 'seden',      component: SedenComponent },
   {  path: 'hatchback',      component: HatchbackComponent },
   {  path: 'booking',      component: BookingComponent },
-  {  path: 'pro',      component: PromotionsComponent },
+  {  path: 'promotion',      component: PromotionsComponent },
 
 ];

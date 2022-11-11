@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@ng-bootstrap/ng-bootstrap": "^13.1.0",
+    "jwt-decode": "^3.1.2"
+  }
+}
