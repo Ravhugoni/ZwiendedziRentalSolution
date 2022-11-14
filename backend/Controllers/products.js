@@ -18,21 +18,23 @@ const getCars = (request, response) => {
     }),handleErr
   }
 
-  const getCarById = (request, response) => {
-    //const id = parseInt(request.params.id)
-    const category = req.body;
+
+  const getCarById = (request, res) => {
+    const {category} = request.body;
+
+    console.log(category)
   
-    pool.query('SELECT * FROM cars WHERE category = $1', [categoty], (error, results) => {
-     
-      response.status(200).json(results.rows)
+    pool.query('SELECT * FROM public.cars WHERE category = $1', [category], (error, results) => {
+    
+      res.status(200).json(results.rows)
     }),handleErr
   }
   
   const postCar = (req, res) => {
 
-    const { carName,carImage,model,numberPlate,make,price,companyID,category, status} = req.body
+    const { carName,carImage,model,numberPlate,make,price,companyID,category,status, fuelType,horsePower,speedPerSec,topSpeed } = req.body
 
-    pool.query('INSERT INTO public.cars("carName", "carImage", model, "numberPlate", make, price, "companyID", category,status) VALUES ($1, $2,$3,$4,$5,$6,$7,$8,$9)', [carName,carImage,model,numberPlate,make,price,companyID,category,status], (error, results) => {
+    pool.query('INSERT INTO public.cars("carName", "carImage", model, "numberPlate", make, price, "companyID", category, status,"fuelType", "horsePower", "speedPerSec", "topSpeed") VALUES ($1, $2,$3,$4,$5,$6,$7,$8)', [carName,carImage,model,numberPlate,make,price,companyID,category,status, fuelType,horsePower,speedPerSec,topSpeed ], (error, results) => {
       if (error) {
         throw error
       }
@@ -60,7 +62,7 @@ const updateCar = (req, res) => {
     let field;
     let updateString="";
 
-    const { id,carName,carImage,model,numberPlate,make,price,companyID,category,status } = req.body
+    const { id,carName,carImage,model,numberPlate,make,price,companyID,category,status, fuelType,horsePower,speedPerSec,topSpeed } = req.body
     if (req.body.field) {
     pool.query(`UPDATE public.cars SET  ${req.body.field} = '${req.body.updateString}' WHERE id = ${req.body.id}`, (error, results,field) => {
 
