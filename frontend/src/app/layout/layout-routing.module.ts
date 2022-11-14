@@ -13,13 +13,12 @@ import { ProfileComponent } from '../profile/profile.component';
 
 export const LayoutRoutes: Routes = [
   {  path: '',      component: LandingComponent },
-  {  path: 'booking',      component: BookingComponent },
   {  path: 'seden',      component: SedenComponent },
   {  path: 'suvs',      component: SuvsComponent },
   {  path: 'suvs',      component: SuvsComponent },
   {  path: 'seden',      component: SedenComponent },
   {  path: 'hatchback',      component: HatchbackComponent },
-  {  path: 'booking',      component: BookingComponent },
+  {  path: 'booking/:id',      component: BookingComponent },
   {  path: 'promotion',      component: PromotionsComponent },
   {  path: 'profile',      component: ProfileComponent }
 

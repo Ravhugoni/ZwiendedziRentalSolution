@@ -23,8 +23,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     LandingComponent,
     SuvsComponent,
     SearchComponent,
-    BookingComponent,
-
   ],
   imports: [
     CommonModule,

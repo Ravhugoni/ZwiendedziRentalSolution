@@ -1,9 +1,9 @@
 const Pool = require('pg').Pool
 const pool = new Pool({
-  user: 'admin',
+  user: 'postgres',
   host: 'localhost',
   database: 'car_rental',
-  password: 'admin12345',
+  password: 'Danny@2016',
   port: 5432,
 })
 
@@ -12,7 +12,7 @@ const handleErr = (err, req, res, next) => {
 }
 
 const getCars = (request, response) => {
-    pool.query('SELECT * FROM cars', (error, results) => {
+    pool.query('SELECT * FROM public."Cars"', (error, results) => {
      
       response.status(200).json(results.rows)
     }),handleErr

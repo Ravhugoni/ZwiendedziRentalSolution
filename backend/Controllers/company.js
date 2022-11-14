@@ -9,10 +9,10 @@ const pool = new Pool({
   port: 5432,
 })
 
-const addBooking = (req,res)=>{
-  const {comp_id, user_id, car_id, pickup_date, dropoff_date} = req.body;
-   pool.query('INSERT INTO public.booking(comp_id, user_id, car_id, pickup_date, dropoff_date) VALUES ($1, $2, $3, $4, $5) RETURNING *', 
-   [comp_id, user_id, car_id, pickup_date, dropoff_date], (error, results) =>{
+const addCompany = (req,res)=>{
+  const {car_make, car_model, pick_up, pickup_time, drop_off, dropoff_time} = req.body;
+   pool.query('INSERT INTO public.bookings (car_make, car_model, pick_up, pickup_time, drop_off, dropoff_time) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *', 
+   [car_make, car_model, pick_up, pickup_time, drop_off, dropoff_time], (error, results) =>{
 
     if(error){
       throw error
@@ -21,10 +21,10 @@ const addBooking = (req,res)=>{
    })
 }
 
-//GET ALL BOOKINGS
-const getAllBookings = (req,res)=>{
+//GET ALL companies
+const getAllCompany = (req,res)=>{
 
-  pool.query('SELECT * FROM booking b, users u, "Cars" c, company p WHERE b.user_id = u."userID" AND b.car_id = c."carID" AND b.comp_id = p."companyID";',(error ,results)=>{
+  pool.query('SELECT "companyID", "companyName", address FROM public.company;',(error ,results)=>{
   if(error){
       throw error
   }
@@ -32,8 +32,8 @@ const getAllBookings = (req,res)=>{
   })
 }
 
-//GET BOOKINGS BY ID
-const getBookingById = (request, response) => {
+//GET companies BY ID
+const getCompanyById = (request, response) => {
   const id = parseInt(request.params.id)
 
   pool.query('SELECT * FROM bookings,users where users.id =bookings.id and users.id = $1',[id], (error,results)=>{
@@ -46,9 +46,9 @@ const getBookingById = (request, response) => {
 
 
 
-//PUT__UPDATE BOOKING BY ID
+//PUT__UPDATE companies BY ID
 
-const updateBooking = (req,res)=>{
+const updateCompany = (req,res)=>{
   const {car_make, car_model, pick_up, pickup_time, drop_off, dropoff_time} = req.body;
   const id = parseInt(req.params.id)
 
@@ -65,10 +65,8 @@ const updateBooking = (req,res)=>{
   )
 }
 
-
-
 //DELETE BOOKING BY ID
-const deleteBooking = (request, response)=>{
+const deleteCompany = (request, response)=>{
   const id = parseInt(request.params.id)
 
   pool.query('DELETE FROM public.bookings WHERE id = $1', [id], (error,results)=>{
@@ -82,9 +80,9 @@ const deleteBooking = (request, response)=>{
 
 
 module.exports = {
-  addBooking,
-  getAllBookings,
-  getBookingById,
-  updateBooking,
-  deleteBooking
+  addCompany,
+  getAllCompany,
+  getCompanyById,
+  updateCompany,
+  deleteCompany
 }

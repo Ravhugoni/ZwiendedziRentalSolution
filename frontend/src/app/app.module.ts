@@ -18,6 +18,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BookingModalComponent } from './pages/booking/booking-modal/booking-modal.component';
 
 import { ProfileComponent } from './profile/profile.component';
+import { BookingComponent } from './pages/booking/booking.component';
 
 
 @NgModule({
@@ -25,12 +26,11 @@ import { ProfileComponent } from './profile/profile.component';
     AppComponent,
     RegisterComponent,
     LoginComponent,
+    BookingComponent,
     SedenComponent,
     HatchbackComponent,
     ProfileComponent,
     HatchbackComponent,
-  
-
   ],
   imports: [
     BrowserModule,

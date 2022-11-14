@@ -4,6 +4,7 @@ const router = express()
 const methods = require('../methods')
 const profile = require('../Controllers/profile')
 const products = require('../Controllers/Products')
+const company = require('../Controllers/company')
 // const port = 3001
 const port = process.env.PORT || 3001;
 const login = require("../Controllers/login")
@@ -48,7 +49,7 @@ router.post("/newUpload", upload.single("image"), async (req, res) => {
 });
 
 var corsOptions = {
-  origin:"http://localhost:50488"
+  origin:"http://localhost:4200"
 }
 
 router.use(cors(corsOptions));
@@ -88,6 +89,13 @@ router.get('/bookings', bookings.getAllBookings)
 router.get('/bookings/:id', bookings.getBookingById)
 router.put('/bookings/:id', bookings.updateBooking)
 router.delete('/bookings/:id', bookings.deleteBooking)
+
+//routes for company
+router.post('/company', company.addCompany)
+router.get('/company', company.getAllCompany)
+router.get('/company/:id', company.getCompanyById)
+router.put('/company/:id', company.updateCompany)
+router.delete('/company/:id', company.deleteCompany)
 
 //routes for profile
 router.get('/products/cars', products.getCars)
