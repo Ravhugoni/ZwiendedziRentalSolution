@@ -1,11 +1,13 @@
 const Pool = require('pg').Pool
-const pool = new Pool({
-  user: 'admin',
-  host: 'localhost',
-  database: 'car_rental',
-  password: 'admin12345',
-  port: 5432,
-})
+const pool = require("../connection")
+
+// const pool = new Pool({
+//   user: 'admin',
+//   host: 'localhost',
+//   database: 'car_rental',
+//   password: 'admin12345',
+//   port: 5432,
+// })
 
 const handleErr = (err, req, res, next) => {
   res.status(400).send({ error: err.message })

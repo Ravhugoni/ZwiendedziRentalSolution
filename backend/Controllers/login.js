@@ -1,17 +1,18 @@
 const bcrypt = require("bcrypt");
+const pool = require("../connection")
 
 // const client = require("../config/database");
 
 const jwt = require("jsonwebtoken");
 
-const Pool = require('pg').Pool
-const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'car_rental',
-  password: 'Letsdoit!',
-  port: 5433,
-})
+// const Pool = require('pg').Pool
+// const pool = new Pool({
+//   user: 'postgres',
+//   host: 'localhost',
+//   database: 'car_rental',
+//   password: 'Letsdoit!',
+//   port: 5433,
+// })
 
 //Login Function
 const login = async (req, res) => {
