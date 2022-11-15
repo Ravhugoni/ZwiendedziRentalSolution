@@ -1,13 +1,13 @@
-//const db = require('../connection');
+const pool = require('../connection');
 
-const Pool = require('pg').Pool
-const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'car_rental',
-  password: 'Letsdoit!',
-  port: 5433,
-})
+// const Pool = require('pg').Pool
+// const pool = new Pool({
+//   user: 'admin',
+//   host: 'localhost',
+//   database: 'car_rental',
+//   password: 'admin12345',
+//   port: 5432,
+// })
 
   const getUserProfile= (request, response) => {
     const id = parseInt(request.params.id)

@@ -1,28 +1,27 @@
-const Pool = require('pg').Pool
-const pool = new Pool({
-  user: 'admin',
-  host: 'localhost',
-  database: 'car_rental',
-  password: 'admin12345',
-  port: 5432,
-})
+// const Pool = require('pg').Pool
+// const pool = new Pool({
+//   user: 'admin',
+//   host: 'localhost',
+//   database: 'car_rental',
+//   password: 'admin12345',
+//   port: 5432,
+// })
+
+const pool = require('../connection');
 
 const handleErr = (err, req, res, next) => {
   res.status(400).send({ error: err.message })
 }
 
 const getCars = (request, response) => {
-    pool.query('SELECT * FROM cars', (error, results) => {
+    pool.query('SELECT * FROM public."cars"', (error, results) => {
      
       response.status(200).json(results.rows)
     }),handleErr
   }
 
-
   const getCarById = (request, res) => {
-    const {category} = request.body;
-
-    console.log(category)
+    const {category} = request.body
   
     pool.query('SELECT * FROM public.cars WHERE category = $1', [category], (error, results) => {
     
@@ -34,7 +33,7 @@ const getCars = (request, response) => {
 
     const { carName,carImage,model,numberPlate,make,price,companyID,category,status, fuelType,horsePower,speedPerSec,topSpeed } = req.body
 
-    pool.query('INSERT INTO public.cars("carName", "carImage", model, "numberPlate", make, price, "companyID", category, status,"fuelType", "horsePower", "speedPerSec", "topSpeed") VALUES ($1, $2,$3,$4,$5,$6,$7,$8)', [carName,carImage,model,numberPlate,make,price,companyID,category,status, fuelType,horsePower,speedPerSec,topSpeed ], (error, results) => {
+    pool.query('INSERT INTO public.cars("carName", "carImage", model, "numberPlate", make, price, "companyID", category, status,"fuelType", "horsePower", "speedPerSec", "topSpeed") VALUES ($1, $2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)', [carName,carImage,model,numberPlate,make,price,companyID,category,status, fuelType,horsePower,speedPerSec,topSpeed ], (error, results) => {
       if (error) {
         throw error
       }

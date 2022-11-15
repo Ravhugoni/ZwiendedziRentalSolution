@@ -4,6 +4,7 @@ const router = express()
 const methods = require('../methods')
 const profile = require('../Controllers/profile')
 const products = require('../Controllers/Products')
+const company = require('../Controllers/company')
 // const port = 3001
 const port = process.env.PORT || 3001;
 const login = require("../Controllers/login")
@@ -47,7 +48,11 @@ router.post("/newUpload", upload.single("image"), async (req, res) => {
   return res.json({ image: req.file.path });
 });
 
-router.use(cors());
+var corsOptions = {
+  origin:"http://localhost:4200"
+}
+
+router.use(cors(corsOptions));
 
 router.use(bodyParser.json())
 router.use(
@@ -78,16 +83,26 @@ router.get('/profile/users/:id', profile.getUserProfile)
 router.get('/profile/usersByEmail', profile.getUserByEmail)
 router.put('/profile/users/:id', profile.updateUserProfile)
 
-//Routes for Cars
-router.get('/cars', products.getCars)
-router.get('/cars/:id', products.getCarById)
-router.post('/cars', products.postCar)
-router.put('/cars/:id', products.updateCar)
-router.delete('/cars/:id', products.deleteCar)
+//routes for bookings
+router.post('/bookings', bookings.addBooking)
+router.get('/bookings', bookings.getAllBookings)
+router.get('/bookings/:id', bookings.getBookingById)
+router.put('/bookings/:id', bookings.updateBooking)
+router.delete('/bookings/:id', bookings.deleteBooking)
 
-//route for number of products
-router.get('/num', numCars.getNum)
+//routes for company
+router.post('/company', company.addCompany)
+router.get('/company', company.getAllCompany)
+router.get('/company/:id', company.getCompanyById)
+router.put('/company/:id', company.updateCompany)
+router.delete('/company/:id', company.deleteCompany)
 
+//routes for cars
+router.get('/products/cars', products.getCars)
+router.post('/products/cars', products.postCar)
+router.get('/products/carsByCat', products.getCarById)
+router.put('/products/users/:id', products.updateCar)
+router.delete('/products/users/:id', products.deleteCar)
 
 router.listen(port, () => {
     console.log(`App running on port ${port}.`)

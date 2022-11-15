@@ -1,13 +1,13 @@
-const Pool = require('pg').Pool
-const pool = new Pool({
-  user: 'admin',
-  host: 'localhost',
-  database: 'car_rental',
-  password: 'admin',
-  port: 5432,
-})
+// const Pool = require('pg').Pool
+// const pool = new Pool({
+//   user: 'postgres',
+//   host: 'localhost',
+//   database: 'car_rental',
+//   password: 'Danny@2016',
+//   port: 5432,
+// })
 
-//const db = require('./connection');
+const pool = require('./connection');
 
 const handleErr = (err, req, res, next) => {
   res.status(400).send({ error: err.message })
@@ -65,13 +65,24 @@ const getUsers = (request, response) => {
       response.status(200).send(`User deleted with ID: ${id}`)
     }),handleErr
   }
+  const addBooking = (req,res)=>{
+    const {car_make, car_model, pick_up, pickup_time, drop_off, dropoff_time} = req.body;
+     pool.query('INSERT INTO public.bookings (car_make, car_model, pick_up, pickup_time, drop_off, dropoff_time) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *', 
+     [car_make, car_model, pick_up, pickup_time, drop_off, dropoff_time], (error, results) =>{
   
+      if(error){
+        throw error
+      }
+      res.status(201).send(`Booking added with ID: HAPPY DRIVING`)
+     })
+  }
   module.exports = {
     getUsers,
     getUserById,
     postUsers,
     updateUser,
-    deleteUser
+    deleteUser,
+    addBooking
   }
 
   

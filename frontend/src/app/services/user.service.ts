@@ -32,10 +32,9 @@ export class UserService {
     return this.httpClient.get(API_URL, email)
   }
 
-//   // Get all objects
-//   GetList() {
-//     return this.httpClient.get(this.REST_API + '/list');
-//   }
+  GetAllUsers() {
+    return this.httpClient.get(this.REST_API + '/users');
+  }
 
 //   // Get single object
 //   GetListByID(id:any): Observable<any> {
