@@ -1,13 +1,13 @@
 const { Module } = require('module');
-
-const Pool = require('pg').Pool
-const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'car_rental',
-  password: 'Danny@2016',
-  port: 5432,
-})
+const pool = require('../connection');
+// const Pool = require('pg').Pool
+// const pool = new Pool({
+//   user: 'postgres',
+//   host: 'localhost',
+//   database: 'car_rental',
+//   password: 'Danny@2016',
+//   port: 5432,
+// })
 
 const addBooking = (req,res)=>{
   const {comp_id, user_id, car_id, pickup_date, dropoff_date} = req.body;

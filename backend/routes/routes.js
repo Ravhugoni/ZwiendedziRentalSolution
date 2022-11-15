@@ -97,10 +97,12 @@ router.get('/company/:id', company.getCompanyById)
 router.put('/company/:id', company.updateCompany)
 router.delete('/company/:id', company.deleteCompany)
 
-//routes for profile
+//routes for cars
 router.get('/products/cars', products.getCars)
+router.post('/products/cars', products.postCar)
 router.get('/products/carsByCat', products.getCarById)
-router.put('/products/users/:id', profile.updateUserProfile)
+router.put('/products/users/:id', products.updateCar)
+router.delete('/products/users/:id', products.deleteCar)
 
 router.listen(port, () => {
     console.log(`App running on port ${port}.`)
