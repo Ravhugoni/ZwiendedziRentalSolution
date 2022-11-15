@@ -15,15 +15,14 @@ export class ProductsService {
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private httpClient: HttpClient) { }
-  
+  // Add
 
   GetCarsByCategory(category:any): Observable<any> {
     category = {
-      "category": "SUV"
-    }
-
+      category: "SUV"
+  }
     let API_URL = this.REST_API+ '/products/carsByCat';
-    return this.httpClient.get(API_URL,category);
+    return this.httpClient.get("http://localhost:3001/products/carsByCat",category);
   }
 
     // Get all objects
