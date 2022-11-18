@@ -3,8 +3,8 @@ const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
   database: 'car_rental',
-  password: 'Danny@2016',
-  port: 5432,
+  password: 'Letsdoit!',
+  port: 5433,
 })
 
 //const db = require('./connection');

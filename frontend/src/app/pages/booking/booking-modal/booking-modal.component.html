@@ -1,1 +1,105 @@
-<p data-backdrop="false">booking-modal works!</p>
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-12 col-sm-12 col-md-12 text-center my-3">
+            <h1>Update Booking</h1>
+        </div>
+    </div>
+
+    <Form [formGroup] = "BookingForm" novalidate class="mb-5">
+        <div class="row">
+            <div class="col-lg-12 col-sm-12">
+                <div class="row">
+                    <label for="inputPassword" class="col-lg-12 col-sm-12 col-form-label"><small>
+                    PICK-UP LOCATION
+                    </small></label>
+                    <div class=" col-lg-12 col-sm-12">
+                        <select id="inputState" class="form-control" formControlName="comp_id" placeholder="hbhbujkbn">
+                            <option selected>Select Location...</option>
+                            <option *ngFor="let cp of company" value='{{cp.companyID}}'>{{cp.companyName}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="row">
+                    <label for="inputPassword" class="col-lg-12 col-sm-12 col-form-label">
+                    <small>PICK-UP DATE</small></label>
+                    <div class=" col-lg-12 col-sm-12">
+                        <input type="" type="text" class="form-control" formControlName="pickup_date" placeholder="20/29/2929" onfocus="(this.type='datetime-local')" onblur="(this.type= this.value ? 'date' : 'text')"
+                        [ngClass]="{ 'is-invalid': submitted && formValidation['pickup_date'].errors }"
+                        />
+
+                        <div *ngIf="submitted && formValidation['pickup_date'].errors" class="invalid-feedback">
+                        <div *ngIf="formValidation['pickup_date'].errors['required']">Pickup date is required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="row">
+                    <label for="inputPassword" class="col-lg-12 col-sm-12 col-form-label">
+                    <small>DROP-OFF DATE</small></label>
+
+                    <div class=" col-lg-12 col-sm-12">
+                        <input type="text" class="form-control" formControlName="dropoff_date" placeholder="20/29/233" onfocus="(this.type='datetime-local')" onblur="(this.type= this.value ? 'date' : 'text')" 
+                        [ngClass]="{ 'is-invalid': submitted && formValidation['dropoff_date'].errors }"
+                        />
+    
+                        <div *ngIf="submitted && formValidation['dropoff_date'].errors" class="invalid-feedback">
+                          <div *ngIf="formValidation['dropoff_date'].errors['required']">Dropoff date is required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="row">
+                    <label for="inputPassword" class="col-lg-12 col-sm-12 col-form-label">
+                      <small>Status</small></label>
+                    <div class=" col-lg-12 col-sm-12">
+                        <div>
+                            <input class="form-control" formControlName="bk_status" placeholder="status"/>
+                          </div>
+                          <!-- <div>
+                            <span class="btn-warning status_btn">{{booking.bk_status}}</span>
+                          </div> -->
+
+                        <div *ngIf="submitted && formValidation['dropoff_date'].errors" class="invalid-feedback">
+                          <div *ngIf="formValidation['dropoff_date'].errors['required']">Dropoff date is required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+    
+            <div class="col-lg-6 col-md-6 col-sm-12" *ngFor="let user of users">
+                <div class="row" *ngIf="user.usertype =='admin'">
+                    <label for="inputPassword" class="col-lg-12 col-sm-12 col-form-label">
+                      <small>Update Booking Status</small></label>
+                        <div class=" col-lg-12 col-sm-12">
+                            <select id="inputState" class="form-control">
+                                <option selected>Select status...</option>
+                                <option value='Approved'>Approved</option>
+                                <option value="Declined">Decline</option>
+                            </select>
+                        </div>
+                        
+                        <div *ngIf="submitted && formValidation['dropoff_date'].errors" class="invalid-feedback">
+                          <div *ngIf="formValidation['dropoff_date'].errors['required']">Dropoff date is required</div>
+                        </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col text-center my-3">
+                <button class="btn btn-warning" (click)="updateBooking()">Udpdate<i class="bi bi-arrow"></i></button>
+            </div>
+          </div>
+       
+    </Form>
+</div>

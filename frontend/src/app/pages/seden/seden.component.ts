@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/services/products.service';
 
+
 @Component({
   selector: 'app-seden',
   templateUrl: './seden.component.html',
@@ -18,5 +19,9 @@ export class SedenComponent implements OnInit {
       this.cars = result.filter(ress => ress.category === "SEDEN")
       console.log(this.cars)
     });
+  }
+
+  goSomewhere(){
+
   }
 }

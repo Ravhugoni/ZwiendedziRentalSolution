@@ -1,18 +1,11 @@
-const Pool = require('pg').Pool
-const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'car_rental',
-  password: 'Danny@2016',
-  port: 5432,
-})
+const pool = require("../connection");
 
 const handleErr = (err, req, res, next) => {
   res.status(400).send({ error: err.message })
 }
 
 const getCars = (request, response) => {
-    pool.query('SELECT * FROM public."Cars"', (error, results) => {
+    pool.query('SELECT * FROM public."cars"', (error, results) => {
      
       response.status(200).json(results.rows)
     }),handleErr

@@ -19,6 +19,7 @@ import { BookingModalComponent } from './pages/booking/booking-modal/booking-mod
 
 import { ProfileComponent } from './profile/profile.component';
 import { BookingComponent } from './pages/booking/booking.component';
+import { BookingListComponent } from './pages/booking/booking-list/booking-list.component';
 
 
 @NgModule({
@@ -31,6 +32,8 @@ import { BookingComponent } from './pages/booking/booking.component';
     HatchbackComponent,
     ProfileComponent,
     HatchbackComponent,
+    BookingModalComponent,
+    BookingListComponent
   ],
   imports: [
     BrowserModule,

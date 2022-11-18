@@ -1,18 +1,11 @@
 const { Module } = require('module');
 
-const Pool = require('pg').Pool
-const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'car_rental',
-  password: 'Danny@2016',
-  port: 5432,
-})
+const pool = require("../connection")
 
 const addBooking = (req,res)=>{
-  const {comp_id, user_id, car_id, pickup_date, dropoff_date} = req.body;
-   pool.query('INSERT INTO public.booking(comp_id, user_id, car_id, pickup_date, dropoff_date) VALUES ($1, $2, $3, $4, $5) RETURNING *', 
-   [comp_id, user_id, car_id, pickup_date, dropoff_date], (error, results) =>{
+  const {comp_id, user_id, car_id, pickup_date, dropoff_date,bk_status} = req.body;
+   pool.query('INSERT INTO public.booking(comp_id, user_id, car_id, pickup_date, dropoff_date, bk_status) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *', 
+   [comp_id, user_id, car_id, pickup_date, dropoff_date, bk_status], (error, results) =>{
 
     if(error){
       throw error
@@ -24,7 +17,7 @@ const addBooking = (req,res)=>{
 //GET ALL BOOKINGS
 const getAllBookings = (req,res)=>{
 
-  pool.query('SELECT * FROM booking b, users u, "Cars" c, company p WHERE b.user_id = u."userID" AND b.car_id = c."carID" AND b.comp_id = p."companyID";',(error ,results)=>{
+  pool.query('SELECT * FROM booking b, users u, "cars" c, company p WHERE b.user_id = u."id" AND b.car_id = c."id" AND b.comp_id = p."companyID" ORDER BY b.id ASC;',(error ,results)=>{
   if(error){
       throw error
   }
