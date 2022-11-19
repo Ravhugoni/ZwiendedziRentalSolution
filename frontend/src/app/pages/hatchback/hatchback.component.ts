@@ -8,21 +8,16 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class HatchbackComponent implements OnInit {
 
+  public cars!: any[];
+
   constructor(private productsService: ProductsService) { }
 
   ngOnInit(): void {
-
-    let carCategory = {
-      category: "HATCHBACK"
-    }
-
-    this.productsService.GetCarsByCategory(carCategory).subscribe(res => {
-      // this.cars = res
-      console.log(res)
-    }, (err) => {
-      // this.toast.warning({detail:'Warning',summary:'Email or Password is invalid', sticky:true,position:'tr'})
+    this.productsService.GetList().subscribe((res:any) => {
+      let result = res;
+      this.cars = result.filter(ress => (ress.category).toLowerCase() === ("HATCHBACK").toLowerCase())
+      console.log(this.cars)
     });
-
   }
 
 }

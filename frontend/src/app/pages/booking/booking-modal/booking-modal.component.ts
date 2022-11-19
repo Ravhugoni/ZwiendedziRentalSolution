@@ -25,7 +25,8 @@ export class BookingModalComponent implements OnInit {
     car_id: new FormControl(''),
     pickup_date: new FormControl(''),
     dropoff_date: new FormControl(''),
-    bk_status: new FormControl('')
+    bk_status: new FormControl(''),
+    bk_statuss: new FormControl('')
   });
 
   bid!:any;
@@ -42,7 +43,6 @@ export class BookingModalComponent implements OnInit {
       // this.bookings = res;
       let result = res;
       this.bookings = result.filter(ress => String(ress.id) === String(this.bid))
-      console.log(this.bookings[0].comp_id);
 
       if(this.bookings != undefined){
         this.BookingForm.setValue({  
@@ -51,7 +51,8 @@ export class BookingModalComponent implements OnInit {
           car_id: this.bookings[0].car_id,
           pickup_date: this.bookings[0].pickup_date,
           dropoff_date: this.bookings[0].dropoff_date,
-          bk_status:this.bookings[0].bk_status
+          bk_status:this.bookings[0].bk_status,
+          bk_statuss:this.bookings[0].bk_status
           }); 
       }
       
@@ -65,7 +66,8 @@ export class BookingModalComponent implements OnInit {
       car_id: [''],
       pickup_date: ['', [Validators.required ]],
       dropoff_date: ['', [Validators.required ]],
-      bk_status:['']
+      bk_status:[''],
+      bk_statuss:['']
     });
   }
   ngOnInit(): void {
@@ -105,15 +107,47 @@ export class BookingModalComponent implements OnInit {
 
   updateBooking()
   {
-    let bookingDetails = {
-      comp_id:this.BookingForm.value.comp_id,
-      user_id: this.users[0].id,
-      pickup_date: this.BookingForm.value.pickup_date,
-      dropoff_date: this.BookingForm.value.dropoff_date,
-      bk_status: 'pending'
+    
+    if(this.users[0].usertype =='admin')
+    {
+      let bookingDetails = {
+        comp_id:this.BookingForm.value.comp_id,
+        user_id: this.users[0].id,
+        pickup_date: this.BookingForm.value.pickup_date,
+        dropoff_date: this.BookingForm.value.dropoff_date,
+        bk_status: this.BookingForm.value.bk_statuss
+      }
+
+      console.log(bookingDetails);
+
+      this.bookingService.update(this.bid, bookingDetails).subscribe((next) => {
+        this.router.navigate(['/booking']);
+        this.toast.success({detail:'Success',summary:'Successfully Updated!', sticky:false,position:'tr', duration:6000})
+        this.submitted = false;
+      })
+
+    }
+    else{
+
+      let bookingDetails = {
+        comp_id:this.BookingForm.value.comp_id,
+        user_id: this.users[0].id,
+        pickup_date: this.BookingForm.value.pickup_date,
+        dropoff_date: this.BookingForm.value.dropoff_date,
+        bk_status: this.bookings[0].bk_status
+      }
+
+      console.log(bookingDetails);
+      
+      this.bookingService.update(this.bid, bookingDetails).subscribe((next) => {
+        this.router.navigate(['/booking']);
+        this.toast.success({detail:'Success',summary:'Successfully Updated!', sticky:false,position:'tr', duration:6000})
+        this.submitted = false;
+      })
+
     }
 
-    console.log(bookingDetails);
+
   }
 
   get formValidation(): { [key: string]: AbstractControl } {

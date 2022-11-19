@@ -20,6 +20,7 @@ import { BookingModalComponent } from './pages/booking/booking-modal/booking-mod
 import { ProfileComponent } from './profile/profile.component';
 import { BookingComponent } from './pages/booking/booking.component';
 import { BookingListComponent } from './pages/booking/booking-list/booking-list.component';
+import {DataTablesModule} from 'angular-datatables';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { BookingListComponent } from './pages/booking/booking-list/booking-list.
     RouterModule,
     NgToastModule,
     BrowserAnimationsModule,
+    DataTablesModule,
     BsDatepickerModule.forRoot(),
     NgbModule
   ],
