@@ -1,11 +1,11 @@
-const pool = require("../connection");
+const pool = require("../connections");
 
 const handleErr = (err, req, res, next) => {
   res.status(400).send({ error: err.message })
 }
 
 const getCars = (request, response) => {
-    pool.query('SELECT * FROM public."cars"', (error, results) => {
+    pool.query('SELECT * FROM public.cars ORDER BY id ASC ', (error, results) => {
      
       response.status(200).json(results.rows)
     }),handleErr
