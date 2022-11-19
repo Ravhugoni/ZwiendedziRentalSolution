@@ -5,8 +5,6 @@ const pool = require("../connection")
 
 const jwt = require("jsonwebtoken");
 
-const pool = require('../connection');
-
 //Login Function
 const login = async (req, res) => {
 const { email, password } = req.body;

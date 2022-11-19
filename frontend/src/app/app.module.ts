@@ -36,7 +36,7 @@ import {DataTablesModule} from 'angular-datatables';
     ProfileComponent,
     HatchbackComponent,
     UsersComponent,
-    EditUserComponent
+    EditUserComponent,
     BookingModalComponent,
     BookingListComponent
   ],
