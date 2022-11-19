@@ -19,6 +19,10 @@ import { BookingModalComponent } from './pages/booking/booking-modal/booking-mod
 
 import { ProfileComponent } from './profile/profile.component';
 import { BookingComponent } from './pages/booking/booking.component';
+import { UsersComponent } from './pages/users/users.component';
+import { EditUserComponent } from './pages/edit-user/edit-user.component';
+import { BookingListComponent } from './pages/booking/booking-list/booking-list.component';
+import {DataTablesModule} from 'angular-datatables';
 
 
 @NgModule({
@@ -31,6 +35,10 @@ import { BookingComponent } from './pages/booking/booking.component';
     HatchbackComponent,
     ProfileComponent,
     HatchbackComponent,
+    UsersComponent,
+    EditUserComponent
+    BookingModalComponent,
+    BookingListComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +49,7 @@ import { BookingComponent } from './pages/booking/booking.component';
     RouterModule,
     NgToastModule,
     BrowserAnimationsModule,
+    DataTablesModule,
     BsDatepickerModule.forRoot(),
     NgbModule
   ],

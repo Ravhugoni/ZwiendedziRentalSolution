@@ -1,20 +1,12 @@
-// const Pool = require('pg').Pool
-// const pool = new Pool({
-//   user: 'postgres',
-//   host: 'localhost',
-//   database: 'car_rental',
-//   password: 'Danny@2016',
-//   port: 5432,
-// })
-
 const pool = require('./connection');
+
 
 const handleErr = (err, req, res, next) => {
   res.status(400).send({ error: err.message })
 }
 
 const getUsers = (request, response) => {
-    pool.query('SELECT * FROM users', (error, results) => {
+    pool.query('SELECT * FROM users ORDER BY id ASC', (error, results) => {
      
       response.status(200).json(results.rows)
     }),handleErr
@@ -43,15 +35,18 @@ const getUsers = (request, response) => {
 }
   
   const updateUser = (request, response) => {
-    const id = parseInt(request.params.id);
-    const { firstname,lastname,email,phone,password,usertype } = request.body
+    const id = request.params.id;
+    const { firstname,lastname,email,phone} = request.body
+
+
+
+    
   
-    pool.query('UPDATE users SET firstname=$1, lastname=$2, email=$3, phone=$4, password=$5, usertype=$6 WHERE id=$7',[firstname, lastname, email, phone, password, usertype, id], (error, results) => {
-        if (error) {
-          throw error
-        }
+    pool.query('UPDATE users SET firstname=$1, lastname=$2, email=$3, phone=$4 WHERE id=$5 returning *',[firstname, lastname, email, phone, id], (error, results) => {
+        
+          response.status(200).send()
         //response.send(JSON.stringify(results));
-        response.status(200).send(`User modified with ID: ${results.id}`)
+        
       }
     )
   }
@@ -65,23 +60,12 @@ const getUsers = (request, response) => {
       response.status(200).send(`User deleted with ID: ${id}`)
     }),handleErr
   }
-  const addBooking = (req,res)=>{
-    const {car_make, car_model, pick_up, pickup_time, drop_off, dropoff_time} = req.body;
-     pool.query('INSERT INTO public.bookings (car_make, car_model, pick_up, pickup_time, drop_off, dropoff_time) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *', 
-     [car_make, car_model, pick_up, pickup_time, drop_off, dropoff_time], (error, results) =>{
   
-      if(error){
-        throw error
-      }
-      res.status(201).send(`Booking added with ID: HAPPY DRIVING`)
-     })
-  }
   module.exports = {
     getUsers,
     getUserById,
     postUsers,
     updateUser,
-    deleteUser,
-    addBooking
+    deleteUser
   }
 

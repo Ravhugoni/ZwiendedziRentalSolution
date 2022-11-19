@@ -1,7 +1,9 @@
 const  bcrypt  =  require("bcrypt");
 const  jwt  =  require("jsonwebtoken");
 
-const pool = require('../connection');
+const pool = require("../connection")
+
+//Registration Function
 
 const registerUser  =  async (req, res) => {
     const { firstname, lastname, email, phone, password, usertype } =  req.body;
@@ -34,7 +36,7 @@ const registerUser  =  async (req, res) => {
             //Inserting data into the database
             if(user.firstname !==  null && user.firstname !==  '' && user.lastname !==  null && user.lastname !==  '' && user.email !==  null && user.email !==  '' && user.phone !==  null && user.phone !==  '' && user.password !==  null && user.password !==  '')
             {
-                pool.query(`INSERT INTO public.users(firstname, lastname, email, phone, password, usertype) VALUES ($1,$2,$3,$4,$5,$6);`, [user.firstname, user.lastname, user.email, user.phone, user.password, user.usertype], (err) => {
+                conn.pool.query(`INSERT INTO public.users(firstname, lastname, email, phone, password, usertype) VALUES ($1,$2,$3,$4,$5,$6);`, [user.firstname, user.lastname, user.email, user.phone, user.password, user.usertype], (err) => {
                     if (err) {
                         flag  =  0; //If user is not inserted is not inserted to database assigning flag as 0/false.
                         console.error(err);

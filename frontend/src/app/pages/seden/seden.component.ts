@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/services/products.service';
 
+
 @Component({
   selector: 'app-seden',
   templateUrl: './seden.component.html',
@@ -15,8 +16,12 @@ export class SedenComponent implements OnInit {
   ngOnInit(): void {
     this.productsService.GetList().subscribe((res:any) => {
       let result = res;
-      this.cars = result.filter(ress => ress.category === "SEDEN")
+      this.cars = result.filter(ress => (ress.category).toLowerCase() === ("SEDAN").toLowerCase())
       console.log(this.cars)
     });
+  }
+
+  goSomewhere(){
+
   }
 }
