@@ -6,6 +6,7 @@ import { BookingComponent } from '../pages/booking/booking.component';
 import { EditUserComponent } from '../pages/edit-user/edit-user.component';
 import { HatchbackComponent } from '../pages/hatchback/hatchback.component';
 import { LandingComponent } from '../pages/landing/landing.component';
+import { LoginComponent } from '../pages/login/login.component';
 
 import { PromotionsComponent } from '../pages/promotions/promotions.component';
 
