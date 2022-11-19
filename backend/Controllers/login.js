@@ -1,8 +1,10 @@
 const bcrypt = require("bcrypt");
+const pool = require("../connection")
 
 // const client = require("../config/database");
 
 const jwt = require("jsonwebtoken");
+
 const pool = require('../connection');
 
 //Login Function
