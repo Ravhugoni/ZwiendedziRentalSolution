@@ -31,6 +31,8 @@
                 
                 <p><a [routerLink]="['/promotion']"><i class="bi bi-basket-fill"></i> Promotions</a></p>
                 <p *ngIf="user.usertype =='admin'"><a [routerLink]="['/booking']"><i class="bi bi-person-fill"></i> Booking</a></p>
+                <p *ngIf="user.usertype =='admin'"><a [routerLink]="['/carlist']"><i class="bi bi-person-fill"></i> Cars</a></p>
+                <p *ngIf="user.usertype =='admin'"><a [routerLink]="['/booking']"><i class="bi bi-person-fill"></i> Users</a></p>
                 <p><a [routerLink]="['/profile']"><i class="bi bi-person-fill"></i> My Profile</a></p>
 
                 <p><a [routerLink]="['/create']"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-car-front-fill" viewBox="0 0 16 16">
