@@ -36,7 +36,7 @@ const token = jwt.sign(
 {
 email: email,
 },
-process.env.SECRET_KEY
+"process.env.SECRET_KEY"
 );
 res.status(200).json({
 message: "User signed in!",

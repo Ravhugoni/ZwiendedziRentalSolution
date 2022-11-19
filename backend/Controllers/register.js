@@ -63,7 +63,7 @@ const registerUser  =  async (req, res) => {
             {
             email: user.email
             },
-            process.env.SECRET_KEY
+            "process.env.SECRET_KEY"
             );
             };
             });

@@ -24,7 +24,7 @@ const addBooking = (req,res)=>{
 //GET ALL BOOKINGS
 const getAllBookings = (req,res)=>{
 
-  pool.query('SELECT * FROM booking b, users u, "Cars" c, company p WHERE b.user_id = u."userID" AND b.car_id = c."carID" AND b.comp_id = p."companyID";',(error ,results)=>{
+  pool.query('SELECT * FROM booking b, users u, "cars" c, company p WHERE b.user_id = u."id" AND b.car_id = c."id" AND b.comp_id = p."companyID";',(error ,results)=>{
   if(error){
       throw error
   }
