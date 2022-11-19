@@ -1,10 +1,30 @@
-export class Booking {
-    id?:any;
-    car_make?: string;
-    car_model?: string; 
-    pick_up?: string;
-    pickup_time?: string; 
-    drop_off?: string; 
-    dropoff_time?: string;
-    category?: string;
+export interface Booking {
+
+  address: string,
+  bk_status: string,
+  carImage?: string,
+  carName?: string,
+  car_id?: number,
+  category?: string,
+  comp_id?: number,
+  companyID?: number,
+  companyName?: string,
+  dropoff_date?: string,
+  email?: string,
+  firstname?: string,
+  fuelType?: string,
+  horsePower?: number,
+  id?: number,
+  lastname?: string,
+  model?: string,
+  numberPlate?: string,
+  password?: string,
+  phone?: string,
+  pickup_date?: string,
+  price?: number,
+  speedPerSec?: number,
+  status?: string,
+  topSpeed?: number,
+  user_id?: number,
+  usertype?: string,
 }
