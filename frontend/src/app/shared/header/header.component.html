@@ -32,7 +32,7 @@
                 <p><a [routerLink]="['/promotion']"><i class="bi bi-basket-fill"></i> Promotions</a></p>
                 <p *ngIf="user.usertype =='admin'"><a [routerLink]="['/booking']"><i class="bi bi-person-fill"></i> Booking</a></p>
                 <p *ngIf="user.usertype =='admin'"><a [routerLink]="['/carlist']"><i class="bi bi-person-fill"></i> Cars</a></p>
-                <p *ngIf="user.usertype =='admin'"><a [routerLink]="['/booking']"><i class="bi bi-person-fill"></i> Users</a></p>
+                <p *ngIf="user.usertype =='admin'"><a [routerLink]="['/users']"><i class="bi bi-person-fill"></i> Users</a></p>
                 <p><a [routerLink]="['/profile']"><i class="bi bi-person-fill"></i> My Profile</a></p>
 
                 <p><a  *ngIf="!logEmail" [routerLink]="['/login']" class="text-decoration-none d-lg-none .d-xl-block"><i class="bi bi-box-arrow-in-right"></i> LOGIN</a></p>

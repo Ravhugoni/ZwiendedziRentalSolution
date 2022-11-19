@@ -46,7 +46,7 @@
         <div class="float-right  col"><button type="button" class="rentbut btn-primary btn-lg">New Booking</button></div>
     </div>
     <div class="row container-fluid mx-auto">
-        <table class="table table-responsive shadow p-3 mb-5 bg-body table-hover">
+        <table class="table table-responsive shadow p-3 mb-5 bg-body table-hover" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
             
             <thead>
               <tr>
@@ -60,10 +60,7 @@
                 <th scope="col" class="col-lg-2 col-md-2">numberPlate</th>
                 <th scope="col" class="col-lg-2 col-md-2">fuelType</th>
                 <th scope="col" class="col-lg-2 col-md-2">status</th>
-
-                <!-- <th scope="col" class="col-lg-2 col-md-2">time</th> -->
                 <th scope="col" ></th>
-                <th scope="col"></th>
               </tr>
             </thead>
     
@@ -84,10 +81,8 @@
                 <td>{{booking.dropoff_date | date:'medium'}}</td>
                 <td>{{booking.numberPlate}}</td>
                 <td>{{booking.fuekType}}</td>
-                <td>{{booking.status}}</td>
-                
-                <!-- <td><button type="button" class="bookingbutton btn-primary btn-sm">View</button></td> -->
-                <button type="button" class="btn btn-secondary btn-lg">Cancel</button>
+                <td>{{booking.bk_status}}</td>
+                <td><button type="button" class="btn btn-secondary btn-lg">Cancel</button></td>
             </tr>
               
              
