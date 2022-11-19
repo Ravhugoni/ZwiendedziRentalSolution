@@ -11,7 +11,7 @@ const pool = require('../connection');
 
 const addBooking = (req,res)=>{
   const {comp_id, user_id, car_id, pickup_date, dropoff_date} = req.body;
-   pool.query('INSERT INTO public.booking(comp_id, user_id, car_id, pickup_date, dropoff_date) VALUES ($1, $2, $3, $4, $5) RETURNING *', 
+   pool.query('INSERT INTO public.bookings(comp_id, user_id, car_id, pickup_date, dropoff_date) VALUES ($1, $2, $3, $4, $5) RETURNING *', 
    [comp_id, user_id, car_id, pickup_date, dropoff_date], (error, results) =>{
 
     if(error){
@@ -24,7 +24,7 @@ const addBooking = (req,res)=>{
 //GET ALL BOOKINGS
 const getAllBookings = (req,res)=>{
 
-  pool.query('SELECT * FROM booking b, users u, "Cars" c, company p WHERE b.user_id = u."userID" AND b.car_id = c."carID" AND b.comp_id = p."companyID";',(error ,results)=>{
+  pool.query('SELECT * FROM bookings b, users u, "Cars" c, company p WHERE b.user_id = u."userID" AND b.car_id = c."carID" AND b.comp_id = p."companyID";',(error ,results)=>{
   if(error){
       throw error
   }

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Cars } from '../cars/cars';
 import { catchError } from 'rxjs/operators';
 
 
@@ -44,14 +43,15 @@ export class CarsService {
     )
   }
 
-  postCar(carDetails:Cars): Observable<any> {
+
+  postCar(carDetails:any): Observable<any> {
     let API_URL = this.REST_API + '/products/cars';
     return this.httpClient.post(API_URL, carDetails).pipe(
       catchError(this.errorHandler)
     )
   }
 
-  updateCar(id:number,carDetails:Cars): Observable<any> {
+  updateCar(id:number,carDetails:any): Observable<any> {
     let API_URL = this.REST_API + '/products/cars/id'+ id;
     return this.httpClient.put(API_URL, carDetails).pipe(
       catchError(this.errorHandler)

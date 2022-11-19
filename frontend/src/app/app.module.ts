@@ -19,6 +19,9 @@ import { BookingModalComponent } from './pages/booking/booking-modal/booking-mod
 
 import { ProfileComponent } from './profile/profile.component';
 import { BookingComponent } from './pages/booking/booking.component';
+import { CarProdComponent } from './pages/car-prod/car-prod.component';
+import { CreateComponent } from './pages/create/create.component';
+import { EditComponent } from './pages/edit/edit.component';
 
 
 @NgModule({
@@ -31,6 +34,9 @@ import { BookingComponent } from './pages/booking/booking.component';
     HatchbackComponent,
     ProfileComponent,
     HatchbackComponent,
+    CarProdComponent,
+    CreateComponent,
+    EditComponent,
   ],
   imports: [
     BrowserModule,
