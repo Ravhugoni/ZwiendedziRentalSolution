@@ -11,6 +11,8 @@ export class SedenComponent implements OnInit {
 
   public cars!: any[];
 
+  
+
   constructor(private productsService: ProductsService) { }
 
   ngOnInit(): void {
@@ -19,6 +21,7 @@ export class SedenComponent implements OnInit {
       this.cars = result.filter(ress => (ress.category).toLowerCase() === ("SEDAN").toLowerCase())
       console.log(this.cars)
     });
+
   }
 
   goSomewhere(){

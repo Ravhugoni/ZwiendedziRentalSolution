@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { createComponent, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http'
 
@@ -15,7 +15,6 @@ import { HatchbackComponent } from './pages/hatchback/hatchback.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { BookingModalComponent } from './pages/booking/booking-modal/booking-modal.component';
 
 import { ProfileComponent } from './profile/profile.component';
 import { BookingComponent } from './pages/booking/booking.component';
@@ -23,6 +22,8 @@ import { UsersComponent } from './pages/users/users.component';
 import { EditUserComponent } from './pages/edit-user/edit-user.component';
 import { BookingListComponent } from './pages/booking/booking-list/booking-list.component';
 import {DataTablesModule} from 'angular-datatables';
+import { CreateComponent } from './pages/create/create.component';
+import { BookingModalComponent } from './pages/booking/booking-modal/booking-modal.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import {DataTablesModule} from 'angular-datatables';
     UsersComponent,
     EditUserComponent,
     BookingModalComponent,
-    BookingListComponent
+    BookingListComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,
