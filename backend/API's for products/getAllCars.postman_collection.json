@@ -1,0 +1,29 @@
+{
+	"info": {
+		"_postman_id": "513f1f0f-604d-404f-b10c-66a1672b647f",
+		"name": "getAllCars",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23806595"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3001/cars",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/cars",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"cars"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
