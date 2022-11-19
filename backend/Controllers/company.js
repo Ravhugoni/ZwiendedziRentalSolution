@@ -1,18 +1,9 @@
 const { Module } = require('module');
 const pool = require('../connection');
 
-// const Pool = require('pg').Pool
-// const pool = new Pool({
-//   user: 'postgres',
-//   host: 'localhost',
-//   database: 'car_rental',
-//   password: 'Danny@2016',
-//   port: 5432,
-// })
-
 const addCompany = (req,res)=>{
   const {car_make, car_model, pick_up, pickup_time, drop_off, dropoff_time} = req.body;
-   pool.query('INSERT INTO public.bookings (car_make, car_model, pick_up, pickup_time, drop_off, dropoff_time) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *', 
+  pool.query('INSERT INTO public.bookings (car_make, car_model, pick_up, pickup_time, drop_off, dropoff_time) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *', 
    [car_make, car_model, pick_up, pickup_time, drop_off, dropoff_time], (error, results) =>{
 
     if(error){

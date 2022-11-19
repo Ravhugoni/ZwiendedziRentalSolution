@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { createComponent, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http'
 
@@ -19,9 +19,9 @@ import { BookingModalComponent } from './pages/booking/booking-modal/booking-mod
 
 import { ProfileComponent } from './profile/profile.component';
 import { BookingComponent } from './pages/booking/booking.component';
-import { CarProdComponent } from './pages/car-prod/car-prod.component';
+import { BookingListComponent } from './pages/booking/booking-list/booking-list.component';
+import {DataTablesModule} from 'angular-datatables';
 import { CreateComponent } from './pages/create/create.component';
-import { EditComponent } from './pages/edit/edit.component';
 
 
 @NgModule({
@@ -34,9 +34,9 @@ import { EditComponent } from './pages/edit/edit.component';
     HatchbackComponent,
     ProfileComponent,
     HatchbackComponent,
-    CarProdComponent,
-    CreateComponent,
-    EditComponent,
+    BookingModalComponent,
+    BookingListComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +47,7 @@ import { EditComponent } from './pages/edit/edit.component';
     RouterModule,
     NgToastModule,
     BrowserAnimationsModule,
+    DataTablesModule,
     BsDatepickerModule.forRoot(),
     NgbModule
   ],

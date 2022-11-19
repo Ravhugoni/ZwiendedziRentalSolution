@@ -5,15 +5,6 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const pool = require('../connection');
 
-// const Pool = require('pg').Pool
-// const pool = new Pool({
-//   user: 'admin',
-//   host: 'localhost',
-//   database: 'car_rental',
-//   password: 'admin12345',
-//   port: 5432,
-// })
-
 //Login Function
 const login = async (req, res) => {
 const { email, password } = req.body;
@@ -36,7 +27,7 @@ const token = jwt.sign(
 {
 email: email,
 },
-process.env.SECRET_KEY
+"process.env.SECRET_KEY"
 );
 res.status(200).json({
 message: "User signed in!",

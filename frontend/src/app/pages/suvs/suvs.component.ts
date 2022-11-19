@@ -14,7 +14,9 @@ export class SuvsComponent implements OnInit {
 
   ngOnInit(): void {
     this.productsService.GetList().subscribe((res:any) => {
-      console.log(res)
+      let result = res;
+      this.cars = result.filter(ress => (ress.category).toLowerCase() === ("SUV").toLowerCase())
+      console.log(this.cars)
     });
   }
 

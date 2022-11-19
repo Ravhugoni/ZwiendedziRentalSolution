@@ -56,16 +56,17 @@ export class BookingComponent implements OnInit {
 
     if(this.cid > 0)
     {
-        //filter list by car_id
+    //     //filter list by car_id
       this.productsService.GetList().subscribe((res:any) => {
         let result = res;
 
         console.log(result);
         console.log(this.cid);
         
-        this.cars = result.filter(carRess => String(carRess.carID) === String(this.cid))
+        this.cars = result.filter(carRess => String(carRess.id) === String(this.cid))
         console.log(this.cars)
       });
+
     }
     else{
       console.log("No car Id");
@@ -100,20 +101,35 @@ export class BookingComponent implements OnInit {
   addBooking()
   { 
     this.submitted = true;
+    if(this.BookingForm.value.comp_id != null && this.BookingForm.value.comp_id != '')
+    {
 
       let bookingDetails = {
         comp_id:this.BookingForm.value.comp_id,
-        user_id: this.users[0].userID,
+        user_id: this.users[0].id,
         car_id: this.cid,
         pickup_date: this.BookingForm.value.pickup_date,
-        dropoff_date: this.BookingForm.value.dropoff_date
+        dropoff_date: this.BookingForm.value.dropoff_date,
+        bk_status: 'pending'
       }
   
       console.log(bookingDetails);
   
       this.bookingService.AddBooking(bookingDetails).subscribe((next:any) => {
           console.log('Add successfully!');
+          this.openSuccess();
           this.submitted = false;
         });
+    }
+    else{
+
+    }
   }
+  openSuccess(){
+    this.toast.success({detail:'Success',summary:'Successfully Booked!', sticky:true,position:'tr'})
+  }
+  openWarning(){
+    this.toast.warning({detail:'Warning',summary:'Sorry! something went wrong', sticky:true,position:'tr'})
+  }
+
 }
