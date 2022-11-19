@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BookingListComponent } from '../pages/booking/booking-list/booking-list.component';
+import { BookingModalComponent } from '../pages/booking/booking-modal/booking-modal.component';
 import { BookingComponent } from '../pages/booking/booking.component';
 import { EditUserComponent } from '../pages/edit-user/edit-user.component';
 import { HatchbackComponent } from '../pages/hatchback/hatchback.component';
@@ -20,10 +22,12 @@ export const LayoutRoutes: Routes = [
   {  path: 'suvs',      component: SuvsComponent },
   {  path: 'seden',      component: SedenComponent },
   {  path: 'hatchback',      component: HatchbackComponent },
+  {  path: 'booking',      component: BookingListComponent },
   {  path: 'booking/:id',      component: BookingComponent },
   {  path: 'promotion',      component: PromotionsComponent },
   {  path: 'profile',      component: ProfileComponent },
   {  path: 'users',      component: UsersComponent },
-  {  path: 'users/:id',      component: EditUserComponent }
+  {  path: 'users/:id',      component: EditUserComponent },
+  {  path: 'editbooking/:id',      component: BookingModalComponent }
 
 ];

@@ -23,15 +23,15 @@ export class BookingService {
 
   AddBooking(bookingDetails:any): Observable<any> {
     let API_URL = this.REST_API + '/bookings';
-    return this.http.post(API_URL, bookingDetails)
+    return this.http.post(API_URL, bookingDetails).pipe();
   }
 
-  get(id: any): Observable<Booking> {
+  get(id: any): Observable<any> {
     return this.http.get(`${baseUrl}/${id}`);
   }
 
   update(id: any, data: any): Observable<any> {
-    return this.http.put(`${baseUrl}/${id}`, data);
+    return this.http.put(`${baseUrl}/${id}`, data).pipe();
   }
 
   delete(id: any): Observable<any> {

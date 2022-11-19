@@ -1,19 +1,11 @@
 const { Module } = require('module');
+
 const pool = require("../connection")
 
-// const Pool = require('pg').Pool
-// const pool = new Pool({
-//   user: 'postgres',
-//   host: 'localhost',
-//   database: 'car_rental',
-//   password: 'admin',
-//   port: 5432,
-// })
-
 const addBooking = (req,res)=>{
-  const {comp_id, user_id, car_id, pickup_date, dropoff_date} = req.body;
-   pool.query('INSERT INTO public.booking(comp_id, user_id, car_id, pickup_date, dropoff_date) VALUES ($1, $2, $3, $4, $5) RETURNING *', 
-   [comp_id, user_id, car_id, pickup_date, dropoff_date], (error, results) =>{
+  const {comp_id, user_id, car_id, pickup_date, dropoff_date,bk_status} = req.body;
+   pool.query('INSERT INTO public.booking(comp_id, user_id, car_id, pickup_date, dropoff_date, bk_status) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *', 
+   [comp_id, user_id, car_id, pickup_date, dropoff_date, bk_status], (error, results) =>{
 
     if(error){
       throw error
@@ -25,7 +17,7 @@ const addBooking = (req,res)=>{
 //GET ALL BOOKINGS
 const getAllBookings = (req,res)=>{
 
-  pool.query('SELECT * FROM booking b, users u, "Cars" c, company p WHERE b.user_id = u."userID" AND b.car_id = c."carID" AND b.comp_id = p."companyID";',(error ,results)=>{
+  pool.query('SELECT b.id,b.comp_id,b.user_id,b.car_id,b.pickup_date,b.dropoff_date,b.bk_status,u.firstname,u.lastname,u.email,u.phone,u.usertype,c."carName",c."carImage", c.model,c."numberPlate",c.price,p."companyID",c.category,c.status,c."fuelType",c."horsePower",c."speedPerSec",c."topSpeed",p."companyName",p.address FROM booking b, users u, "cars" c, company p WHERE b.user_id = u."id" AND b.car_id = c."id" AND b.comp_id = p."companyID" ORDER BY b.id ASC;',(error ,results)=>{
   if(error){
       throw error
   }
@@ -50,19 +42,17 @@ const getBookingById = (request, response) => {
 //PUT__UPDATE BOOKING BY ID
 
 const updateBooking = (req,res)=>{
-  const {car_make, car_model, pick_up, pickup_time, drop_off, dropoff_time} = req.body;
+  const {comp_id, user_id, pickup_date, dropoff_date, bk_status} = req.body;
   const id = parseInt(req.params.id)
 
-  pool.query('UPDATE public.bookings SET car_make = $1, car_model = $2, pick_up = $3, pickup_time = $4, drop_off = $5, dropoff_time = $6 WHERE id= $7',
-  [car_make, car_model, pick_up, pickup_time, drop_off, dropoff_time, id],
-
-  (error, results)=>{
-      if(error){
-          throw error
+  pool.query('UPDATE public.booking SET comp_id=$1, user_id=$2, pickup_date=$3, dropoff_date=$4, bk_status=$5 WHERE id=$6;',
+  [comp_id, user_id, pickup_date, dropoff_date, bk_status, id],
+    (error, results) => {
+      if (error) {
+        throw error
       }
-      res.status(200).send(`Employee modified with ID: ${id}`)
-  }
-  
+    res.status(200).send()
+    }
   )
 }
 

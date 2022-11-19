@@ -10,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 export class HeaderComponent implements OnInit {
 
   public logEmail: any;
-  userDetails: any;
+  users: any;
 
   constructor(private userServive:UserService,private router: Router) { }
 
@@ -19,14 +19,13 @@ export class HeaderComponent implements OnInit {
     if('loggedEmail' in sessionStorage)
     {
         this.logEmail = sessionStorage.getItem('loggedEmail');
-
-        this.userServive.GetUserByEmail(this.logEmail).subscribe(res => {
-        this.userDetails = res; 
-
-        console.log(this.logEmail);
-
-      }, (err) => {
-      });
+        //get users list
+        this.userServive.GetAllUsers().subscribe((res:any) => {
+          let result = res;
+          
+          this.users = result.filter(ress => ress.email === this.logEmail)
+          // console.log(this.users);
+       });
     }
     else
     {

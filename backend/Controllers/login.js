@@ -5,14 +5,7 @@ const pool = require("../connection")
 
 const jwt = require("jsonwebtoken");
 
-// const Pool = require('pg').Pool
-// const pool = new Pool({
-//   user: 'postgres',
-//   host: 'localhost',
-//   database: 'car_rental',
-//   password: 'Letsdoit!',
-//   port: 5433,
-// })
+const pool = require('../connection');
 
 //Login Function
 const login = async (req, res) => {
@@ -36,7 +29,7 @@ const token = jwt.sign(
 {
 email: email,
 },
-process.env.SECRET_KEY
+"process.env.SECRET_KEY"
 );
 res.status(200).json({
 message: "User signed in!",

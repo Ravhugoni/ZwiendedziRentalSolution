@@ -16,7 +16,7 @@
              <p><i class="bi bi-person pr-3"></i><strong>Make: </strong>{{ car.make }}</p>
            </div>
              <div class="col-lg-6">
-               <p><i class="bi bi-person pr-3"></i><strong>Name: </strong>Manual</p>
+               <p><i class="bi bi-person pr-3"></i><strong>Name: </strong>{{car.fuelType}}</p>
            </div>
           </div>
         </div><br>
@@ -26,21 +26,21 @@
               <div class="col-lg-4 mb-2">
                 <div class="card p-2">
                   <span><small>Max Power</small></span>
-                  <span class="cardSpecNum">350</span>
+                  <span class="cardSpecNum">{{car.horsePower}}</span>
                   <span><small>hp</small></span>
                 </div>
               </div><br>
               <div class="col-lg-4 mb-2">
                 <div class="card p-2">
                   <span><small>0-60 km/s</small></span>
-                  <span class="cardSpecNum">5.4</span>
+                  <span class="cardSpecNum">{{car.speedPerSec}}</span>
                   <span><small>sec.</small></span>
                 </div>
               </div><br>
               <div class="col-lg-4 mb-2">
                 <div class="card p-2">
                   <span><small>Top Speed</small></span>
-                  <span class="cardSpecNum">187</span>
+                  <span class="cardSpecNum">{{car.topSpeed}}</span>
                   <span><small>km/h</small></span>
                 </div>
               </div>
@@ -184,46 +184,3 @@
 </div>
 
  <!-- ----------------------------------------------- -->
-
- <div class="container">
-  <div class="row">
-    <table class="table table-responsive" >
-      <thead>
-        <tr>
-          <th scope="col">Booking No</th>
-          <th scope="col" colspan="2">Renter</th>
-          <th scope="col">carName</th>
-          <th scope="col">model</th>
-          <th scope="col">numberPlate</th>
-          <th scope="col">make</th>
-          <th scope="col">price</th>
-          <th scope="col">Pickup CompanyName</th>
-          <th scope="col">Pickup Address</th>
-          <th scope="col">Pick-Up Date</th>
-          <th scope="col">Drop-Off Date</th>
-          <th scope="col" colspan="3">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let booking of bookings">
-          <th scope="row">{{booking.id}}</th>
-          <td>{{booking.firstname}}</td>
-          <td>{{booking.lastname}}</td>
-          <td>{{booking.carName}}</td>
-          <td>{{booking.model}}</td>
-          <td>{{booking.numberPlate}}</td>
-          <td>{{booking.make}}</td>
-          <td>{{booking.price}}</td>
-          <td>{{booking.companyName}}</td>
-          <td>{{booking.address}}</td>
-          <td>{{booking.pickup_date | date:'medium'}}</td>
-          <td>{{booking.dropoff_date | date:'medium'}}</td>
-          <td><button class="btn btn-primary"><i class="bi bi-eye"></i></button></td>
-          <td><button class="btn btn-primary"><i class="bi bi-pencil"></i></button></td>
-          <td><button class="btn btn-primary"><i class="bi bi-trash"></i></button></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
- </div>
-  
