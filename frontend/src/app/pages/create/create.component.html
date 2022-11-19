@@ -1,0 +1,128 @@
+<div class="container">
+    <h1>Create New Post</h1>
+  
+    <a href="#" routerLink="/carlist" class="btn btn-primary">Back</a>
+    
+    <form [formGroup]="CarForm" novalidate>
+  
+        <div class="form-group">
+            <label for="carName">CarName:</label>
+            <input 
+                formControlName="carName"
+                id="carName" 
+                type="text" 
+                class="form-control">
+        </div>
+  
+        <div class="form-group">
+            <label class="form-label" for="customFile">Car Image</label>
+            <input type="file" class="form-control" id="customFile" formControlName="carImg" (change)="onFileChange($event)"/>
+        </div>
+
+        <div class="form-group">
+            <label for="model">model:</label>
+            <input 
+                formControlName="model"
+                id="model" 
+                type="text" 
+                class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="numberPlate">numberPlate:</label>
+            <input 
+                formControlName="numberPlate"
+                id="numberPlate" 
+                type="text" 
+                class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="make">make:</label>
+            <input 
+                formControlName="make"
+                id="make" 
+                type="text" 
+                class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="price">price:</label>
+            <input 
+                formControlName="price"
+                id="price" 
+                type="text" 
+                class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="companyID">companyID:</label>
+            <input 
+                formControlName="companyID"
+                id="companyID" 
+                type="text" 
+                class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="category">category:</label>
+            <input 
+                formControlName="category"
+                id="category" 
+                type="text" 
+                class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="status">status:</label>
+            <input 
+                formControlName="status"
+                id="status" 
+                type="text" 
+                class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="fuelType">fuelType:</label>
+            <input 
+                formControlName="fuelType"
+                id="fuelType" 
+                type="text" 
+                class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="horsePower">horsePower:</label>
+            <input 
+                formControlName="horsePower"
+                id="horsePower" 
+                type="text" 
+                class="form-control">
+        </div>
+  
+
+        <div class="form-group">
+            <label for="speedPerSec">speedPerSec:</label>
+            <input 
+                formControlName="speedPerSec"
+                id="speedPerSec" 
+                type="text" 
+                class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="topSpeed">topSpeed:</label>
+            <input 
+                formControlName="topSpeed"
+                id="topSpeed" 
+                type="text" 
+                class="form-control">
+           
+        </div>
+        <div>
+            <button type="submit" (click)="postCar()" class="btn btn-sm"> SUBMIT</button>
+        </div>
+        
+
+    </form>
+</div>

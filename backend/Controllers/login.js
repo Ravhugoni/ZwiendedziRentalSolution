@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt");
-const pool = require("../connection")
+const pool = require("../connections")
 
 // const client = require("../config/database");
 

@@ -1,0 +1,55 @@
+<div class="container">
+    
+    <a href="#" routerLink="/car" class="btn btn-success">Add New Car</a>
+      
+    <table class="table table-striped table-responsive">
+        <thead>
+              <tr>
+                <th>carName</th>
+                <th>carImage</th>
+                <th>model</th>
+                <th>numberPlate</th>
+                <th>make</th>
+                <th>price</th>
+                <th>companyID</th>
+                <th>category</th>
+                <th>status</th>
+                <th>fuelType</th>
+                <th>horsePower</th>
+                <th>speedPerSec</th>
+                <th>topSpeed</th>
+                <th width="250px">Action</th>
+              </tr>
+        </thead>
+        <tbody>
+              <tr *ngFor="let car of cars;index as i;">
+                
+                <td>{{ car.carName }}</td>
+                <td>
+                  <div class="carImg">
+                    <img src="{{ car.carImage }}">
+                  </div>
+                </td>
+                <td>{{ car.model }}</td>
+                <td>{{ car.numberPlate }}</td>
+                <td>{{ car.make }}</td>
+                <td>{{ car.price }}</td>
+                <td>{{ car.companyID }}</td>
+                <td>{{ car.category }}</td>
+                <td>{{ car.status }}</td>
+                <td>{{ car.fuelType }}</td>
+                <td>{{ car.horsePower }}</td>
+                <td>{{ car.speedPerSec }}</td>
+                <td>{{ car.topSpeed }}</td>
+                <td>
+                  <div>
+
+                  <button type="edit" (click)="updateCar()" class="bi bi-pen-fill">Edit</button>
+                  </div>
+                  
+                  <!-- <button type="button" (click)="deleteCar(car.id)" class="btn btn-danger">Delete</button> -->
+                </td>
+              </tr>
+        </tbody>
+    </table>
+ </div>
