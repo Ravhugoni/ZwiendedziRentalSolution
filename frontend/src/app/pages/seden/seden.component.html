@@ -4,143 +4,48 @@
     <!-- <h1 class="head" >SUV</h1>
     <h4 class="head" >TRAVEL IN COMFORT</h4>
   -->
-  <div class="head">
+  <div class="text-center">
     <h1>SEDEN</h1>
     </div>
-    <div class="subhead">
+    <div class="text-center">
         <h6>Travel in comfort with our SEDEN's</h6>
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid py-5">
         <div class="row">
-          <div class="col-lg-2 col-md-4 col-sm-1">
+          <div class="col-lg-3 col-md-4 col-sm-1" *ngFor="let car of cars">
             
-            <div class="card">
-                <img src="../../../assets/seden2.png" alt="">
-                <div class="card-body">
-                  <h5 class="card-title">VW Polo</h5>
-                  <a href="#" class="btn btn-primary">R927.00</a>
+            <div class="card shadow-lg p-3 mb-5">
+              <div class="card-header">
+                <div class="row text-center text-white">
+                  <div class="col">
+                    <p class="card-text"><i class="bi-star-fill pb-5"></i> <small><span> 4.1</span></small></p>
+                  </div>
+                  <div class="col text-end">
+                    <p class="card-text"><small><i class="bi-heart-fill"></i></small></p>
+                  </div>
+                </div>
+              </div>
+                <img src="{{car.carImage}}" alt="">
+                <div class="card-body text-white">
+                  <div class="row">
+                    <div class="col float-lg-left"><h5 class="card-title">{{car.carName}}</h5></div>
+                    <div class="col"><small><a [routerLink]="['/booking',car.carID]" class="btn text-end text-white">Booking</a></small></div>
+                  </div>
+                </div>
+                <div class="card-footer text-white border-top border-white py-0">
+                  <div class="row">
+                    <div class="col">
+                      <p><small>552 hp</small></p>
+                    </div>
+                    <div class="col">
+                      <p><small>5.2 sec</small></p>
+                    </div>
+                    <div class="col">
+                      <p><small>R {{car.price}}</small></p>
+                    </div>
+                  </div>
                 </div>
               </div>
           </div>
-
-          <div class="col-lg-2 col-md-4 col-sm-1">
-            <div class="card">
-                <img src="../../../assets/seden2.png" alt="">
-                <div class="card-body">
-                  <h5 class="card-title">Audi A6</h5>
-                  <a href="#" class="btn btn-primary">R927.00</a>
-                </div>
-              </div>
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-sm-1">
-            <div class="card">
-                <img src="../../../assets/seden2.png" alt="">
-                <div class="card-body">
-                  <h5 class="card-title">BMW 320i M7</h5>
-                  <a href="#" class="btn btn-primary">R927.00</a>
-                </div>
-              </div>
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-sm-1">
-            <div class="card">
-                <img src="../../../assets/seden2.png" alt="">
-                <div class="card-body">
-                  <h5 class="card-title">Benz C Class</h5>
-                  <a href="#" class="btn btn-primary">R927.00</a>
-                </div>
-              </div>
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-sm-1">
-            <div class="card">
-                <img src="../../../assets/seden2.png" alt="">
-                <div class="card-body">
-                  <h5 class="card-title">VW Jetta</h5>
-                  <a href="#" class="btn btn-primary">R927.00</a>
-                </div>
-              </div>
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-sm-1">
-            <div class="card">
-                <img src="../../../assets/seden2.png" alt="">
-                <div class="card-body">
-                  <h5 class="card-title">Audi A5</h5>
-                  <a href="#" class="btn btn-primary">R927.00</a>
-                </div>
-              </div>
-          </div>
-
-        </div>
-        <br>
-
-
-        <!-- ROW 2 -->
-        <div class="row">
-            <div class="col-lg-2 col-md-4 col-sm-1">
-              <div class="card">
-                  <img src="../../../assets/seden2.png" alt="">
-                  <div class="card-body">
-                    <h5 class="card-title">Toyota Corolla</h5>
-                    <button class="btn btn-primary" >R927.00</button>
-
-                  </div>
-                </div>
-            </div>
   
-            <div class="col-lg-2 col-md-4 col-sm-1">
-              <div class="card">
-                  <img src="../../../assets/seden2.png" alt="">
-                  <div class="card-body">
-                    <h5 class="card-title">Mazda 3</h5>
-                    <a href="#" class="btn btn-primary">R927.00</a>
-                  </div>
-                </div>
-            </div>
-  
-            <div class="col-lg-2 col-md-4 col-sm-1">
-              <div class="card">
-                  <img src="../../../assets/seden2.png" alt="">
-                  <div class="card-body">
-                    <h5 class="card-title">KIA K5</h5>
-                    <a href="#" class="btn btn-primary">R927.00</a>
-                  </div>
-                </div>
-            </div>
-  
-            <div class="col-lg-2 col-md-4 col-sm-1">
-              <div class="card">
-                  <img src="../../../assets/seden2.png" alt="">
-                  <div class="card-body">
-                    <h5 class="card-title">Benz AMG E53</h5>
-                    <a href="#" class="btn btn-primary">R927.00</a>
-                  </div>
-                </div>
-            </div>
-  
-            <div class="col-lg-2 col-md-4 col-sm-1">
-              <div class="card">
-                  <img src="../../../assets/seden2.png" alt="">
-                  <div class="card-body">
-                    <h5 class="card-title">Nissan Altima</h5>
-                    <a href="#" class="btn btn-primary">R927.00</a>
-                  </div>
-                </div>
-            </div>
-  
-            <div class="col-lg-2 col-md-4 col-sm-1">
-              <div class="card">
-                  <img src="../../../assets/seden2.png" alt="">
-                  <div class="card-body">
-                    <h5 class="card-title">VW Polo Vivo</h5>
-                    <a href="#" class="btn btn-primary">R927.00</a>
-                  </div>
-                </div>
-            </div>
-  
-          </div>
-
-          
       </div>

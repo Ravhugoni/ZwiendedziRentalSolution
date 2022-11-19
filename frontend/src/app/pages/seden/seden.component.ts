@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-seden',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SedenComponent implements OnInit {
 
-  constructor() { }
+  public cars!: any[];
+
+  constructor(private productsService: ProductsService) { }
 
   ngOnInit(): void {
+    this.productsService.GetList().subscribe((res:any) => {
+      let result = res;
+      this.cars = result.filter(ress => ress.category === "SEDEN")
+      console.log(this.cars)
+    });
   }
-
 }

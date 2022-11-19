@@ -4,6 +4,7 @@ const router = express()
 const methods = require('../methods')
 const profile = require('../Controllers/profile')
 const products = require('../Controllers/Products')
+const company = require('../Controllers/company')
 // const port = 3001
 const port = process.env.PORT || 3001;
 const login = require("../Controllers/login")
@@ -47,7 +48,11 @@ router.post("/newUpload", upload.single("image"), async (req, res) => {
   return res.json({ image: req.file.path });
 });
 
-router.use(cors());
+var corsOptions = {
+  origin:"http://localhost:4200"
+}
+
+router.use(cors(corsOptions));
 
 router.use(bodyParser.json())
 router.use(
@@ -64,7 +69,7 @@ router.get('/', (request, response) => {
 router.get('/users', methods.getUsers)
 router.get('/users/:id', methods.getUserById)
 router.post('/users', methods.postUsers)
-router.put('/users/:id', methods.updateUser)
+router.patch('/users/:id', methods.updateUser)
 router.delete('/users/:id', methods.deleteUser)
 
 //routes for login
@@ -94,6 +99,18 @@ router.delete('/cars/:id', products.deleteCar)
 //route for number of products
 router.get('/num', numCars.getNum)
 
+
+//routes for company
+router.post('/company', company.addCompany)
+router.get('/company', company.getAllCompany)
+router.get('/company/:id', company.getCompanyById)
+router.put('/company/:id', company.updateCompany)
+router.delete('/company/:id', company.deleteCompany)
+
+//routes for profile
+router.get('/products/cars', products.getCars)
+router.get('/products/carsByCat', products.getCarById)
+router.put('/products/users/:id', profile.updateUserProfile)
 
 router.listen(port, () => {
     console.log(`App running on port ${port}.`)

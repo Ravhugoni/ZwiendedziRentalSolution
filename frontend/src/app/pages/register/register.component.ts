@@ -70,7 +70,7 @@ export class RegisterComponent implements OnInit {
         this.userServive.AddUser(userDetails).subscribe((next:any) => {
             console.log('Add successfully!');
             this.openSuccess();
-            this.router.navigate(['/']);
+            this.router.navigate(['/login']);
 
             sessionStorage.setItem('token', JSON.stringify(userDetails)); 
  

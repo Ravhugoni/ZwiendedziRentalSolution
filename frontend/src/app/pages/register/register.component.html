@@ -1,9 +1,9 @@
-<div class="mycontainer">
+<div class="mycontainer w-100">
     <Form [formGroup] = "AddUserForm" novalidate> 
         <ul>
-            <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center mx-auto">
             
-                <div class="card text-center">
+                <div class="card text-center mt-5">
                 <div class="card-body">
                   <h5 class="card-title">REGISTER</h5>
                     <div class="input-group col-auto mb-3">
@@ -35,7 +35,7 @@
 
                   <div class="input-group col-auto mb-3">
                     <div class="input-group-prepend">
-                      <span style="background-color: #fff;border: none;"class="input-group-text" id="basic-addon1"><i class="bi bi-envelope-fill"></i></span>
+                      <span style="background-color: #fff;border: none;"class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-fill"></i></span>
                     </div>
                     <input formControlName="phone" class="font-weight-light form-control" placeholder="PHONE" 
                     [ngClass]="{ 'is-invalid': submitted && formValidation['phone'].errors }"

@@ -32,10 +32,13 @@ export class UserService {
     return this.httpClient.get(API_URL, email)
   }
 
-//   // Get all objects
-//   GetList() {
-//     return this.httpClient.get(this.REST_API + '/list');
-//   }
+  GetAllUsers() {
+    return this.httpClient.get(this.REST_API + '/users');
+  }
+
+  updateUser(id: any, data: any): Observable<any> {
+    return this.httpClient.patch(`${this.REST_API}/users/${id}`, data);
+  }
 
 //   // Get single object
 //   GetListByID(id:any): Observable<any> {

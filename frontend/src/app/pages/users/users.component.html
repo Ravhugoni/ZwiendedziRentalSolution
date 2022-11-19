@@ -1,0 +1,31 @@
+<div class="container justify-content-center">
+  <div class="table-responsive">
+    <table class="table mt-3 table-bordered table-hover">
+        <thead> 
+            <td colspan="7" class="text-center">List of Users</td>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Group</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <th scope="row">{{user.id}}</th>
+            <td>{{user.firstname}}</td>
+            <td>{{user.lastname}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.phone}}</td>
+            <td>{{user.usertype}}</td>
+            <td>
+                <button [routerLink]="['/users',user.id]" class="bg-warning btn-outline-light mx-2"> <i class="bi bi-pencil"></i> </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

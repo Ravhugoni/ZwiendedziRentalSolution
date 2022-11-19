@@ -14,19 +14,18 @@ const handleErr = (err, req, res, next) => {
 }
 
 const getCars = (request, response) => {
-    pool.query('SELECT * FROM cars', (error, results) => {
+    pool.query('SELECT * FROM public."Cars"', (error, results) => {
      
       response.status(200).json(results.rows)
     }),handleErr
   }
 
-  const getCarById = (request, response) => {
-    //const id = parseInt(request.params.id)
-    const category = req.body;
+  const getCarById = (request, res) => {
+    const {category} = request.body
   
-    pool.query('SELECT * FROM cars WHERE category = $1', [categoty], (error, results) => {
-     
-      response.status(200).json(results.rows)
+    pool.query('SELECT * FROM public.cars WHERE category = $1', [category], (error, results) => {
+    
+      res.status(200).json(results.rows)
     }),handleErr
   }
   
