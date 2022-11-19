@@ -20,7 +20,8 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
-  }
+  },
+  { path: 'admin', loadChildren: () => import('./admin-layout/admin-layout.module').then(m => m.AdminLayoutModule) }
 
 ];
 
@@ -29,3 +30,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+

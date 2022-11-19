@@ -15,13 +15,15 @@ import { HatchbackComponent } from './pages/hatchback/hatchback.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { BookingModalComponent } from './pages/booking/booking-modal/booking-modal.component';
 
 import { ProfileComponent } from './profile/profile.component';
 import { BookingComponent } from './pages/booking/booking.component';
+import { UsersComponent } from './pages/users/users.component';
+import { EditUserComponent } from './pages/edit-user/edit-user.component';
 import { BookingListComponent } from './pages/booking/booking-list/booking-list.component';
 import {DataTablesModule} from 'angular-datatables';
 import { CreateComponent } from './pages/create/create.component';
+import { BookingModalComponent } from './pages/booking/booking-modal/booking-modal.component';
 
 
 @NgModule({
@@ -34,6 +36,8 @@ import { CreateComponent } from './pages/create/create.component';
     HatchbackComponent,
     ProfileComponent,
     HatchbackComponent,
+    UsersComponent,
+    EditUserComponent,
     BookingModalComponent,
     BookingListComponent,
     CreateComponent

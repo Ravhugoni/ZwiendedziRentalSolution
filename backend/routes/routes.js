@@ -69,7 +69,7 @@ router.get('/', (request, response) => {
 router.get('/users', methods.getUsers)
 router.get('/users/:id', methods.getUserById)
 router.post('/users', methods.postUsers)
-router.put('/users/:id', methods.updateUser)
+router.patch('/users/:id', methods.updateUser)
 router.delete('/users/:id', methods.deleteUser)
 
 //routes for login
@@ -89,6 +89,16 @@ router.get('/bookings', bookings.getAllBookings)
 router.get('/bookings/:id', bookings.getBookingById)
 router.put('/bookings/:id', bookings.updateBooking)
 router.delete('/bookings/:id', bookings.deleteBooking)
+//Routes for Cars
+router.get('/cars', products.getCars)
+router.get('/cars/:id', products.getCarById)
+router.post('/cars', products.postCar)
+router.put('/cars/:id', products.updateCar)
+router.delete('/cars/:id', products.deleteCar)
+
+//route for number of products
+router.get('/num', numCars.getNum)
+
 
 //routes for company
 router.post('/company', company.addCompany)

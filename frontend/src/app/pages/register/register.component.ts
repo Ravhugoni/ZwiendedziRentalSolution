@@ -76,7 +76,7 @@ export class RegisterComponent implements OnInit {
  
             this.submitted = false;
           }, (err) => {
-            this.toast.warning({detail:'Warning',summary:'Fillup the form or Email already exist', sticky:true,position:'tr'})
+            this.toast.warning({detail:'Warning',summary:'Fillup the form or Email already exist', sticky:false,position:'tr', duration:6000})
         });
       }
       else
@@ -87,10 +87,10 @@ export class RegisterComponent implements OnInit {
   }
 
   openWarning(){
-    this.toast.warning({detail:'Warning',summary:'Password does not match', sticky:true,position:'tr'})
+    this.toast.warning({detail:'Warning',summary:'Password does not match', sticky:false,position:'tr', duration:6000})
   }
   openSuccess(){
-    this.toast.success({detail:'Success',summary:'Successfully register!', sticky:true,position:'tr'})
+    this.toast.success({detail:'Success',summary:'Successfully register!', sticky:false,position:'tr', duration:6000})
   }
  
 }
