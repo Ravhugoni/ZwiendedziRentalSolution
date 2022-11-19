@@ -7,7 +7,7 @@ const pool = new Pool({
   port: 5433,
 })
 
-//const db = require('./connection');
+const pool = require('./connection');
 
 const handleErr = (err, req, res, next) => {
   res.status(400).send({ error: err.message })

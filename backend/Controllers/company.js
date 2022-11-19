@@ -1,6 +1,5 @@
 const { Module } = require('module');
-
-const pool = require("../connection");
+const pool = require('../connection');
 
 const addCompany = (req,res)=>{
   const {car_make, car_model, pick_up, pickup_time, drop_off, dropoff_time} = req.body;

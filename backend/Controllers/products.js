@@ -22,9 +22,9 @@ const getCars = (request, response) => {
   
   const postCar = (req, res) => {
 
-    const { carName,carImage,model,numberPlate,make,price,companyID,category } = req.body
+    const { carName,carImage,model,numberPlate,make,price,companyID,category,status, fuelType,horsePower,speedPerSec,topSpeed } = req.body
 
-    pool.query('INSERT INTO public.cars("carName", "carImage", model, "numberPlate", make, price, "companyID", category) VALUES ($1, $2,$3,$4,$5,$6,$7,$8)', [carName,carImage,model,numberPlate,make,price,companyID,category], (error, results) => {
+    pool.query('INSERT INTO public.cars("carName", "carImage", model, "numberPlate", make, price, "companyID", category, status,"fuelType", "horsePower", "speedPerSec", "topSpeed") VALUES ($1, $2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)', [carName,carImage,model,numberPlate,make,price,companyID,category,status, fuelType,horsePower,speedPerSec,topSpeed ], (error, results) => {
       if (error) {
         throw error
       }
@@ -52,7 +52,7 @@ const updateCar = (req, res) => {
     let field;
     let updateString="";
 
-    const { id,carName,carImage,model,numberPlate,make,price,companyID,category,status } = req.body
+    const { id,carName,carImage,model,numberPlate,make,price,companyID,category,status, fuelType,horsePower,speedPerSec,topSpeed } = req.body
     if (req.body.field) {
     pool.query(`UPDATE public.cars SET  ${req.body.field} = '${req.body.updateString}' WHERE id = ${req.body.id}`, (error, results,field) => {
 
