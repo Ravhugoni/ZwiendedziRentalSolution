@@ -49,7 +49,7 @@ router.post("/newUpload", upload.single("image"), async (req, res) => {
 });
 
 var corsOptions = {
-  origin:"http://localhost:4200"
+  origin:"*"
 }
 
 router.use(cors(corsOptions));

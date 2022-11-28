@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Booking } from '../model/booking';
 import { Observable } from 'rxjs';
 
-const baseUrl = 'http://l ocalhost:3001/bookings';
+const baseUrl = 'http://localhost:3001/bookings';
 
 @Injectable({
   providedIn: 'root'

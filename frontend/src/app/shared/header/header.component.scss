@@ -6,8 +6,18 @@
 //     // height: 900px;
 
 // }
-
-
+.container-fluid
+{
+    // position: relative;
+    z-index: 1;
+}
+.collapse
+{
+    position: absolute;
+    z-index: 2;
+    // bottom: 25px;
+    // height: 7em;
+}
 .my-container
 {
     // background-image: url('../../../assets/bg5.jpg');

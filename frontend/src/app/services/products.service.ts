@@ -41,7 +41,7 @@ export class ProductsService {
   }
 
   updateCar(id:number,carDetails:any): Observable<any> {
-    let API_URL = this.REST_API + '/products/cars/id'+ id;
+    let API_URL = this.REST_API + '/products/cars/'+ id;
     return this.httpClient.put(API_URL, carDetails).pipe(
       catchError(this.errorHandler)
     )

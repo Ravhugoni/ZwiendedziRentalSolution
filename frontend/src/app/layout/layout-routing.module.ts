@@ -18,6 +18,7 @@ import { SedenComponent } from '../pages/seden/seden.component';
 import { SuvsComponent } from '../pages/suvs/suvs.component';
 import { UsersComponent } from '../pages/users/users.component';
 import { ProfileComponent } from '../profile/profile.component';
+import { EditCarComponent } from '../pages/edit-car/edit-car.component';
 
 export const LayoutRoutes: Routes = [
   {  path: '',      component: LandingComponent },
@@ -33,6 +34,7 @@ export const LayoutRoutes: Routes = [
   {  path: 'profile',      component: ProfileComponent },
   // { path: 'post', redirectTo: 'post/car-prod', pathMatch: 'full'},
   { path: 'carlist', component: CarProdComponent },
+  { path: 'editCar/:id', component: EditCarComponent},
   //{ path: 'post/:postId/view', component: ViewComponent },
   { path: 'car', component: CreateComponent },
   { path: 'edit', component: EditComponent } ,

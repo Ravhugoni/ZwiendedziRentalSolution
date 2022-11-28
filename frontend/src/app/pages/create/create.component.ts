@@ -4,6 +4,7 @@ import { CompanyService } from '../../services/company.service';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-create',
@@ -14,7 +15,7 @@ export class CreateComponent implements OnInit {
 
   FormBuilder: any;
   file: any;
-  
+  company!:any;
   public cars!:any[];
   imgUrl!:any;
 
@@ -37,12 +38,15 @@ export class CreateComponent implements OnInit {
   
   submitted = false;
 
-  constructor(private carService:CarsService, private compService:CompanyService,private router: Router, private http:HttpClient) {
+  constructor(private companyService: CompanyService, private carService:CarsService, private toast: NgToastService, private compService:CompanyService,private router: Router, private http:HttpClient) {
     
    }
 
   ngOnInit(): void {
-  
+
+    this.companyService.GetList().subscribe((res:any) => {
+      this.company = res;
+    });
 }
 
 onFileChange(event :any)
@@ -87,6 +91,9 @@ onFileChange(event :any)
 
       this.carService.postCar(carDetails).subscribe((next:any) => {
         console.log('Car has been added successfully!');
+        this.router.navigate(['/carlist']);
+        this.toast.success({detail:'Success',summary:'Car has been added successfully!', sticky:false,position:'tr', duration:6000})
+      
         this.submitted = false;
       });
 })  

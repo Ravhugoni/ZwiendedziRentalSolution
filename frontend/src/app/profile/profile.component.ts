@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
+import { Subject } from 'rxjs';
 
 import { BookingService } from '../services/booking.service';
 import { UserService } from '../services/user.service';
@@ -25,6 +26,10 @@ export class ProfileComponent implements OnInit {
   public users!: any;
   sub!: any;
   uid!: any;
+
+  dtOptions: DataTables.Settings = {};
+  dtTrigger: Subject<any> = new Subject<any>();
+
   submitted = false;
 
   constructor( private bookingService:  BookingService , private userServive: UserService, private route: ActivatedRoute, private router: Router, private toast: NgToastService, public fb: FormBuilder) { }
@@ -46,8 +51,9 @@ export class ProfileComponent implements OnInit {
       // this.bookings = res;
 
       let result = res;
-      this.bookings = result.filter(ress => ress.user_id === 1)
+      this.bookings = result.filter(ress => ress.email === this.loggedEmail)
       console.log(this.bookings)
+      this.dtTrigger.next(this.users);
 
       this.sub = this.route.params.subscribe(params => {
         return this.uid = params['id']
@@ -73,8 +79,19 @@ export class ProfileComponent implements OnInit {
           })
         }
     })
-  }
 
+  this.dtOptions = {
+    pagingType: 'full_numbers',
+    pageLength: 5,
+    lengthMenu : [5, 10, 25],
+    processing: true
+   };
+
+}
+
+ngOnDestroy(): void {
+  this.dtTrigger.unsubscribe();
+}
   get formValidation(): { [key: string]: AbstractControl } {
     return this.EditProfileForm.controls;
   }
@@ -98,7 +115,7 @@ export class ProfileComponent implements OnInit {
         console.log(userDetails);
 
 
-        this.userServive.updateProfile(this.uid, userDetails).subscribe((next) => {
+        this.userServive.updateProfile(Number.parseInt(this.uid), userDetails).subscribe((next:any) => {
           this.openSuccess();
           this.router.navigate(['/profile']);
 

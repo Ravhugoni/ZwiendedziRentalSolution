@@ -30,7 +30,7 @@ export class CarProdComponent implements OnInit {
     topSpeed: new FormControl('')
       });
 
-  public cars!:any[];
+  public cars:any;
   submitted = false;
   isEditClicked: boolean = true;
   position = 0;
@@ -126,11 +126,11 @@ export class CarProdComponent implements OnInit {
         console.log(this.imgUrl); 
         console.log(carDetails);
   
-        this.productsService.updateCar(this.id,carDetails).subscribe((next:any) => {
-          console.log('Car has been successfully edited!');
-          this.submitted = false;
-        });
-    })
+        // this.productsService.updateCar(this.id,carDetails).subscribe((next:any) => {
+        //   console.log('Car has been successfully edited!');
+        //   this.submitted = false;
+        // });
+     })
     }
   
   // updateCar(carData: any, index: any): void {

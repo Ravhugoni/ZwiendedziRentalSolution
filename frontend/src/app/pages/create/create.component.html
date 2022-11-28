@@ -1,128 +1,166 @@
 <div class="container">
     <h1>Create New Post</h1>
   
-    <a href="#" routerLink="/carlist" class="btn btn-primary">Back</a>
+    <a href="#" routerLink="/carlist" class="btn btn-sm">Back</a>
     
     <form [formGroup]="CarForm" novalidate>
   
-        <div class="form-group">
-            <label for="carName">Car Name:</label>
-            <input 
-                formControlName="carName"
-                id="carName" 
-                type="text" 
-                class="form-control">
-        </div>
+        <div class="row">
+           <div class="col-4">
+                <div class="form-group">
+                    <label for="carName">Car Name:</label>
+                    <input 
+                        formControlName="carName"
+                        id="carName" 
+                        type="text" 
+                        class="form-control">
+                </div>
+           </div>
+        
   
-        <div class="form-group">
-            <label class="form-label" for="customFile">Car Image</label>
-            <input type="file" class="form-control" id="customFile" formControlName="carImg" (change)="onFileChange($event)"/>
+            <div class="col-4">
+                <div class="form-group">
+                    <label class="form-label" for="customFile">Car Image</label>
+                    <input type="file" class="form-control" id="customFile" formControlName="carImg" (change)="onFileChange($event)"/>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="model">Car Model:</label>
+                    <input 
+                        formControlName="model"
+                        id="model" 
+                        type="text" 
+                        class="form-control">
+                </div>
+            </div>
         </div>
 
-        <div class="form-group">
-            <label for="model">Car Model:</label>
-            <input 
-                formControlName="model"
-                id="model" 
-                type="text" 
-                class="form-control">
-        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="numberPlate">Number Plate:</label>
+                    <input 
+                        formControlName="numberPlate"
+                        id="numberPlate" 
+                        type="text" 
+                        class="form-control">
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="make">Car Make:</label>
+                    <input 
+                        formControlName="make"
+                        id="make" 
+                        type="text" 
+                        class="form-control">
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="price">Price:</label>
+                    <input 
+                        formControlName="price"
+                        id="price" 
+                        type="text" 
+                        class="form-control">
+                </div>
+            </div>  
 
-        <div class="form-group">
-            <label for="numberPlate">Number Plate:</label>
-            <input 
-                formControlName="numberPlate"
-                id="numberPlate" 
-                type="text" 
-                class="form-control">
         </div>
+        <div class="row">
+            <div class="col-3">
+                <div class="form-group">
 
-        <div class="form-group">
-            <label for="make">Car Make:</label>
-            <input 
-                formControlName="make"
-                id="make" 
-                type="text" 
-                class="form-control">
+                    <div class="row">
+                        <label for="inputPassword" class="col-lg-12 col-sm-12 col-form-label">
+                          Company brunch</label>
+                        <div class=" col-lg-12 col-sm-12">
+                            <select id="companyID" class="form-control" formControlName="companyID">
+                                <option [ngClass]="null" selected>Select Location...</option>
+                                <option *ngFor="let cp of company" value='{{cp.companyID}}'>{{cp.companyName}}</option>
+                              </select>
+                        </div>
+                    </div>
+        
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="form-group">
+                    <label for="category">category:</label>
+        
+                        <select id="category" class="form-control" formControlName="category">
+                            <option [ngClass]="null" selected>Select status...</option>
+                            <option value='SUV'>SUV</option>
+                            <option value='HATCHBACK'>HATCHBACK</option>
+                            <option value='SEDAN'>SEDAN</option>
+                        </select>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="form-group">
+                    <label for="status">status:</label>
+        
+                    <select id="status" class="form-control" formControlName="status">
+                        <option [ngClass]="null" selected>Select status...</option>
+                        <option value='Available'>Available</option>
+                        <option value='Not-Available'>Not-Available</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="form-group">
+                    <label for="fuelType">fuelType:</label>
+        
+                        <select id="fuelType" class="form-control" formControlName="fuelType">
+                            <option [ngClass]="null" selected>Select status...</option>
+                            <option value='Petrol'>Petrol</option>
+                            <option value='Diesel'>Diesel</option>
+                        </select>
+                </div>
+            </div>
+
         </div>
-
-        <div class="form-group">
-            <label for="price">Price:</label>
-            <input 
-                formControlName="price"
-                id="price" 
-                type="text" 
-                class="form-control">
-        </div>
-
-        <div class="form-group">
-            <label for="companyID">Company ID:</label>
-            <input 
-                formControlName="companyID"
-                id="companyID" 
-                type="text" 
-                class="form-control">
-        </div>
-
-        <div class="form-group">
-            <label for="category">Car Category:</label>
-            <input 
-                formControlName="category"
-                id="category" 
-                type="text" 
-                class="form-control">
-        </div>
-
-        <div class="form-group">
-            <label for="status">Car Availability:</label>
-            <input 
-                formControlName="status"
-                id="status" 
-                type="text" 
-                class="form-control">
-        </div>
-
-        <div class="form-group">
-            <label for="fuelType">Fuel Type:</label>
-            <input 
-                formControlName="fuelType"
-                id="fuelType" 
-                type="text" 
-                class="form-control">
-        </div>
-
-        <div class="form-group">
-            <label for="horsePower">Horse Power:</label>
-            <input 
-                formControlName="horsePower"
-                id="horsePower" 
-                type="text" 
-                class="form-control">
-        </div>
-  
-
-        <div class="form-group">
-            <label for="speedPerSec">Speed Per Second:</label>
-            <input 
-                formControlName="speedPerSec"
-                id="speedPerSec" 
-                type="text" 
-                class="form-control">
-        </div>
-
-        <div class="form-group">
-            <label for="topSpeed">Top Speed</label>
-            <input 
-                formControlName="topSpeed"
-                id="topSpeed" 
-                type="text" 
-                class="form-control">
-           
+        <div class="row">
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="horsePower">Horse Power:</label>
+                    <input 
+                        formControlName="horsePower"
+                        id="horsePower" 
+                        type="text" 
+                        class="form-control">
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="speedPerSec">Speed Per Second:</label>
+                    <input 
+                        formControlName="speedPerSec"
+                        id="speedPerSec" 
+                        type="text" 
+                        class="form-control">
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="topSpeed">Top Speed</label>
+                    <input 
+                        formControlName="topSpeed"
+                        id="topSpeed" 
+                        type="text" 
+                        class="form-control">
+                   
+                </div>
+            </div>
         </div>
         <div>
             <button type="submit" (click)="postCar()" class="btn btn-sm"> SUBMIT</button>
         </div>
         
-
+<br>
     </form>
 </div>
+
+

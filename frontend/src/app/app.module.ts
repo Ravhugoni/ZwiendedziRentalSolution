@@ -24,6 +24,8 @@ import { BookingListComponent } from './pages/booking/booking-list/booking-list.
 import {DataTablesModule} from 'angular-datatables';
 import { CreateComponent } from './pages/create/create.component';
 import { BookingModalComponent } from './pages/booking/booking-modal/booking-modal.component';
+import { CarProdComponent } from './pages/car-prod/car-prod.component';
+import { EditCarComponent } from './pages/edit-car/edit-car.component';
 
 
 @NgModule({
@@ -40,7 +42,9 @@ import { BookingModalComponent } from './pages/booking/booking-modal/booking-mod
     EditUserComponent,
     BookingModalComponent,
     BookingListComponent,
-    CreateComponent
+    CreateComponent,
+    CarProdComponent,
+    EditCarComponent,
   ],
   imports: [
     BrowserModule,

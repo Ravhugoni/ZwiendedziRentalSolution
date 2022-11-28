@@ -37,8 +37,8 @@ export class UserService {
   }
   
   updateProfile(id: any, data: any): Observable<any> {
-    let API_URL = this.REST_API + '/profile/users/:id';
-    return this.httpClient.put(API_URL, data).pipe();
+    let API_URL = this.REST_API + '/users/'+id;
+    return this.httpClient.patch(API_URL, data).pipe();
   }
 
   updateUser(id: any, data: any): Observable<any> {
