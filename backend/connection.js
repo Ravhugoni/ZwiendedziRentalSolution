@@ -4,7 +4,7 @@ const pool = new Pool({
   host: 'localhost',
   database: 'car_rental',
   password: 'admin12345',
-  port: 5433,
+  port: 5432,
 })
 
 
