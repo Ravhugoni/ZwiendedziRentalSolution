@@ -27,7 +27,6 @@ import { BookingModalComponent } from './pages/booking/booking-modal/booking-mod
 import { CarProdComponent } from './pages/car-prod/car-prod.component';
 import { EditCarComponent } from './pages/edit-car/edit-car.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
