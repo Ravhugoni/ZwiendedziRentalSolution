@@ -26,6 +26,7 @@ export class BookingComponent implements OnInit {
     pickup_date: new FormControl(''),
     dropoff_date: new FormControl('')
   });
+  public loggedEmail:string = sessionStorage.getItem('loggedEmail');
 
   submitted = false;
 
@@ -75,7 +76,7 @@ export class BookingComponent implements OnInit {
     this.userServive.GetAllUsers().subscribe((res:any) => {
       // this.users = res;
       let result = res;
-      this.users = result.filter(ress => ress.email === "test@mail.com")
+      this.users = result.filter(ress => ress.email === this.loggedEmail)
       console.log(this.users);
     });
 
@@ -110,16 +111,20 @@ export class BookingComponent implements OnInit {
         car_id: this.cid,
         pickup_date: this.BookingForm.value.pickup_date,
         dropoff_date: this.BookingForm.value.dropoff_date,
-        bk_status: 'pending'
+        bk_status: 'Pending'
       }
   
       console.log(bookingDetails);
   
       this.bookingService.AddBooking(bookingDetails).subscribe((next:any) => {
           console.log('Add successfully!');
+          this.router.navigate(['/profile']);
           this.openSuccess();
           this.submitted = false;
         });
+
+        this.router.navigate(['/profile']);
+        this.openSuccess();
     }
     else{
 

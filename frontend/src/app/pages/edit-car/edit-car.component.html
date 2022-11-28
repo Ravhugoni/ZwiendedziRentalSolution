@@ -1,5 +1,5 @@
-<div class="container">
-    <h1>Create New Post</h1>
+<div class="container my-4">
+    <h1>Update car</h1>
   
     <a href="#" routerLink="/carlist" class="btn btn-primary">Back</a>
     
@@ -14,10 +14,10 @@
                 class="form-control">
         </div>
   
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label class="form-label" for="customFile">Car Image</label>
             <input type="file" class="form-control" id="customFile" formControlName="carImg" (change)="onFileChange($event)"/>
-        </div>
+        </div> -->
 
         <div class="form-group">
             <label for="model">model:</label>
@@ -56,50 +56,39 @@
         </div>
 
         <div class="form-group">
-
-            <div class="row">
-                <label for="inputPassword" class="col-lg-12 col-sm-12 col-form-label">
-                  Company brunch</label>
-                <div class=" col-lg-12 col-sm-12">
-                    <select id="companyID" class="form-control" formControlName="companyID">
-                        <option [ngClass]="null" selected>Select Location...</option>
-                        <option *ngFor="let cp of company" value='{{cp.companyID}}'>{{cp.companyName}}</option>
-                      </select>
-                </div>
-            </div>
-
-
+            <label for="companyID">companyID:</label>
+            <input 
+                formControlName="companyID"
+                id="companyID" 
+                type="text" 
+                class="form-control">
         </div>
 
         <div class="form-group">
             <label for="category">category:</label>
-
-                <select id="category" class="form-control" formControlName="category">
-                    <option [ngClass]="null" selected>Select status...</option>
-                    <option value='SUV'>SUV</option>
-                    <option value='HATCHBACK'>HATCHBACK</option>
-                    <option value='SEDAN'>SEDAN</option>
-                </select>
+            <input 
+                formControlName="category"
+                id="category" 
+                type="text" 
+                class="form-control">
         </div>
 
         <div class="form-group">
             <label for="status">status:</label>
-
-            <select id="status" class="form-control" formControlName="status">
-                <option [ngClass]="null" selected>Select status...</option>
-                <option value='Available'>Available</option>
-                <option value='Not-Available'>Not-Available</option>
-            </select>
+            <input 
+                formControlName="status"
+                id="status" 
+                type="text" 
+                class="form-control">
         </div>
 
         <div class="form-group">
             <label for="fuelType">fuelType:</label>
-
-                <select id="fuelType" class="form-control" formControlName="fuelType">
-                    <option [ngClass]="null" selected>Select status...</option>
-                    <option value='Petrol'>Petrol</option>
-                    <option value='Diesel'>Diesel</option>
-                </select>
+            <input 
+                formControlName="fuelType"
+                id="fuelType" 
+                type="text" 
+                class="form-control">
         </div>
 
         <div class="form-group">
@@ -131,7 +120,7 @@
            
         </div>
         <div>
-            <button type="submit" (click)="postCar()" class="btn btn-sm"> SUBMIT</button>
+            <button type="submit" (click)="EditCar()" class="btn btn-sm"> SUBMIT</button>
         </div>
         
 

@@ -115,7 +115,7 @@ ngOnDestroy(): void {
         console.log(userDetails);
 
 
-        this.userServive.updateProfile(this.uid, userDetails).subscribe((next) => {
+        this.userServive.updateProfile(Number.parseInt(this.uid), userDetails).subscribe((next:any) => {
           this.openSuccess();
           this.router.navigate(['/profile']);
 
