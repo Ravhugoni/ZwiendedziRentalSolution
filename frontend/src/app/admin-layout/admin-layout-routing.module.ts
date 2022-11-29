@@ -1,11 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AdminLayoutComponent } from './admin-layout.component';
+import { AdminLandingComponent } from '../pages/admin-landing/admin-landing.component';
 
-const routes: Routes = [{ path: '', component: AdminLayoutComponent }];
-
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
-})
-export class AdminLayoutRoutingModule { }
+export const AdminLayoutRoutes: Routes = [
+  {  path: '',      component: AdminLandingComponent }
+];
