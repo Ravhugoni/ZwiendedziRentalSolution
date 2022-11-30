@@ -8,7 +8,7 @@ const company = require('../Controllers/company')
 // const port = 3001
 const port = process.env.PORT || 3001;
 const login = require("../Controllers/login")
-const numCars = require("../Controllers/numCars")
+const numCars = require("../Controllers/numUsers")
 const reg = require("../Controllers/register")
 const bookings = require ("../Controllers/bookings")
 require("../database/dotenv");
@@ -96,8 +96,9 @@ router.post('/cars', products.postCar)
 router.put('/cars/:id', products.updateCar)
 router.delete('/cars/:id', products.deleteCar)
 
-//route for number of products
-router.get('/num', numCars.getNum)
+//route for number of users
+router.get('/num/users', numCars.getAllUsers)
+router.get('/num/usersByReg', numCars.getUsersBYReg)
 
 
 //routes for company
@@ -113,6 +114,9 @@ router.post('/products/cars', products.postCar)
 router.get('/products/carsByCat', products.getCarById)
 router.put('/products/cars/:id', products.updateCar)
 router.delete('/cars/:id', products.deleteCar)
+
+//routes for the number of cars
+// router.get('/num/users', numCars.getAllUsers)
 
 router.listen(port, () => {
     console.log(`App running on port ${port}.`)
