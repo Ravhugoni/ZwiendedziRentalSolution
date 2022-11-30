@@ -1,0 +1,91 @@
+
+<!--<div class="d-flex flex-column flex-shrink-0 p-3 side-nav">
+
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+      <span class="fs-4">Sidebar</span>
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-link text-white">
+        <a href="#" class="nav-link active" aria-current="page">
+            <span><i class="bi bi-speedometer"></i></span>
+        </a>
+      </li>
+     <li>
+        <a class="nav-link text-white">
+          <svg class="bi bi-speedometer" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
+          Bookings
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link text-white">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+          Users
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link text-white">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
+          Vehicles
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link link-dark">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
+          Customers
+        </a>
+      </li>
+    </ul>
+    <hr>
+    <div class="dropdown">
+      <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+        <strong>mdo</strong>
+      </a>
+      <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+        <li><a class="dropdown-item" href="#">New project...</a></li>
+        <li><a class="dropdown-item" href="#">Settings</a></li>
+        <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#">Sign out</a></li>
+      </ul>
+    </div> 
+  </div>-->
+
+  <div class="side-nav shadow">
+    <div class="container mx-auto text-white">
+        <div class="mb-4 mt-4 border-bottom border-warning">
+            <span><a><i class="bi bi-speedometer"></i> Dashboard</a></span>
+        </div>
+
+        <div class="mb-2">
+            <span><a [routerLink]="['/users']" ><i class="bi bi-people-fill"></i> Users</a></span>
+        </div>
+
+        <div class="mb-2">
+            <span><a [routerLink]="['/users']"><i class="bi bi-journal-text"></i> Booking</a></span>
+        </div>
+
+        <div class="mb-2">
+            <span>
+                <a [routerLink]="['/carlist']"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-car-front-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2.52 3.515A2.5 2.5 0 0 1 4.82 2h6.362c1 0 1.904.596 2.298 1.515l.792 1.848c.075.175.21.319.38.404.5.25.855.715.965 1.262l.335 1.679c.033.161.049.325.049.49v.413c0 .814-.39 1.543-1 1.997V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.338c-1.292.048-2.745.088-4 .088s-2.708-.04-4-.088V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.892c-.61-.454-1-1.183-1-1.997v-.413a2.5 2.5 0 0 1 .049-.49l.335-1.68c.11-.546.465-1.012.964-1.261a.807.807 0 0 0 .381-.404l.792-1.848ZM3 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm10 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM6 8a1 1 0 0 0 0 2h4a1 1 0 1 0 0-2H6ZM2.906 5.189l.956-1.913A.5.5 0 0 1 4.309 3h7.382a.5.5 0 0 1 .447.276l.956 1.913a.51.51 0 0 1-.497.731c-.91-.073-3.35-.17-4.597-.17-1.247 0-3.688.097-4.597.17a.51.51 0 0 1-.497-.731Z"/>
+                </svg>Vehicles</a>
+            </span>
+        </div>
+        <div class="mb-5 mt-4 border-bottom border-warning">
+            <span><b> <i class="bi bi-journal-bookmark"></i>  SAVED REPORTS</b></span>
+        </div>
+        <div class="mb-2">
+            <span><a [routerLink]="['/users']"><i class="bi bi-journal-bookmark-fill"></i> Current Months</a></span>
+        </div>
+        <div class="mb-2">
+            <span><a [routerLink]="['/users']"><i class="bi bi-journal-bookmark-fill"></i> Last quarter</a></span>
+        </div>
+        <div class="mb-2">
+            <span><a [routerLink]="['/users']"><i class="bi bi-journal-bookmark-fill"></i> Year-end </a></span>
+        </div>
+        <span></span>
+    </div>
+  </div>

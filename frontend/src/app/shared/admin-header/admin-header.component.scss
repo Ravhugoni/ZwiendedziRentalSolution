@@ -1,0 +1,25 @@
+.nav
+{
+    height: 48px;
+    position: static;
+}
+.profile-img
+{
+    background-color: black;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+.profile-img img{
+    height: 100%;
+    max-width: 100%;
+    // margin: auto;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.logo-img
+{
+    height: 30px;
+    padding-left: 10px;
+}

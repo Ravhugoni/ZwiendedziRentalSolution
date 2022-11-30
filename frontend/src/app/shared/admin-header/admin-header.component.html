@@ -1,15 +1,19 @@
 
-  <div class="row justify-content-between">
-    <div class="col-4">
-      ZWIENDEDZI
+  <div class="row nav shadow">
+    <div class="col-8 my-auto">
+        <img src="../../../assets/logo.png" class="logo-img">
     </div>
-    <div class="col-4">
-      <div class="row">
-        <div class="col-6">
-            <a href="#">My Account</a>
+    <div class="col-4 my-auto ">
+      <div class="row justify-content-end float-right">
+        <div class="col-4">
+            <a [routerLink]="['/profile']">
+                <div class="profile-img shadow">
+                    <img src="../../../assets/bg5.jpg">
+                </div>
+            </a>
         </div>
-        <div class="col-6">
-            <a href="">Log Out</a>
+        <div class="col-8 float-right my-auto">
+            <a class="btn btn-danger btn-sm text-white"><i class="bi bi-box-arrow-right"></i></a>
         </div>
       </div>
     </div>

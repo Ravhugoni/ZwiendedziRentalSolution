@@ -4,5 +4,12 @@ $primary: #900;
 $enable-shadows: true;
 $prefix: "mo-";
 
+:root{
+    --main-bg:#08013a;
+    --white:#ffffff;
+    --gray:#72788B;
+    --yellow:#FFBE16;
+  }
+
 // Then import Bootstrap
 @import "../node_modules/bootstrap/scss/bootstrap";
