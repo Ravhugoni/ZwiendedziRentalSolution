@@ -45,6 +45,15 @@ export class UserService {
     return this.httpClient.patch(`${this.REST_API}/users/${id}`, data);
   }
 
+  // Get all Registered Users
+  GetNumUsers() {
+    return this.httpClient.get(this.REST_API + '/num/users');
+  }
+
+  GetNumUsersByReg() {
+    return this.httpClient.get(this.REST_API + '/num/usersByReg');
+  }
+
   
 
 //   // Get single object
