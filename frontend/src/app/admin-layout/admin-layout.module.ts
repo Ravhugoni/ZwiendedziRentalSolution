@@ -7,7 +7,8 @@ import { SideBarComponent } from '../shared/side-bar/side-bar.component';
 import { AdminLandingComponent } from '../pages/admin-landing/admin-landing.component';
 import { RouterModule } from '@angular/router';
 import { AdminHeaderComponent } from '../shared/admin-header/admin-header.component';
-
+import { UsersComponent } from '../pages/admin-landing/users/users.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [
@@ -15,9 +16,11 @@ import { AdminHeaderComponent } from '../shared/admin-header/admin-header.compon
     SideBarComponent,
     AdminHeaderComponent,
     AdminLandingComponent,
+    UsersComponent
   ],
   imports: [
     CommonModule,
+    NgApexchartsModule,
     // AdminLayoutRoutingModule
     RouterModule.forChild(AdminLayoutRoutes),
   ]
