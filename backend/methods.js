@@ -23,9 +23,9 @@ const getUsers = (request, response) => {
   
   const postUsers = (req, res) => {
 
-    const { firstName, lastName, contacNO, email,password, userType } = req.body
+    const { firstname, lastname, email, phone, password, usertype} = req.body
 
-    pool.query('INSERT INTO public.users ("firstName", "lastName", "contactNo", email, password, "userType") VALUES ($1, $2, $3, $4, $5, $6)',  [firstName, lastName, contacNO, email,password, userType ], (error, results) => {
+    pool.query('INSERT INTO public.users (firstname,lastname, email, phone, password, usertype) VALUES ($1, $2, $3, $4, $5, $6)',  [firstname, lastname, email, phone, password, usertype], (error, results) => {
       if (error) {
         throw error
       }
