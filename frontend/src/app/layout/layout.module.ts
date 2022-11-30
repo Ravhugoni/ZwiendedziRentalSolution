@@ -13,6 +13,7 @@ import { PromotionsComponent } from '../pages/promotions/promotions.component';
 import { BookingComponent } from '../pages/booking/booking.component';
 import { BookingModalComponent } from '../pages/booking/booking-modal/booking-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   imports: [
     CommonModule,
+    // NgChartsModule,
     RouterModule.forChild(LayoutRoutes),
   ]
 })
