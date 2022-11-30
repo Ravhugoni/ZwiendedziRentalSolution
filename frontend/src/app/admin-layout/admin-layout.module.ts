@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { AdminHeaderComponent } from '../shared/admin-header/admin-header.component';
 import { UsersComponent } from '../pages/admin-landing/users/users.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import { CarsComponent } from '../pages/admin-landing/cars/cars.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     SideBarComponent,
     AdminHeaderComponent,
     AdminLandingComponent,
-    UsersComponent
+    UsersComponent,
+    CarsComponent,
   ],
   imports: [
     CommonModule,
