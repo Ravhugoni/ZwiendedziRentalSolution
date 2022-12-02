@@ -119,6 +119,8 @@ router.delete('/cars/:id', products.deleteCar)
 //routes for the number of cars
 router.get('/num/cars', numCars.getAllCars)
 router.get('/num/carByCat', numCars.getAllByCat)
+router.get('/num/carByDate', numCars.getNumByDate)
+
 
 
 router.listen(port, () => {

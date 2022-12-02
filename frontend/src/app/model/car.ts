@@ -1,5 +1,6 @@
 export interface Car {
-    numuser: any;
-    created_at: any;
+    count: any;
     category: any;
+    to_char: any;
+    
 }

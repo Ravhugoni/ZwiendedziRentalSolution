@@ -14,9 +14,9 @@ const pool = require("../connection")
 
   const getAllByCat = (req,res)=>{
 
-    const {category} = req.body;
+    //const {category} = req.body;
 
-    pool.query("SELECT COUNT(cars.id) AS numCars, TO_CHAR(created_at, 'YYYY-mm') AS created_at FROM public.cars WHERE LOWER(category) =$1 GROUP BY TO_CHAR(created_at, 'YYYY-mm');",[category],(error ,results)=>{
+    pool.query("SELECT count(id), TO_CHAR(created_at, 'yyyy-mm'), category FROM public.cars GROUP BY TO_CHAR(created_at, 'yyyy-mm'), category ORDER BY TO_CHAR(created_at, 'yyyy-mm') ASC;",(error ,results)=>{
     if(error){
         throw error
     }
@@ -24,18 +24,19 @@ const pool = require("../connection")
     })
   }
 
-//   const getUsersBYReg = (req,res)=>{
+  const getNumByDate = (req,res)=>{
 
-//     pool.query("SELECT count(id) as numcars, TO_CHAR(created_at, 'YYYY-mm') AS created_at FROM public.cars GROUP BY TO_CHAR(created_at, 'YYYY-mm') ORDER BY TO_CHAR(created_at, 'YYYY-mm') ASC;",(error ,results)=>{
-//     if(error){
-//         throw error
-//     }
-//     res.status(200).json(results.rows)
-//     })
-//   }
+    pool.query("SELECT COUNT(*), TO_CHAR(created_at, 'yyyy-mm') FROM cars WHERE TO_CHAR(created_at, 'yyyy-mm') = '2022-12' GROUP BY TO_CHAR(created_at, 'yyyy-mm')",(error ,results)=>{
+    if(error){
+        throw error
+    }
+    res.status(200).json(results.rows)
+    })
+  }
 
  
   module.exports = {
     getAllCars,
-    getAllByCat
+    getAllByCat,
+    getNumByDate
   }

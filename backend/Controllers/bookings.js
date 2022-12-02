@@ -4,7 +4,7 @@ const pool = require("../connection")
 
 const addBooking = (req,res)=>{
   const {comp_id, user_id, car_id, pickup_date, dropoff_date,bk_status} = req.body;
-   pool.query('INSERT INTO public.booking(comp_id, user_id, car_id, pickup_date, dropoff_date, bk_status) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *', 
+   pool.query('INSERT INTO public.bookings(comp_id, user_id, car_id, pickup_date, dropoff_date, bk_status) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *', 
    [comp_id, user_id, car_id, pickup_date, dropoff_date, bk_status], (error, results) =>{
 
     if(error){

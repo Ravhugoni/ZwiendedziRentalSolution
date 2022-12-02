@@ -10,6 +10,7 @@ import { AdminHeaderComponent } from '../shared/admin-header/admin-header.compon
 import { UsersComponent } from '../pages/admin-landing/users/users.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { CarsComponent } from '../pages/admin-landing/cars/cars.component';
+import { ReportComponent } from '../pages/admin-landing/report/report.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { CarsComponent } from '../pages/admin-landing/cars/cars.component';
     AdminLandingComponent,
     UsersComponent,
     CarsComponent,
+    ReportComponent,
   ],
   imports: [
     CommonModule,

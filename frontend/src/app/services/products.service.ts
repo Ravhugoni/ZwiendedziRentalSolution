@@ -59,12 +59,17 @@ export class ProductsService {
   }
 
   //getting cars by categories
-  GetAllByCat(category:any): Observable<any> {
-    category = {
-      category: "SUV"
-    }
-    let API_URL = this.REST_API+ '/products/carsByCat';
-    return this.httpClient.get("http://localhost:3001/num/carByCat",category);
+  GetAllByCat(){
+    
+    let API_URL = this.REST_API+ '/num/carByCat';
+    return this.httpClient.get(API_URL).pipe();
+  }
+
+  //getting cars in the current month
+  GetAllByDate(){
+    
+    let API_URL = this.REST_API+ '/num/carByDate';
+    return this.httpClient.get(API_URL).pipe();
   }
 
 }

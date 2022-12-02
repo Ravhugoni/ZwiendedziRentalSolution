@@ -28,6 +28,7 @@ import { CarProdComponent } from './pages/car-prod/car-prod.component';
 import { EditCarComponent } from './pages/edit-car/edit-car.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +46,7 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     CreateComponent,
     CarProdComponent,
     EditCarComponent,
+    
   ],
   imports: [
     BrowserModule,
