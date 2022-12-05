@@ -9,6 +9,7 @@ import { CompanyService } from 'src/app/services/company.service';
 import { ProductsService } from 'src/app/services/products.service';
 import { UserService } from 'src/app/services/user.service';
 import jwt_decode from 'jwt-decode';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-booking-modal',
@@ -37,7 +38,9 @@ export class BookingModalComponent implements OnInit {
   public loggedEmail:string = sessionStorage.getItem('loggedEmail');
   submitted = false;
 
-  constructor(private modalService: NgbModal, private bookingService: BookingService, private productsService: ProductsService, private companyService: CompanyService, private userServive:UserService, private router: Router,private route: ActivatedRoute, private toast: NgToastService, public fb: FormBuilder) { 
+  constructor(private modalService: NgbModal, private bookingService: BookingService, private productsService: ProductsService, 
+    private companyService: CompanyService, private userServive:UserService, private router: Router,
+    private route: ActivatedRoute, private toast: NgToastService, public fb: FormBuilder, private spinnerService: NgxSpinnerService) { 
     
     this.bookingService.GetList().subscribe((res:any) => {
       // this.bookings = res;
@@ -73,6 +76,7 @@ export class BookingModalComponent implements OnInit {
   ngOnInit(): void {
 
     this.myForm();
+    this.showSpinner();
 
     this.sub = this.route.params.subscribe(params => {
       return this.bid = params['id'];
@@ -147,6 +151,13 @@ export class BookingModalComponent implements OnInit {
 
   get formValidation(): { [key: string]: AbstractControl } {
     return this.BookingForm.controls;
+  }
+  showSpinner(): void {
+    this.spinnerService.show();
+
+    setTimeout(() => {
+      this.spinnerService.hide();
+    }, 1000); // 2 seconds
   }
 
 

@@ -21,7 +21,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     AdminLandingComponent,
     UsersComponent,
     CompanyComponent,
-    BookingComponent
+    BookingComponent,
+    
   ],
   imports: [
     CommonModule,

@@ -1,11 +1,13 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-12 col-sm-12 col-md-12 text-center my-3">
-            <h1>Bookings</h1>
+            <div class="header">
+              <h1 class="pt-4">Bookings</h1>
+            </div>
         </div>
     </div>
 
-    <div class="row">
+    <div class="row shadow">
        <div class="col-lg-12 col-md-12 col-sm-12">
         <table class="table table-responsive row-border hover" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
             <thead>
@@ -48,7 +50,7 @@
                   <span *ngIf="booking.bk_status =='Declined'" class="btn-danger status_btn">{{booking.bk_status}}</span>
                 </td>
                 <td>
-                    <button class="btn btn-primary my-1"><a class="text-white" [routerLink]="['/editbooking',booking.id]"><i class="bi bi-pencil"></i></a></button>
+                    <button class="btn btn-primary my-1"><a class="text-white" [routerLink]="['/admin/editbooking',booking.id]"><i class="bi bi-pencil"></i></a></button>
                     <!-- <button class="btn btn-primary"><i class="bi bi-trash"></i></button> -->
                 </td>
               </tr>
@@ -57,4 +59,6 @@
        </div>
     </div>
    </div>
+
+   <ngx-spinner bdColor = "rgba(0,0,0,0.8)" size = "large" color = "#ffbe16" type = "ball-atom" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
     

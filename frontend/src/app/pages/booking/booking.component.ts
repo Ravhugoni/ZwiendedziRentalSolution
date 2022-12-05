@@ -8,6 +8,7 @@ import { UserService } from 'src/app/services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { ProductsService } from 'src/app/services/products.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-booking',
@@ -30,8 +31,9 @@ export class BookingComponent implements OnInit {
 
   submitted = false;
 
-  constructor(private modalService: NgbModal, private bookingService: BookingService, private productsService: ProductsService, private companyService: CompanyService, private userServive:UserService, private router: Router,private route: ActivatedRoute, private toast: NgToastService, public fb: FormBuilder) { 
-    this.myForm();
+  constructor(private modalService: NgbModal, private bookingService: BookingService, private productsService: ProductsService,
+    private companyService: CompanyService, private userServive:UserService, private router: Router,
+    private route: ActivatedRoute, private toast: NgToastService, public fb: FormBuilder, private spinnerService: NgxSpinnerService) { 
   }
 
   myForm() {
@@ -51,6 +53,8 @@ export class BookingComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.myForm();
+    this.showSpinner();
     this.sub = this.route.params.subscribe(params => {
       return this.cid = params['id'];
     });
@@ -135,6 +139,14 @@ export class BookingComponent implements OnInit {
   }
   openWarning(){
     this.toast.warning({detail:'Warning',summary:'Sorry! something went wrong', sticky:true,position:'tr'})
+  }
+
+  showSpinner(): void {
+    this.spinnerService.show();
+
+    setTimeout(() => {
+      this.spinnerService.hide();
+    }, 1000); // 2 seconds
   }
 
 }
