@@ -27,6 +27,7 @@ import { BookingModalComponent } from './pages/booking/booking-modal/booking-mod
 import { CarProdComponent } from './pages/car-prod/car-prod.component';
 import { EditCarComponent } from './pages/edit-car/edit-car.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     DataTablesModule,
     BsDatepickerModule.forRoot(),
     NgbModule,
+    NgxSpinnerModule,
     NgApexchartsModule
     
   

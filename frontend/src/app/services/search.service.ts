@@ -3,12 +3,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Booking } from '../model/booking';
 import { Observable } from 'rxjs';
 
-const baseUrl = 'http://localhost:3001/bookings';
-
 @Injectable({
   providedIn: 'root'
 })
-export class CompanyService {
+export class SearchService {
 
   REST_API: string = 'http://localhost:3001';
   // Http Header
@@ -17,19 +15,12 @@ export class CompanyService {
   constructor(private http : HttpClient) { }
 
     // Get all objects
-  GetList() {
-    return this.http.get(this.REST_API + '/company');
+  GetAvailable(data:any): Observable<any> {
+    return this.http.get(this.REST_API + '/availableCars', data);
   }
 
-  GetTotalCompany() {
-    return this.http.get(this.REST_API + '/num/company');
-  }
-
-  GetCompanyByReg() {
-    return this.http.get(this.REST_API + '/num/companyByReg');
+  GetAvailableByCampany(data:any): Observable<any> {
+    return this.http.get(this.REST_API + '/availableCarByCompany', data);
   }
  
 }
-
-
-

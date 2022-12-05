@@ -35,7 +35,7 @@ export class BookingListComponent implements OnInit {
 
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 5,
+      pageLength: 10,
       lengthMenu : [5, 10, 25],
       processing: true
      };

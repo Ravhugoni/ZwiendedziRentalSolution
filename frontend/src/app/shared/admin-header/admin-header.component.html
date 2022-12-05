@@ -1,19 +1,38 @@
 
-  <div class="row nav shadow">
+  <div class="row nav shadow" *ngFor="let user of users">
     <div class="col-8 my-auto">
         <img src="../../../assets/logo.png" class="logo-img">
     </div>
     <div class="col-4 my-auto ">
       <div class="row justify-content-end float-right">
-        <div class="col-4">
-            <a [routerLink]="['/profile']">
-                <div class="profile-img shadow">
-                    <img src="../../../assets/bg5.jpg">
-                </div>
-            </a>
-        </div>
-        <div class="col-8 float-right my-auto">
-            <a class="btn btn-danger btn-sm text-white"><i class="bi bi-box-arrow-right"></i></a>
+        <div class="col-12">
+            <div class="dropdown">
+                <a class="" type="button" id="menu1" data-toggle="dropdown">
+                    <div class="profile-img shadow">
+                        <img src="../../../assets/bg5.jpg">
+                    </div>
+                  <!-- <span class="caret"></span> -->
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                  <li role="presentation" class="text-secondary"><a role="menuitem" tabindex="-1">Account</a></li>
+                  <li role="presentation" class="border-bottom"><a role="menuitem" tabindex="-1" [routerLink]="['/profile']">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="profile-img shadow mb-2">
+                                <img src="../../../assets/bg5.jpg">
+                            </div>
+                        </div>
+                        <div class="col-6 profile-info">
+                            {{user.firstname}} <br/>
+                            <small class="text-secondary">{{user.email}}</small>
+                        </div>
+                    </div>
+                </a></li>
+
+                  <li role="presentation" class="divider"></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" (click)="LogOut()">Logout</a></li>
+                </ul>
+            </div>  
         </div>
       </div>
     </div>
