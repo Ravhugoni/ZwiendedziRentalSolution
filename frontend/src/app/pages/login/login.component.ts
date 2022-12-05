@@ -53,10 +53,24 @@ export class LoginComponent implements OnInit {
           this.decoded = jwt_decode(res.token); 
 
           this.toast.success({detail:'Success',summary:'Successfully login!', sticky:false,position:'tr', duration:6000})
-          this.router.navigate(['/']);
-
+          
           sessionStorage.setItem('loggedInToken', res.token);
           sessionStorage.setItem('loggedEmail', this.decoded.email);
+
+          this.userServive.GetAllUsers().subscribe((res:any) =>{
+            let result = res;
+            let users
+            users = result.filter(ress => (ress.email).toLowerCase() === (this.decoded.email).toLowerCase())
+
+            if(users[0].usertype === 'admin')
+            {
+              this.router.navigate(['/admin']);
+            }
+            if(users[0].usertype === 'client')
+            {
+              this.router.navigate(['/']);
+            }
+          });
 
           this.submitted = false;
         }, (err) => {

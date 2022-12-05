@@ -44,6 +44,7 @@
                 <td>
                   <span *ngIf="booking.bk_status =='Approved'" class="btn-success status_btn">{{booking.bk_status}}</span>
                   <span *ngIf="booking.bk_status =='Pending'" class="btn-warning status_btn">{{booking.bk_status}}</span>
+                  <span *ngIf="booking.bk_status =='Cancelled'" class="btn-secondary status_btn">{{booking.bk_status}}</span>
                   <span *ngIf="booking.bk_status =='Declined'" class="btn-danger status_btn">{{booking.bk_status}}</span>
                 </td>
                 <td>

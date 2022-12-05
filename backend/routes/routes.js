@@ -5,12 +5,15 @@ const methods = require('../methods')
 const profile = require('../Controllers/profile')
 const products = require('../Controllers/Products')
 const company = require('../Controllers/company')
+const numCompany = require('../Controllers/numCompany')
+const numBooking = require('../Controllers/numBooking')
 // const port = 3001
 const port = process.env.PORT || 3001;
 const login = require("../Controllers/login")
 const numCars = require("../Controllers/numUsers")
 const reg = require("../Controllers/register")
 const bookings = require ("../Controllers/bookings")
+const search = require ("../Controllers/search")
 require("../database/dotenv");
 const cors = require('cors');
 const http = require('http')
@@ -100,6 +103,13 @@ router.delete('/cars/:id', products.deleteCar)
 router.get('/num/users', numCars.getAllUsers)
 router.get('/num/usersByReg', numCars.getUsersBYReg)
 
+//route for number of Companies
+router.get('/num/company', numCompany.getAllCompany)
+router.get('/num/companyByReg', numCompany.getCompanyBYReg)
+
+//route for number of Bookings
+router.get('/num/booking', numBooking.getTotalNumBooking)
+router.get('/num/bookingByReg', numBooking.getBookingBYReg)
 
 //routes for company
 router.post('/company', company.addCompany)
@@ -115,8 +125,10 @@ router.get('/products/carsByCat', products.getCarById)
 router.put('/products/cars/:id', products.updateCar)
 router.delete('/cars/:id', products.deleteCar)
 
-//routes for the number of cars
-// router.get('/num/users', numCars.getAllUsers)
+// routes for the available and booked cars
+router.get('/bookedCars', search.getBookedCars)
+router.get('/availableCars', search.getAvailableCars)
+router.get('/availableCarByCompany', search.getAvailableCarsByCompany)
 
 router.listen(port, () => {
     console.log(`App running on port ${port}.`)

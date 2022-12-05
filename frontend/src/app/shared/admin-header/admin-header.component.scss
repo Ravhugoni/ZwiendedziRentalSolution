@@ -23,3 +23,30 @@
     height: 30px;
     padding-left: 10px;
 }
+.dropdown
+{
+    margin-right: 40px;
+}
+.dropdown-menu
+{
+    margin-right: 150px;
+    padding-right: 100px;
+}
+
+.dropdown-menu a
+{
+    margin-left: 10px;
+    text-decoration: none;
+}
+.dropdown-menu .profile-img
+{
+    margin-left: 10px;
+    // margin-top: 10px;
+    text-decoration: none;
+}
+
+.dropdown-menu .profile-info
+{
+    margin-left: 6px;
+    margin-top: -6px;
+}

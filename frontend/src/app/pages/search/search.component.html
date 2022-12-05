@@ -1,75 +1,124 @@
-<div class="card mx-auto">
+<div class="search">
     <div class="row">
-        <div class="col-lg-10 col-sm-10 mx-5 my-2">
-            <div class="top row">
-                <label for="inputPassword" class="col-lg-2 col-sm-12 col-form-label">PICK-UP<br>LOCATION</label>
-                <div class=" col-lg-10 col-sm-12">
-                    <select id="inputState" class="form-control">
-                        <option selected>Select Location...</option>
-                        <option>Johannesburg CBD</option>
-                        <option>Midrand</option>
-                        <option>Pretoria</option>
-                      </select>
+        <div class="col-md-6 col-lg-6 mx-auto">
+            <form [formGroup] = "searchForm" novalidate>
+                <div class="card mx-auto">
+                    <div class="row">
+                        <div class="col-lg-10 col-sm-10 mx-5 my-2">
+                            <div class="top row">
+                                    <label for="inputPassword" class="col-lg-2 col-sm-12 col-form-label">PICK-UP<br>LOCATION</label>
+                                    <div class=" col-lg-12 col-sm-12">
+                                        <select id="inputState" class="form-control" formControlName="companyID">
+                                            <option [ngClass]="null" selected>Select Location...</option>
+                                            <option *ngFor="let cp of company" value='{{cp.companyID}}'>{{cp.companyName}}</option>
+                                          </select>
+                                    </div>
+                            </div>
+                        <br>
+                           <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="row">
+                                        <label for="inputPassword" class="col-lg-4 col-sm-12 col-form-label">PICK-UP<br>DATE</label>
+                    
+                                        <div class=" col-lg-8 col-md-12 col-sm-12">
+                                            <input type="datetime-local" class="form-control" min="{{currentDate}}" formControlName="pickup_date" placeholder="Datepicker"
+                                            [ngClass]="{ 'is-invalid': submitted && formValidation['pickup_date'].errors }"
+                                            />
+                    
+                                            <div *ngIf="submitted && formValidation['pickup_date'].errors" class="invalid-feedback">
+                                              <div *ngIf="formValidation['pickup_date'].errors['required']">Pickup date is required</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="row">
+                                        <label for="inputPassword" class="col-lg-4 col-sm-12 col-form-label">DROP-OFF<br>DATE</label>
+                                        <div class=" col-lg-8 col-md-12 col-sm-12">
+                                            <input type="datetime-local" class="form-control" formControlName="dropoff_date" placeholder="Datepicker"
+                                            [ngClass]="{ 'is-invalid': submitted && formValidation['dropoff_date'].errors }"
+                                            />
+                    
+                                            <div *ngIf="submitted && formValidation['dropoff_date'].errors" class="invalid-feedback">
+                                              <div *ngIf="formValidation['dropoff_date'].errors['required']">Dropoff date is required</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                           </div>
+                           <br>
+                        </div>
+                    </div>
+                
+                    <div class="row">
+                    
+                    </div>
+                
+                    <div class="row">
+                        <div class="col text-center">
+                            <button class="btn" (click)="searchbtn()">SEARCH FOR CARS <i class="bi bi-search"></i></button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="searched" *ngIf="searchedDIV">
+    <div class="row mx-2">
+        <div class="col text-center">
+            <div>
+                <div class="text-center">
+                    <h1 class="pt-3">Available vehicles</h1>
+                    <p>Don't dream it, Drive it.</p>
                 </div>
             </div>
-<br>
-           <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <div class="row">
-                        <label for="inputPassword" class="col-lg-4 col-sm-12 col-form-label">PICK-UP<br>DATE</label>
-                        <div class=" col-lg-8 col-sm-12">
-                            <input type="datetime-local" class="form-control" placeholder="Datepicker">
+            <div class="row my-4">
+                <div class="col-lg-3 col-md-4 col-sm-1" *ngFor="let car of cars">
+                  
+                  <div class="card shadow-lg p-3 mb-5">
+                    <div class="card-header">
+                      <div class="row text-center text-white">
+                        <div class="col">
+                          <p class="card-text"><i class="bi-star-fill pb-5"></i> <small><span> 4.1</span></small></p>
                         </div>
+                        <div class="col text-end">
+                          <p class="card-text"><small><i class="bi-heart-fill"></i></small></p>
+                        </div>
+                      </div>
+                    </div>
+                      <img src="{{car.carImage}}" alt="">
+                      <div class="card-body text-white">
+                        <div class="row">
+                          <div class="col float-lg-left"><h5 class="card-title">{{car.carName}}</h5></div>
+                          <div class="col"><small><a [routerLink]="['/booking',car.id]" class="btn text-end text-white">Booking</a></small></div>
+                        </div>
+                      </div>
+                      <div class="card-footer text-white border-top border-white py-0">
+                        <div class="row">
+                          <div class="col">
+                            <p><small>{{car.horsePower}} hp</small></p>
+                          </div>
+                          <div class="col">
+                            <p><small>{{car.speedPerSec}} sec</small></p>
+                          </div>
+                          <div class="col">
+                            <p><small>R {{car.price}}</small></p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <div class="row">
-                        <label for="inputPassword" class="col-lg-4 col-sm-12 col-form-label">DROP-OFF<br>DATE</label>
-                        <div class=" col-lg-8 col-sm-12">
-                            <input type="datetime-local" class="form-control" placeholder="Datepicker">
-                        </div>
-                    </div>
-                </div>
-           </div>
-           <br>
-<!-- 
-           <div class="row">
-                <div class="col-lg-6">
-                    <div class="row">
-                        <div class="col-auto">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="autoSizingCheck">
-                                <label class="text mb-3 text-white form-check-label" for="autoSizingCheck">
-                                  Terms & Conditions
-                                </label>
-                              </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="row">
-                        <div class="col-auto">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="autoSizingCheck">
-                                <label class="text mb-3 text-white form-check-label" for="autoSizingCheck">
-                                  Terms & Conditions
-                                </label>
-                              </div>
-                        </div>
-                    </div>
-                </div>
-           </div> -->
+        
+            </div>
+            <br><br><br>
+            
         </div>
     </div>
-
-    <div class="row">
-    
-    </div>
-
-    <div class="row">
-        <div class="col text-center">
-            <button class="btn">SEARCH FOR CARS <i class="bi bi-search"></i></button>
-        </div>
-    </div>
-    
 </div>
+
+<!-- <ngx-spinner type="ball-scale-multiple" [fullScreen] = "true"><img src='../../../assets/spinner2.gif' /></ngx-spinner> -->
+<ngx-spinner bdColor = "rgba(0,0,0,0.8)" size = "large" color = "#ffbe16" type = "ball-atom" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>

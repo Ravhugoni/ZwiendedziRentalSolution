@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-admin-landing',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminLandingComponent implements OnInit {
 
-  constructor() { }
+  constructor(private spinnerService: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    this.showSpinner()
+  }
+
+  showSpinner(): void {
+    this.spinnerService.show();
+
+    setTimeout(() => {
+      this.spinnerService.hide();
+    }, 2000); // 2 seconds
   }
 
 }

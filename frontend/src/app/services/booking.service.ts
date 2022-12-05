@@ -45,6 +45,15 @@ export class BookingService {
   findByTitle(title: any): Observable<Booking[]> {
     return this.http.get<Booking[]>(`${baseUrl}?title=${title}`);
   }
+  
+  getTotalBookings()
+  {
+    return this.http.get(this.REST_API + '/num/booking');
+  }
+  getTotalBookingsByReg()
+  {
+    return this.http.get(this.REST_API + '/num/bookingByReg');
+  }
 }
 
 
