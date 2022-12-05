@@ -2,16 +2,13 @@
     <div class="col-md-8" id="htmlData">
         <table class="table table-bordered">
             <tr class="table-primary">
-                <th>Id</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
+                
+                <th>Number Of Cars</th>
+                <th>Current Month</th>
             </tr>
-            <tr *ngFor="let user of USERS">
-                <th>{{user.id}}</th>
-                <td>{{user.name}}</td>
-                <td>{{user.email}}</td>
-                <td>{{user.phone}}</td>
+            <tr *ngFor="let car of cars">
+                <td>{{car.count}}</td>
+                <td>{{car.to_char}}</td>
             </tr>
         </table>
     </div>

@@ -1,7 +1,7 @@
 const Pool = require('pg').Pool
 const pool = require("../connection")
 
-
+  //getting all the cars
   const getAllCars = (req,res)=>{
 
     pool.query('SELECT COUNT(cars.id) AS numCars FROM public.cars;',(error ,results)=>{
@@ -12,6 +12,7 @@ const pool = require("../connection")
     })
   }
 
+  //getting all the cars in a specific category
   const getAllByCat = (req,res)=>{
 
     //const {category} = req.body;
@@ -24,6 +25,7 @@ const pool = require("../connection")
     })
   }
 
+  //counting the number of cars in the current month
   const getNumByDate = (req,res)=>{
 
     pool.query("SELECT COUNT(*), TO_CHAR(created_at, 'yyyy-mm') FROM cars WHERE TO_CHAR(created_at, 'yyyy-mm') = '2022-12' GROUP BY TO_CHAR(created_at, 'yyyy-mm')",(error ,results)=>{
