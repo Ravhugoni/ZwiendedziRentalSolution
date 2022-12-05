@@ -2,7 +2,9 @@
 
   <div class="row text-center py-4">
     <div class="col-lg-12">
-      <h1>User List</h1>
+      <div class="header">
+        <h1 class="pt-4">User List</h1>
+      </div>
     </div>
     
   </div>
@@ -29,7 +31,7 @@
             <td>{{user.phone}}</td>
             <td>{{user.usertype}}</td>
             <td>
-                <button [routerLink]="['/users',user.id]" class="bg-warning btn-outline-light mx-2"> <i class="bi bi-pencil"></i> </button>
+                <button [routerLink]="['/users',user.id]" class="btn btn-primary mx-2"> <i class="bi bi-pencil"></i> </button>
             </td>
           </tr>
         </tbody>
