@@ -22,10 +22,10 @@ import { UsersComponent } from './pages/users/users.component';
 import { EditUserComponent } from './pages/edit-user/edit-user.component';
 import { BookingListComponent } from './pages/booking/booking-list/booking-list.component';
 import {DataTablesModule} from 'angular-datatables';
+import { EditCarComponent } from './pages/edit-car/edit-car.component';
+import { CarProdComponent } from './pages/car-prod/car-prod.component';
 import { CreateComponent } from './pages/create/create.component';
 import { BookingModalComponent } from './pages/booking/booking-modal/booking-modal.component';
-import { CarProdComponent } from './pages/car-prod/car-prod.component';
-import { EditCarComponent } from './pages/edit-car/edit-car.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
@@ -65,8 +65,10 @@ import { NgxSpinnerModule } from 'ngx-spinner';
   
   ],
   entryComponents: [BookingModalComponent],
-
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+
