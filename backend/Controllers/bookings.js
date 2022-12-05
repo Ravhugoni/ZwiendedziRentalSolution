@@ -45,15 +45,22 @@ const updateBooking = (req,res)=>{
   const {comp_id, user_id, pickup_date, dropoff_date, bk_status} = req.body;
   const id = parseInt(req.params.id)
 
-  pool.query('UPDATE public.booking SET comp_id=$1, user_id=$2, pickup_date=$3, dropoff_date=$4, bk_status=$5 WHERE id=$6;',
-  [comp_id, user_id, pickup_date, dropoff_date, bk_status, id],
-    (error, results) => {
-      if (error) {
-        throw error
+  try{
+    pool.query('UPDATE public.booking SET comp_id=$1, user_id=$2, pickup_date=$3, dropoff_date=$4, bk_status=$5 WHERE id=$6;',
+    [comp_id, user_id, pickup_date, dropoff_date, bk_status, id],
+      (error, results) => {
+        if (error) {
+          throw error
+        }
+      res.status(200).send()
       }
-    res.status(200).send()
-    }
-  )
+    )
+  }
+  catch(error)
+  {
+    console.log('didnt update')
+  }
+
 }
 
 

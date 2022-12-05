@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
       this.userServive.UserLogin(logingDetails).subscribe(res => {
           this.decoded = jwt_decode(res.token); 
 
-          this.toast.success({detail:'Success',summary:'Successfully login!', sticky:true,position:'tr'})
+          this.toast.success({detail:'Success',summary:'Successfully login!', sticky:false,position:'tr', duration:6000})
           this.router.navigate(['/']);
 
           sessionStorage.setItem('loggedInToken', res.token);
@@ -60,10 +60,10 @@ export class LoginComponent implements OnInit {
 
           this.submitted = false;
         }, (err) => {
-          this.toast.warning({detail:'Warning',summary:'Email or Password is invalid', sticky:true,position:'tr'})
+          this.toast.warning({detail:'Warning',summary:'Email or Password is invalid', sticky:false,position:'tr', duration:6000})
       });
       
    
-  }
+  };
 
 }

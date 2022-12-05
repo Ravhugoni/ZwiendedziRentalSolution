@@ -14,20 +14,43 @@ export class ProductsService {
   // Http Header
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
 
+  errorHandler(error:any) {
+    let errorMessage = '';
+    if(error.error instanceof ErrorEvent) {
+      errorMessage = error.error.message;
+    } else {
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    return throwError(errorMessage);
+ }
+
   constructor(private httpClient: HttpClient) { }
-  
+  // Add
 
   GetCarsByCategory(category:any): Observable<any> {
     category = {
-      "category": "SUV"
-    }
-
+      category: "SUV"
+  }
     let API_URL = this.REST_API+ '/products/carsByCat';
-    return this.httpClient.get(API_URL,category);
+    return this.httpClient.get("http://localhost:3001/products/carsByCat",category);
   }
 
     // Get all objects
   GetList() {
     return this.httpClient.get(this.REST_API + '/products/cars');
+  }
+
+  updateCar(id:number,carDetails:any): Observable<any> {
+    let API_URL = this.REST_API + '/products/cars/'+ id;
+    return this.httpClient.put(API_URL, carDetails).pipe(
+      catchError(this.errorHandler)
+    )
+  }
+
+  deleteCar(id:number): Observable<any> {
+    let API_URL = this.REST_API + '/cars/id' + id;
+    return this.httpClient.delete(API_URL).pipe(
+      catchError(this.errorHandler)
+    )
   }
 }

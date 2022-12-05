@@ -1,68 +1,76 @@
-
-<div class="container-fluid ">
-    <div class="row py-5 mx-auto">
-        <div class="col-lg-2 col-md-2 col-sm-2">
-            <nav class="navbar text-warning">
-                <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="bi bi-list"></i>
-                </button>
-                </div>
-            </nav>
+<nav class="navbar navbar-expand-lg ">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class=""><i class="bi bi-list text-warning" style="font-size: 3rem;"></i></span>
+    </button>
     
-            <div class="collapse" id="navbarToggleExternalContent"  *ngFor="let user of users">
-                <div class="bg-warning  text-white p-4">
-                <p><a [routerLink]="['/']"><i class="bi bi-house-door-fill"></i>Home</a></p>
-                <p><a [routerLink]="['/suvs']"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-car-front-fill" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M2.52 3.515A2.5 2.5 0 0 1 4.82 2h6.362c1 0 1.904.596 2.298 1.515l.792 1.848c.075.175.21.319.38.404.5.25.855.715.965 1.262l.335 1.679c.033.161.049.325.049.49v.413c0 .814-.39 1.543-1 1.997V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.338c-1.292.048-2.745.088-4 .088s-2.708-.04-4-.088V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.892c-.61-.454-1-1.183-1-1.997v-.413a2.5 2.5 0 0 1 .049-.49l.335-1.68c.11-.546.465-1.012.964-1.261a.807.807 0 0 0 .381-.404l.792-1.848ZM3 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm10 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM6 8a1 1 0 0 0 0 2h4a1 1 0 1 0 0-2H6ZM2.906 5.189l.956-1.913A.5.5 0 0 1 4.309 3h7.382a.5.5 0 0 1 .447.276l.956 1.913a.51.51 0 0 1-.497.731c-.91-.073-3.35-.17-4.597-.17-1.247 0-3.688.097-4.597.17a.51.51 0 0 1-.497-.731Z"/>
-                  </svg> Suv's</a></p>
-                <p><a [routerLink]="['/seden']"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-car-front" viewBox="0 0 16 16">
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item mx-4">
+          <a [routerLink]="['/']" class="nav-link text text-warning">Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item mx-4">
+          <a [routerLink]="['/promotion']" class="nav-link text text-warning">Promotions</a>
+        </li>
+        <li class="nav-item mx-4 dropdown">
+          <a class="nav-link text text-warning dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Cars
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" [routerLink]="['/suvs']"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-car-front-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2.52 3.515A2.5 2.5 0 0 1 4.82 2h6.362c1 0 1.904.596 2.298 1.515l.792 1.848c.075.175.21.319.38.404.5.25.855.715.965 1.262l.335 1.679c.033.161.049.325.049.49v.413c0 .814-.39 1.543-1 1.997V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.338c-1.292.048-2.745.088-4 .088s-2.708-.04-4-.088V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.892c-.61-.454-1-1.183-1-1.997v-.413a2.5 2.5 0 0 1 .049-.49l.335-1.68c.11-.546.465-1.012.964-1.261a.807.807 0 0 0 .381-.404l.792-1.848ZM3 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm10 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM6 8a1 1 0 0 0 0 2h4a1 1 0 1 0 0-2H6ZM2.906 5.189l.956-1.913A.5.5 0 0 1 4.309 3h7.382a.5.5 0 0 1 .447.276l.956 1.913a.51.51 0 0 1-.497.731c-.91-.073-3.35-.17-4.597-.17-1.247 0-3.688.097-4.597.17a.51.51 0 0 1-.497-.731Z"/>
+              </svg> Suv's</a>
+            <a class="dropdown-item" [routerLink]="['/seden']"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-car-front" viewBox="0 0 16 16">
                     <path d="M4 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm10 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM6 8a1 1 0 0 0 0 2h4a1 1 0 1 0 0-2H6ZM4.862 4.276 3.906 6.19a.51.51 0 0 0 .497.731c.91-.073 2.35-.17 3.597-.17 1.247 0 2.688.097 3.597.17a.51.51 0 0 0 .497-.731l-.956-1.913A.5.5 0 0 0 10.691 4H5.309a.5.5 0 0 0-.447.276Z"/>
                     <path fill-rule="evenodd" d="M2.52 3.515A2.5 2.5 0 0 1 4.82 2h6.362c1 0 1.904.596 2.298 1.515l.792 1.848c.075.175.21.319.38.404.5.25.855.715.965 1.262l.335 1.679c.033.161.049.325.049.49v.413c0 .814-.39 1.543-1 1.997V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.338c-1.292.048-2.745.088-4 .088s-2.708-.04-4-.088V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.892c-.61-.454-1-1.183-1-1.997v-.413a2.5 2.5 0 0 1 .049-.49l.335-1.68c.11-.546.465-1.012.964-1.261a.807.807 0 0 0 .381-.404l.792-1.848ZM4.82 3a1.5 1.5 0 0 0-1.379.91l-.792 1.847a1.8 1.8 0 0 1-.853.904.807.807 0 0 0-.43.564L1.03 8.904a1.5 1.5 0 0 0-.03.294v.413c0 .796.62 1.448 1.408 1.484 1.555.07 3.786.155 5.592.155 1.806 0 4.037-.084 5.592-.155A1.479 1.479 0 0 0 15 9.611v-.413c0-.099-.01-.197-.03-.294l-.335-1.68a.807.807 0 0 0-.43-.563 1.807 1.807 0 0 1-.853-.904l-.792-1.848A1.5 1.5 0 0 0 11.18 3H4.82Z"/>
-                  </svg> Seden's</a></p>
-                <p><a [routerLink]="['/hatchback']"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-car-front-fill" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M2.52 3.515A2.5 2.5 0 0 1 4.82 2h6.362c1 0 1.904.596 2.298 1.515l.792 1.848c.075.175.21.319.38.404.5.25.855.715.965 1.262l.335 1.679c.033.161.049.325.049.49v.413c0 .814-.39 1.543-1 1.997V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.338c-1.292.048-2.745.088-4 .088s-2.708-.04-4-.088V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.892c-.61-.454-1-1.183-1-1.997v-.413a2.5 2.5 0 0 1 .049-.49l.335-1.68c.11-.546.465-1.012.964-1.261a.807.807 0 0 0 .381-.404l.792-1.848ZM3 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm10 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM6 8a1 1 0 0 0 0 2h4a1 1 0 1 0 0-2H6ZM2.906 5.189l.956-1.913A.5.5 0 0 1 4.309 3h7.382a.5.5 0 0 1 .447.276l.956 1.913a.51.51 0 0 1-.497.731c-.91-.073-3.35-.17-4.597-.17-1.247 0-3.688.097-4.597.17a.51.51 0 0 1-.497-.731Z"/>
-                  </svg> Hatch-back</a></p>
-                <p><a [routerLink]="['/suvs']"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-truck-front" viewBox="0 0 16 16">
-                    <path d="M5 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm8 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-6-1a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2H7Z"/>
-                    <path fill-rule="evenodd" d="M4 2a1 1 0 0 0-1 1v3.9c0 .625.562 1.092 1.17.994C5.075 7.747 6.792 7.5 8 7.5c1.208 0 2.925.247 3.83.394A1.008 1.008 0 0 0 13 6.9V3a1 1 0 0 0-1-1H4Zm0 1h8v3.9c0 .002 0 .001 0 0l-.002.004a.013.013 0 0 1-.005.002h-.004C11.088 6.761 9.299 6.5 8 6.5s-3.088.26-3.99.406h-.003a.013.013 0 0 1-.005-.002L4 6.9c0 .001 0 .002 0 0V3Z"/>
-                    <path fill-rule="evenodd" d="M1 2.5A2.5 2.5 0 0 1 3.5 0h9A2.5 2.5 0 0 1 15 2.5v9c0 .818-.393 1.544-1 2v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5V14H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2a2.496 2.496 0 0 1-1-2v-9ZM3.5 1A1.5 1.5 0 0 0 2 2.5v9A1.5 1.5 0 0 0 3.5 13h9a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 12.5 1h-9Z"/>
-                  </svg> Mini bus</a></p>
-                
-                <p><a [routerLink]="['/promotion']"><i class="bi bi-basket-fill"></i> Promotions</a></p>
-                <p *ngIf="user.usertype =='admin'"><a [routerLink]="['/booking']"><i class="bi bi-person-fill"></i> Booking</a></p>
-                <p><a [routerLink]="['/profile']"><i class="bi bi-person-fill"></i> My Profile</a></p>
-
-                <p><a  *ngIf="!logEmail" [routerLink]="['/login']" class="text-decoration-none d-lg-none .d-xl-block"><i class="bi bi-box-arrow-in-right"></i> LOGIN</a></p>
-                <p><a  *ngIf="logEmail" (click)="LogOut()" class="text-decoration-none d-lg-none .d-xl-block"><i class="bi bi-box-arrow-in-right"></i> LOGOUT</a></p>
-                <p><a *ngIf="!logEmail" [routerLink]="['/register']" class="text-decoration-none d-lg-none .d-xl-block"><i class="bi bi-person-plus-fill"></i> REGISTER</a></p>
-                <p><a *ngIf="logEmail" [routerLink]="['/register']" class="text-decoration-none d-lg-none .d-xl-block"><i class="bi bi-person-plus-fill"></i> {{ logEmail }}</a></p>
+                  </svg> Seden's</a>
+            <a class="dropdown-item" [routerLink]="['/hatchback']"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-car-front-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2.52 3.515A2.5 2.5 0 0 1 4.82 2h6.362c1 0 1.904.596 2.298 1.515l.792 1.848c.075.175.21.319.38.404.5.25.855.715.965 1.262l.335 1.679c.033.161.049.325.049.49v.413c0 .814-.39 1.543-1 1.997V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.338c-1.292.048-2.745.088-4 .088s-2.708-.04-4-.088V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.892c-.61-.454-1-1.183-1-1.997v-.413a2.5 2.5 0 0 1 .049-.49l.335-1.68c.11-.546.465-1.012.964-1.261a.807.807 0 0 0 .381-.404l.792-1.848ZM3 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm10 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM6 8a1 1 0 0 0 0 2h4a1 1 0 1 0 0-2H6ZM2.906 5.189l.956-1.913A.5.5 0 0 1 4.309 3h7.382a.5.5 0 0 1 .447.276l.956 1.913a.51.51 0 0 1-.497.731c-.91-.073-3.35-.17-4.597-.17-1.247 0-3.688.097-4.597.17a.51.51 0 0 1-.497-.731Z"/>
+              </svg> Hatch-back</a>
+          </div>
+        </li>   
     
-                
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" rel="stylesheet"/>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"/>
+          
+      </ul>
+    </div>
+
+    <div class="inline-block my-lg-0">
+        <div class="container text-center nav-link text1 text-warning">
+
+            <div *ngIf="!logEmail" class="inline-block my-2 my-lg-0">
+                <a [routerLink]="['/login']" class="nav-link text text-warning">Login</a>
+            </div>
+            <div *ngIf="!logEmail" class="inline-block my-2 my-lg-0">
+                <a [routerLink]="['/register']" class="nav-link text1 text-warning">Register</a>
+            </div>
+            <div *ngIf="logEmail" class="icon-badge-group mx-5 dropdown">
+                <div class="icon-badge-container" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="hideBadge()" >
+                    <i class="bi bi-bell icon-badge-icon"></i>
+                    <div class="icon-badge" *ngIf="showBadge">{{notifications.length}}</div>
                 </div>
-            </div>
-        
-        </div>
 
-        <div class="col-lg-8 col-md-8 col-sm-10 text-center">
-            <h1 class="text-white"><b>ZWIENDEDZI</b></h1>
-            <p class="orange-color rent-text">RENTAL SOLUTIONS</p>
-           
-        </div>
-        
-        
-
-        <div class="col-lg-2 col-md-2 col-sm-12 align-items-center orange-color d-none d-lg-block">
-            <div class="row justify-content-center mx-auto collapsed" id="navbarToggleExternalContent">
-                <a *ngIf="!logEmail" [routerLink]="['/login']" class="text text-warning text-decoration-none">LOGIN</a>
-                <a *ngIf="logEmail" (click)="LogOut()" class="text text-warning text-decoration-none">LOGOUT</a>
-                <a *ngIf="!logEmail" [routerLink]="['/register']" class="text1 text-warning text-decoration-none">REGISTER</a>
-                <a *ngIf="logEmail" [routerLink]="['/profile']" class="text1 text-warning text-decoration-none">{{ logEmail }}</a>
+                <div >
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width: 250px;">
+                      <a class="dropdown-item" href="#" *ngFor="let item of notifications"><small class="message">{{item.Message}}</small> <br><small class="text-secondary">{{item.CreatedDate | date:'medium'}}</small></a>
+                    </div>
+                  </div>
             </div>
-        </div>    
-    </div>   
+            <div *ngIf="logEmail" class="dropdown mx-3 my-2 user-profile">
+                <i class="bi bi-person-circle"></i>
+                    <p class="email" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{logEmail}}</p>
+                    <div class="dropdown-menu" style="text-align: justify;" aria-labelledby="dropdownMenu2">
+                        <button class="dropdown-item" (click)="LogOut()">Log Out</button>
+                        <button class="dropdown-item" [routerLink]="['/profile']">My Profile</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+</nav>
+
+<div class="text-center">
+    <h1 style="color: #FFBE16;"><b>ZWIENDEDZI</b></h1>
+    <p class="text-white">RENTAL SOLUTIONS</p>
+   
 </div>
-
-
-
-

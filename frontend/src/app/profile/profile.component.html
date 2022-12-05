@@ -1,56 +1,40 @@
-
-
-
-<div class="row-sm4">
-   
-    
-
-
-
-
-
-
- 
-
-
 <div class="row">
-
-<div class=" bg col-lg-4">
-
+  <div class=" bg col-lg-4">
     <div class="profile">
-
-        <div class="head" >
+      <div class="head" *ngFor="let user of users">
             <i class=" ba bi-person-circle "> &nbsp; 
-             <label class="name" >BRIDGET DAVIDSON </label> &nbsp; &nbsp; &nbsp; &nbsp; <i class="ba bi-pencil-square"></i>
+             <label class="name" >{{user.firstname}} {{user.lastname}} </label>
             </i>
+          </div>
+          
+          <form [formGroup]="EditProfileForm" novalidate>
+            <div class="row">
+              <div class="form-group row">
+                <label for="inputPassword" class="col-form-label"> <i class="bi bi-person-fill"></i> Name: </label>
+                <input type="text" class="form-control" id="inputPassword" formControlName="firstname">
+              </div>
+ 
+              <div class="form-group row">
+                <label for="inputPassword" class="col-form-label"> <i class="bi bi-person-fill"></i>Last name: </label>
+                <input type="text" class="form-control" id="inputPassword" formControlName="lastname"
+                 />
+              </div>
+ 
+              <div class="form-group row">
+                <label for="inputPassword" class=" col-form-label"><i class=" bi bi-envelope-fill"></i>E-mails: </label>
+                <input type="text" class="form-control" id="inputPassword" formControlName="email">
+               </div>
+              <div class="form-group row">
+                <label for="inputPassword" class="col-form-label"> <i class="bi bi-person-lines-fill"></i> Contact No: </label>
+                <input type="text" class="form-control" id="inputPassword" formControlName="phone">
+              </div>
             </div>
        
-
-   
-              <form>
-             <div class="form-group row">
-               <label for="inputPassword" class="col-form-label"> <i class="bi bi-person-fill"></i> Name: </label>
-               <input type="text" class="form-control" id="inputPassword" placeholder="Bridget">
-             </div>
-
-             <div class="form-group row">
-               <label for="inputPassword" class="col-form-label"> <i class="bi bi-person-fill"></i>Last name: </label>
-               <input type="text" class="form-control" id="inputPassword" placeholder="Davidson">
-             </div>
-
-             <div class="form-group row">
-               <label for="inputPassword" class=" col-form-label"><i class=" bi bi-envelope-fill"></i>E-mails: </label>
-               <input type="text" class="form-control" id="inputPassword" placeholder="bridget@gmail.com">
-              </div>
-             <div class="form-group row">
-               <label for="inputPassword" class="col-form-label"> <i class="bi bi-person-lines-fill"></i> Contact No: </label>
-               <input type="text" class="form-control" id="inputPassword" placeholder="0712345678">
-             </div>
-       </form>
          
-      <div class="logdiv">
-       <button type="button" class=" logout  btn-lg">  &nbsp; &nbsp; &nbsp; &nbsp;  Update  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </button>
-      </div>
+            <div class="logdiv">
+            <button type="button" (click)="UpdateUser()" class=" logout  btn-lg">  &nbsp; &nbsp; &nbsp; &nbsp;  Update  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </button>
+            </div>
+          </form>
 
    </div>
 
@@ -62,61 +46,46 @@
         <div class="float-right  col"><button type="button" class="rentbut btn-primary btn-lg">New Booking</button></div>
     </div>
     <div class="row container-fluid mx-auto">
-        <table class="table table-responsive shadow p-3 mb-5 bg-body table-hover">
+        <table class="table table-responsive shadow p-3 mb-5 bg-body table-hover" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
             
             <thead>
               <tr>
+                <th scope="col" class="col-lg-2 col-md-2">Image</th>
                 <th scope="col" class="col-lg-2 col-md-2">Model</th>
-                <th scope="col" class="col-lg-2 col-md-2">Pick-up</th>
-                <th scope="col" class="col-lg-2 col-md-2">time</th>
-                <th scope="col" class="col-lg-2 col-md-2">drop-of</th>
-                <th scope="col" class="col-lg-2 col-md-2">time</th>
+                <th scope="col" class="col-lg-2 col-md-2">firstname</th>
+                <th scope="col" class="col-lg-2 col-md-2">secondname</th>
+                <th scope="col" class="col-lg-2 col-md-2">price</th>
+                <th scope="col" class="col-lg-2 col-md-2">pickup_date</th>
+                <th scope="col" class="col-lg-2 col-md-2">drop_date</th>
+                <th scope="col" class="col-lg-2 col-md-2">numberPlate</th>
+                <th scope="col" class="col-lg-2 col-md-2">fuelType</th>
+                <th scope="col" class="col-lg-2 col-md-2">status</th>
                 <th scope="col" ></th>
-                <th scope="col"></th>
               </tr>
             </thead>
     
             <tbody>
-              <tr>
+              <tr *ngFor="let booking of bookings">
                 <!-- <th scope="row">1</th> -->
-                <td>AUDI A4</td>
-                <td>10/11/22</td>
-                <td>10:00</td>
-                <td>10/11/22</td>
-                <td>10:00</td>
-                <td><button type="button" class="bookingbutton btn-primary btn-sm">View</button></td>
-                <button type="button" class="btn btn-secondary btn-lg">Cancel</button>
+                
+                  <td>
+                    <div>
+                      <img src="{{booking.carImage}}" alt="picture here" height="50" width="50">
+                    </div>
+                </td>
+                <td>{{booking.model}}</td>
+                <td>{{booking.firstname}}</td>
+                <td>{{booking.lastname}}</td>
+                <td>{{booking.price}}</td>
+                <td>{{booking.pickup_date | date:'medium'}}</td>
+                <td>{{booking.dropoff_date | date:'medium'}}</td>
+                <td>{{booking.numberPlate}}</td>
+                <td>{{booking.fuelType}}</td>
+                <td>{{booking.bk_status}}</td>
+                <td><button type="button" class="btn btn-secondary btn-lg">Cancel</button></td>
             </tr>
               
-              <tr>
-                <!-- <th scope="row">2</th> -->
-                <td>POLO VIVO</td>
-                <td>11/22/22</td>
-                <td>10:22</td>
-                <td>10/11/22</td>
-                <td>13:00</td>
-                <td><button type="button" class="bookingbutton btn-primary btn-sm">View</button></td>
-                <button type="button" class="btn btn-secondary btn-lg">Cancel</button>              
-            </tr>
-              <tr>
-                <!-- <th scope="row">3</th> -->
-                <td>BMW X6</td>
-                <td>11/22/22</td>
-                <td>10:11</td>
-                <td>11/22/22</td>
-                <td>12:00</td>
-                <td><button type="button" class="bookingbutton btn-primary btn-sm">View</button></td>
-                <button type="button" class="btn btn-secondary btn-lg">Cancel</button>              </tr>
-              <tr>
-                <!-- <th scope="row">3</th> -->
-                <td>Viano</td>
-                <td>11/22/22</td>
-                <td>10:11</td>
-                <td>11/22/22</td>
-                <td>12:00</td>
-                <td><button type="button" class="bookingbutton btn-primary btn-sm">View</button></td>
-                <button type="button" class="btn btn-secondary btn-lg">Cancel</button>              </tr>
-    
+             
             </tbody>
           </table>
     

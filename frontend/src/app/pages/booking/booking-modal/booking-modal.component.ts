@@ -84,11 +84,7 @@ export class BookingModalComponent implements OnInit {
       // this.bookings = res;
       let result = res;
       this.bookings = result.filter(ress => String(ress.id) === String(this.bid))
-      console.log(this.bookings.carName);
     });
-
-
-      console.log(this.BookingForm.value);
 
       // get company list
     this.companyService.GetList().subscribe((res:any) => {
@@ -100,7 +96,6 @@ export class BookingModalComponent implements OnInit {
       let result = res;
       
       this.users = result.filter(ress => ress.email === this.loggedEmail)
-      console.log(this.users);
     });
 
   }

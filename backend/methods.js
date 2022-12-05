@@ -68,4 +68,3 @@ const getUsers = (request, response) => {
     deleteUser
   }
 
-  

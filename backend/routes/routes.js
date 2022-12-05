@@ -5,6 +5,8 @@ const methods = require('../methods')
 const profile = require('../Controllers/profile')
 const products = require('../Controllers/Products')
 const company = require('../Controllers/company')
+const notification = require('../Controllers/notification')
+
 // const port = 3001
 const port = process.env.PORT || 3001;
 const login = require("../Controllers/login")
@@ -49,7 +51,7 @@ router.post("/newUpload", upload.single("image"), async (req, res) => {
 });
 
 var corsOptions = {
-  origin:"http://localhost:4200"
+  origin:"*"
 }
 
 router.use(cors(corsOptions));
@@ -111,8 +113,15 @@ router.delete('/company/:id', company.deleteCompany)
 router.get('/products/cars', products.getCars)
 router.post('/products/cars', products.postCar)
 router.get('/products/carsByCat', products.getCarById)
-router.put('/products/users/:id', products.updateCar)
-router.delete('/products/users/:id', products.deleteCar)
+router.put('/products/cars/:id', products.updateCar)
+router.delete('/cars/:id', products.deleteCar)
+
+//routes for company
+router.post('/notification', notification.addNotification)
+router.get('/notification', notification.getAllNotification)
+router.get('/notification/:id', notification.getNotificationById)
+router.put('/notification/:id', notification.updateNotification)
+router.delete('/notification/:id', notification.deleteNotification)
 
 router.listen(port, () => {
     console.log(`App running on port ${port}.`)

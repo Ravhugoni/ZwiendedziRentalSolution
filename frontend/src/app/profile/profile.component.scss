@@ -1,7 +1,7 @@
 
 .profile{
     color: rgb(253, 252, 251);
-    margin-top: -7rem;
+    margin-top: -13rem;
     padding: 2rem;
     max-width: 50rem;
     height: 30rem;
@@ -32,14 +32,17 @@
 }
 
 .name{
+
     color: rgb(253, 252, 251);
     font-weight: bolder;
+    text-transform: uppercase;
 }
 
 .form-control{
     color: white;
     border: none;
     background: #FFBE16;
+    width: 13rem;
 }
 
 input{
@@ -63,9 +66,9 @@ input{
 // }
 
 .bg{
-    background-image: url('../../assets/bg5.jpg');
-    background-size: cover;
-    background-color: black;
+    // background-image: url('../../assets/bg5.jpg');
+    // background-size: cover;
+    background-color: #08013a;
     height: 43rem;
     display: flex;
     justify-content: center;

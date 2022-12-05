@@ -9,11 +9,10 @@ const addCompany = (req,res)=>{
     if(error){
       throw error
     }
-    res.status(201).send(`Booking added with ID: HAPPY DRIVING`)
+    res.status(201).send(`Company added with ID:`)
    })
 }
-
-//GET ALL companies
+//GET ALL COMPANIES
 const getAllCompany = (req,res)=>{
 
   pool.query('SELECT "companyID", "companyName", address FROM public.company;',(error ,results)=>{
@@ -26,9 +25,9 @@ const getAllCompany = (req,res)=>{
 
 //GET companies BY ID
 const getCompanyById = (request, response) => {
-  const id = parseInt(request.params.id)
+  const companyID = parseInt(request.params.companyID)
 
-  pool.query('SELECT * FROM bookings,users where users.id =bookings.id and users.id = $1',[id], (error,results)=>{
+  pool.query('SELECT * FROM bookings, users where users.id = bookings.id and users.id = $1',[id], (error,results)=>{
       if(error){
           throw error
       }
@@ -41,31 +40,33 @@ const getCompanyById = (request, response) => {
 //PUT__UPDATE companies BY ID
 
 const updateCompany = (req,res)=>{
-  const {car_make, car_model, pick_up, pickup_time, drop_off, dropoff_time} = req.body;
+  const {companyName, address} = req.body;
+  // const companyID = parseInt(req.params.companyID);
   const id = parseInt(req.params.id)
 
-  pool.query('UPDATE public.bookings SET car_make = $1, car_model = $2, pick_up = $3, pickup_time = $4, drop_off = $5, dropoff_time = $6 WHERE id= $7',
-  [car_make, car_model, pick_up, pickup_time, drop_off, dropoff_time, id],
+  pool.query('UPDATE public.company SET "companyName"=$1, address=$2 WHERE "companyID"= $3',
+  
+  [companyName, address, id],
 
   (error, results)=>{
       if(error){
           throw error
       }
-      res.status(200).send(`Employee modified with ID: ${id}`)
+      res.status(200).send(`Company modified with ID: ${id}`)
   }
   
   )
 }
 
 //DELETE BOOKING BY ID
-const deleteCompany = (request, response)=>{
-  const id = parseInt(request.params.id)
+const deleteCompany = (req, res)=>{
+  const id = parseInt(req.params.id)
 
-  pool.query('DELETE FROM public.bookings WHERE id = $1', [id], (error,results)=>{
+  pool.query('DELETE FROM public.company WHERE "companyID" = $1', [id], (error,results)=>{
       if(error){
           throw error
       }
-      response.status(200).send(`Booking deleted with ID: ${id}`)
+      res.status(200).send(`Company deleted with ID: ${id}`)
   })
 }
 

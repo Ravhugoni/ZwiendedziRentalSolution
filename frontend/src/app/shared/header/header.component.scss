@@ -6,47 +6,157 @@
 //     // height: 900px;
 
 // }
+// .container-fluid
+// {
+//     // position: relative;
+//     z-index: 1;
+// }
+// .collapse
+// {
+//     position: absolute;
+//     z-index: 2;
+//     // bottom: 25px;
+//     // height: 7em;
+// }
+// .my-container
+// {
+//     // background-image: url('../../../assets/bg5.jpg');
+//     background-size: cover;
+//     width: 102%;
+//     // height: 900px;
+// }
+// .navbar button
+// {
+//     color: #FFBE16;
+//     // background-color: orange;
+// }
+// .navbar i{
+//     font-size: 25px;
+// }
+// .orange-color
+// {
+//     color: #FFBE16;
+// }
+// .rent-text{
+//     margin-top: -11px;
+// }
+// .text{
+//     font-weight: bold;
+//     font-size: medium;
+//     margin-left: -20rem;
 
+// }
+// .text1{
+//     font-weight: bold;
+//     font-size: medium;
+//     margin-left: 5rem;
 
-.my-container
+// }
+
+// .collapse a{
+//     color:#08013a;
+// }
+
+// .one{
+//     z-index: 1;
+// }
+
+// .two{
+//     z-index: auto;
+// }
+
+// .dropdown
+// {
+//     display: flex;
+    
+// }
+
+// .notification
+// {
+//     margin-left: -20rem;
+// }
+
+.user-profile
 {
-    // background-image: url('../../../assets/bg5.jpg');
-    background-size: cover;
-    width: 102%;
-    // height: 900px;
+    font-size: 1.2rem;
 }
-.navbar button
+
+// .notification{
+//   margin-left: -4rem;
+//   font-size: 1.5rem;
+//   position: absolute;
+//   margin-top: 2.9rem;
+// }
+
+.email
 {
-    color: #FFBE16;
-    // background-color: orange;
+    font-size: x-small;
+    
 }
-.navbar i{
+
+// .bell{
+//     display: flex;
+//     margin-top: -2rem;
+// }
+
+.dropdown-menu
+{
+    background-color: #FFBE16; 
+    text-align: center; 
+    color: #241d58; 
+}
+
+.dropdown-item
+{
+    font-weight: bold;
+    text-align: center;
+    white-space: pre-wrap;
+}
+
+.icon-badge-group .icon-badge-container {
+    display: inline-block;   
+}
+
+.icon-badge-group .icon-badge-container:first-child { 
+  margin-left:2rem;
+  margin-top: -0.5rem;
+}
+
+.icon-badge-container {
+    margin-top:20px;
+    position:relative;
+}
+
+.icon-badge-icon {
     font-size: 25px;
-}
-.orange-color
-{
-    color: #FFBE16;
-}
-.rent-text{
-    margin-top: -11px;
-}
-.text{
-    font-weight: bold;
-    font-size: medium;
-    margin-left: -20rem;
-
-}
-.text1{
-    font-weight: bold;
-    font-size: medium;
-    margin-left: 5rem;
-
+    position: relative;
 }
 
-.collapse a{
+.icon-badge {
+    background-color: red;
+    font-size: 10px;
     color: white;
+    text-align: center;
+    width:15px;
+    height:15px;
+    border-radius: 35%;
+    position: absolute; /* changed */
+    top: -0.1px; /* changed */
+    left: 15px; /* changed */
 }
 
 
+.navbar {
+    background-color: #08013A;
+}
+
+// .login{
 
 
+//     margin-left: 55rem;
+// }
+// .register{
+
+// margin-top: -2.5rem;
+//     margin-left: 65rem;
+// }

@@ -35,10 +35,17 @@ export class UserService {
   GetAllUsers() {
     return this.httpClient.get(this.REST_API + '/users');
   }
+  
+  updateProfile(id: any, data: any): Observable<any> {
+    let API_URL = this.REST_API + '/users/'+id;
+    return this.httpClient.patch(API_URL, data).pipe();
+  }
 
   updateUser(id: any, data: any): Observable<any> {
     return this.httpClient.patch(`${this.REST_API}/users/${id}`, data);
   }
+
+  
 
 //   // Get single object
 //   GetListByID(id:any): Observable<any> {
