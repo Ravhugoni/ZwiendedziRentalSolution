@@ -26,7 +26,8 @@ import { EditCarComponent } from './pages/edit-car/edit-car.component';
 import { CarProdComponent } from './pages/car-prod/car-prod.component';
 import { CreateComponent } from './pages/create/create.component';
 import { BookingModalComponent } from './pages/booking/booking-modal/booking-modal.component';
-import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse'
+import { NgApexchartsModule } from 'ng-apexcharts';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,10 @@ import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse'
     DataTablesModule,
     BsDatepickerModule.forRoot(),
     NgbModule,
-    MdbCollapseModule,
+    NgxSpinnerModule,
+    NgApexchartsModule
+    
+  
   ],
   entryComponents: [BookingModalComponent],
   providers: [],

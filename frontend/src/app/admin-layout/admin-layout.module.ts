@@ -1,19 +1,35 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AdminLayoutRoutingModule } from './admin-layout-routing.module';
+import { AdminLayoutRoutes } from './admin-layout-routing.module';
 import { AdminLayoutComponent } from './admin-layout.component';
 import { SideBarComponent } from '../shared/side-bar/side-bar.component';
-
+import { AdminLandingComponent } from '../pages/admin-landing/admin-landing.component';
+import { RouterModule } from '@angular/router';
+import { AdminHeaderComponent } from '../shared/admin-header/admin-header.component';
+import { UsersComponent } from '../pages/admin-landing/users/users.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
+import { CompanyComponent } from '../pages/admin-landing/company/company.component';
+import { BookingComponent } from '../pages/admin-landing/booking/booking.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
     AdminLayoutComponent,
-    SideBarComponent
+    SideBarComponent,
+    AdminHeaderComponent,
+    AdminLandingComponent,
+    UsersComponent,
+    CompanyComponent,
+    BookingComponent,
+    
   ],
   imports: [
     CommonModule,
-    AdminLayoutRoutingModule
+    NgApexchartsModule,
+    NgxSpinnerModule,
+    // AdminLayoutRoutingModule
+    RouterModule.forChild(AdminLayoutRoutes),
   ]
 })
 export class AdminLayoutModule { }

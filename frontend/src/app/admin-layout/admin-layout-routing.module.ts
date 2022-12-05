@@ -1,11 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AdminLayoutComponent } from './admin-layout.component';
+import { AdminLandingComponent } from '../pages/admin-landing/admin-landing.component';
+import { BookingListComponent } from '../pages/booking/booking-list/booking-list.component';
+import { BookingModalComponent } from '../pages/booking/booking-modal/booking-modal.component';
+import { BookingComponent } from '../pages/booking/booking.component';
+import { CarProdComponent } from '../pages/car-prod/car-prod.component';
+import { UsersComponent } from '../pages/users/users.component';
 
-const routes: Routes = [{ path: '', component: AdminLayoutComponent }];
-
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
-})
-export class AdminLayoutRoutingModule { }
+export const AdminLayoutRoutes: Routes = [
+  { path: '',      component: AdminLandingComponent },
+  { path: 'booking',      component: BookingListComponent },
+  { path: 'booking/:id',      component: BookingComponent },
+  { path: 'carlist', component: CarProdComponent },
+  { path: 'users', component: UsersComponent },
+  { path: 'editbooking/:id',      component: BookingModalComponent }
+];

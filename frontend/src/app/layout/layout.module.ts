@@ -13,6 +13,10 @@ import { PromotionsComponent } from '../pages/promotions/promotions.component';
 import { BookingComponent } from '../pages/booking/booking.component';
 import { BookingModalComponent } from '../pages/booking/booking-modal/booking-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -26,6 +30,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxSpinnerModule,
+    // NgChartsModule,
     RouterModule.forChild(LayoutRoutes),
   ]
 })

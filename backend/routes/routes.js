@@ -7,12 +7,15 @@ const products = require('../Controllers/Products')
 const company = require('../Controllers/company')
 const notification = require('../Controllers/notification')
 
+const numCompany = require('../Controllers/numCompany')
+const numBooking = require('../Controllers/numBooking')
 // const port = 3001
 const port = process.env.PORT || 3001;
 const login = require("../Controllers/login")
-const numCars = require("../Controllers/numCars")
+const numCars = require("../Controllers/numUsers")
 const reg = require("../Controllers/register")
 const bookings = require ("../Controllers/bookings")
+const search = require ("../Controllers/search")
 require("../database/dotenv");
 const cors = require('cors');
 const http = require('http')
@@ -98,9 +101,17 @@ router.post('/cars', products.postCar)
 router.put('/cars/:id', products.updateCar)
 router.delete('/cars/:id', products.deleteCar)
 
-//route for number of products
-router.get('/num', numCars.getNum)
+//route for number of users
+router.get('/num/users', numCars.getAllUsers)
+router.get('/num/usersByReg', numCars.getUsersBYReg)
 
+//route for number of Companies
+router.get('/num/company', numCompany.getAllCompany)
+router.get('/num/companyByReg', numCompany.getCompanyBYReg)
+
+//route for number of Bookings
+router.get('/num/booking', numBooking.getTotalNumBooking)
+router.get('/num/bookingByReg', numBooking.getBookingBYReg)
 
 //routes for company
 router.post('/company', company.addCompany)
@@ -122,6 +133,10 @@ router.get('/notification', notification.getAllNotification)
 router.get('/notification/:id', notification.getNotificationById)
 router.put('/notification/:id', notification.updateNotification)
 router.delete('/notification/:id', notification.deleteNotification)
+// routes for the available and booked cars
+router.get('/bookedCars', search.getBookedCars)
+router.get('/availableCars', search.getAvailableCars)
+router.get('/availableCarByCompany', search.getAvailableCarsByCompany)
 
 router.listen(port, () => {
     console.log(`App running on port ${port}.`)

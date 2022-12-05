@@ -21,6 +21,13 @@ export class CompanyService {
     return this.http.get(this.REST_API + '/company');
   }
 
+  GetTotalCompany() {
+    return this.http.get(this.REST_API + '/num/company');
+  }
+
+  GetCompanyByReg() {
+    return this.http.get(this.REST_API + '/num/companyByReg');
+  }
  
 }
 

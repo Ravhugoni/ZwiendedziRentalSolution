@@ -40,6 +40,6 @@ export const LayoutRoutes: Routes = [
   { path: 'edit', component: EditComponent } ,
   {  path: 'users',      component: UsersComponent },
   {  path: 'users/:id',      component: EditUserComponent },
-  {  path: 'editbooking/:id',      component: BookingModalComponent }
+  // {  path: 'editbooking/:id',      component: BookingModalComponent }
 
 ];
