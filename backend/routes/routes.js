@@ -5,6 +5,8 @@ const methods = require('../methods')
 const profile = require('../Controllers/profile')
 const products = require('../Controllers/Products')
 const company = require('../Controllers/company')
+const notification = require('../Controllers/notification')
+
 const numCompany = require('../Controllers/numCompany')
 const numBooking = require('../Controllers/numBooking')
 // const port = 3001
@@ -125,6 +127,12 @@ router.get('/products/carsByCat', products.getCarById)
 router.put('/products/cars/:id', products.updateCar)
 router.delete('/cars/:id', products.deleteCar)
 
+//routes for company
+router.post('/notification', notification.addNotification)
+router.get('/notification', notification.getAllNotification)
+router.get('/notification/:id', notification.getNotificationById)
+router.put('/notification/:id', notification.updateNotification)
+router.delete('/notification/:id', notification.deleteNotification)
 // routes for the available and booked cars
 router.get('/bookedCars', search.getBookedCars)
 router.get('/availableCars', search.getAvailableCars)
