@@ -1,0 +1,23 @@
+.Download-btn{
+    width: 20%;
+    justify-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (max-width: 768px){
+    .Download-btn{
+        width: 50%;
+    }
+}
+
+.table{
+    background-color: var( --white);
+}
+.table-myprimary{
+    background-color: var( --main-bg);
+    color: var(--yellow);
+    border-color: var(--main-bg);
+    
+}
+
