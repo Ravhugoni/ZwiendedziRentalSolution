@@ -1,24 +1,28 @@
 <div class="container my-5">
     
+  <div class="header">
+    <h1 class="pt-4">Car list</h1>
+  </div>
+
     <a href="#" routerLink="/car" class="btn btn-success mb-4">Add New Car</a>
       
-    <table class="table table-striped table-responsive table-hover">
+    <table class="table table-striped table-responsive table-hover" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
         <thead>
               <tr>
                 <th>#</th>
-                <th>carName</th>
-                <th>carImage</th>
-                <th>model</th>
-                <th>numberPlate</th>
-                <th>make</th>
-                <th>price</th>
-                <th>companyID</th>
-                <th>category</th>
-                <th>status</th>
-                <th>fuelType</th>
-                <th>horsePower</th>
-                <th>speedPerSec</th>
-                <th>topSpeed</th>
+                <th>Car Name</th>
+                <th>Car Image</th>
+                <th>Model</th>
+                <th>Number Plate</th>
+                <th>Make</th>
+                <th>Price</th>
+                <th>Company ID</th>
+                <th>Category</th>
+                <th>Status</th>
+                <th>Fuel Type</th>
+                <th>Horse Power</th>
+                <th>Speed Per Sec</th>
+                <th>Top Speed</th>
                 <th width="250px">Action</th>
               </tr>
         </thead>
@@ -60,3 +64,6 @@
         </tbody>
     </table>
  </div>
+
+ <ngx-spinner bdColor = "rgba(0,0,0,0.8)" size = "large" color = "#ffbe16" type = "ball-atom" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
+    

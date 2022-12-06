@@ -5,6 +5,8 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
 import { ProductsService } from 'src/app/services/products.service';
 import { NgToastService } from 'ng-angular-popup';
 import { HttpClient } from '@angular/common/http';
+import { Subject } from 'rxjs';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-car-prod',
@@ -12,6 +14,9 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./car-prod.component.scss']
 })
 export class CarProdComponent implements OnInit {
+
+  dtOptions: DataTables.Settings = {};
+  dtTrigger: Subject<any> = new Subject<any>();
 
   EditCarForm: FormGroup = new FormGroup({
     id: new FormControl(''),
@@ -41,7 +46,8 @@ export class CarProdComponent implements OnInit {
   imgUrl: any;
 
 
-  constructor(private productsService:ProductsService, private compService:CompanyService, private http:HttpClient, private toast: NgToastService) {
+  constructor(private productsService:ProductsService, private compService:CompanyService, 
+    private spinnerService: NgxSpinnerService, private http:HttpClient, private toast: NgToastService) {
     
    }
 
@@ -70,10 +76,8 @@ export class CarProdComponent implements OnInit {
 
     this.productsService.GetList().subscribe((res:any) => {
       this.cars=res;
-      // let result = res;
-      // console.log(result)
-      // this.cars = result.filter(ress => ress.category === "SEDAN")
-      console.log(this.cars)
+    
+      this.dtTrigger.next(this.cars);
 
       if(this.cars!= undefined)
       {
@@ -84,7 +88,16 @@ export class CarProdComponent implements OnInit {
           phone: this.cars[0].phone
         })
       }
+
     });
+
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 10,
+      lengthMenu : [5, 10, 25],
+      processing: true
+     };
+
   }
     onFileChange(event :any)
     {
@@ -132,163 +145,24 @@ export class CarProdComponent implements OnInit {
         // });
      })
     }
+
+
+  deleteCar(id: any){
+      this.productsService.deleteCar(id).subscribe((res:any) => {
+        this.cars=res;
+        this.toast.success({detail:'success',summary:'Successfully Deleted!', sticky:false,position:'tr', duration:6000})
+        console.log(id);
+      })
+    }
+
+    ngOnDestroy(): void {
+      this.dtTrigger.unsubscribe();
+    }
+    showSpinner(): void {
+      this.spinnerService.show();
   
-  // updateCar(carData: any, index: any): void {
-
-  //   this.isEditClicked = !this.isEditClicked;
-  //   this.position = index;
-  //   this.updateValue = carData;
-  //   this.pos = index;
-  // }
-
-  // completeCar(carData: any, i: any, update: string): void {
-  //   console.log(carData, i, update);
-  //   this.cars.splice(i,1,update);
-  //   console.log(this.cars);
-  //   /*this.isEditClicked = false;*/
-  //   this.isEditClicked = !this.isEditClicked;
-  //   /*this.pos = taskData+i;*/
-  // }
-
-  deleteCar( id: number){
-    this.productsService.deleteCar(parseInt(this.id)).subscribe((res:any) => {
-      this.cars=res;
-      this.toast.success({detail:'success',summary:'Successfully Deleted!', sticky:false,position:'tr', duration:6000})
-      console.log(id);
-    })
-    //this.cars.pop(carDetails);
-    
-  }
-  // updateCar(){
-  //   this.productsService.updateCar(this.id,this.cars).subscribe((res:any) => {
-  //     this.cars=res;
-  //     console.log(this.cars)
-  //   });
-
-  // }
-
-
-
-
-
-// import { HttpErrorResponse } from '@angular/common/http';
-// import { Component, OnInit } from '@angular/core';
-// import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-// import { ActivatedRoute, Router } from '@angular/router';
-// import { NgToastService } from 'ng-angular-popup';
-// import { Users } from 'src/app/model/users';
-// import { UserService } from 'src/app/services/user.service';
-
-// @Component({
-//   selector: 'app-edit-user',
-//   templateUrl: './edit-user.component.html',
-//   styleUrls: ['./edit-user.component.scss']
-// })
-
-
-// export class EditUserComponent implements OnInit {
-
-
-
-//   EditUserForm: FormGroup = new FormGroup({
-//     firstname: new FormControl(),
-//     lastname: new FormControl(),
-//     phone: new FormControl(),
-//     email: new FormControl()
-//   });
-//   id!:any;
-//   uid!:any;
-//   sub!:any;
-//   users!:Users;
-
-//   submitted = false;
-
-//   public usertype: any;
- 
-//   constructor(private userServive:UserService, private router: Router,private route: ActivatedRoute, private toast: NgToastService, public fb: FormBuilder) { }
-
-//   myForm() {
-//     this.EditUserForm = this.fb.group({
-//       firstname: ['', [ Validators.required ]],
-//       lastname: ['', [ Validators.required ]],
-//       email: ['', [Validators.required, Validators.email]],
-//       phone: ['', [Validators.required,Validators.minLength(10),Validators.maxLength(10)]]
-//     });
-//   }
-
-//   ngOnInit(): void {
-
-//     this.myForm();
-
-//     this.sub = this.route.params.subscribe(params => {
-//       return this.uid = params['id'];
-//     });
-
-//     console.log(this.uid);
-
-//     this.userServive.GetAllUsers().subscribe((res:any) => {
-//         let result = res;
-//         this.users = result.filter(ures => String(ures.id) === String(this.uid))
-//         console.log(this.users)
-
-//         if(this.users!= undefined)
-//         {
-//           this.EditUserForm.setValue({
-//             firstname: this.users[0].firstname,
-//             lastname: this.users[0].lastname,
-//             email: this.users[0].email,
-//             phone: this.users[0].phone
-//           })
-//         }
-//     })
-
-
-//   }
-
-//   get formValidation(): { [key: string]: AbstractControl } {
-//     return this.EditUserForm.controls;
-//   }
-
-  
-//   UpdateUser()
-//   {
-//     // let id=localStorage.getItem('user_id');
-//     // console.log(id)
-//       this.submitted = true;
-
-//       if(this.EditUserForm.value.firstname != '')
-//       {
-//         let userDetails = {
-//           firstname:this.EditUserForm.value.firstname,
-//           lastname: this.EditUserForm.value.lastname,
-//           email: this.EditUserForm.value.email,
-//           phone: this.EditUserForm.value.phone
-//         }
-    
-//         console.log(userDetails);
-    
-//         this.userServive.updateUser(this.uid, userDetails).subscribe((next) => {
-//             // console.log('Successfully Updated!');
-//             this.openSuccess();
-//             this.router.navigate(['/users']);
- 
-//             this.toast.success({detail:'success',summary:'Successfully Updated!', sticky:false,position:'tr', duration:6000})
-//             this.submitted = false;
-//           });
-//       }
-//       else
-//       {
-//         console.log('Successfully UNUpdated!');
-//         this.openWarning();
-//       }
-   
-//   }
-
-//   openWarning(){
-//     this.toast.warning({detail:'Warning',summary:'Please fill in all the fields...!', sticky:true,position:'tr'})
-//   }
-//   openSuccess(){
-//     this.toast.success({detail:'Success',summary:'Successfully updated!', sticky:true,position:'tr'})
-//   }
-// }
-  }  
+      setTimeout(() => {
+        this.spinnerService.hide();
+      }, 1000); // 2 seconds
+    }
+}  

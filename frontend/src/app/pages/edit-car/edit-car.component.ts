@@ -40,7 +40,7 @@ export class EditCarComponent implements OnInit {
   
   submitted = false;
 
-  constructor(private carService:CarsService, private productsService:ProductsService, private toast: NgToastService, private compService:CompanyService,private router: Router,private route: ActivatedRoute, private http:HttpClient, private fb: FormBuilder) {
+  constructor(private carService:CarsService, private productsService:ProductsService, private toast: NgToastService, private compService:CompanyService,private router: Router,private route: ActivatedRoute, private http:HttpClient, private fb: FormBuilder, ) {
     
     this.productsService.GetList().subscribe((res:any) => {
       // this.bookings = res;
