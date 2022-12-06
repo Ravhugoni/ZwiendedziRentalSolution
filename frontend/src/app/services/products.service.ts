@@ -48,7 +48,7 @@ export class ProductsService {
   }
 
   deleteCar(id:number): Observable<any> {
-    let API_URL = this.REST_API + '/cars/id' + id;
+    let API_URL = this.REST_API + '/cars/'+ id;
     return this.httpClient.delete(API_URL).pipe(
       catchError(this.errorHandler)
     )
@@ -71,5 +71,6 @@ export class ProductsService {
     let API_URL = this.REST_API+ '/num/carByDate';
     return this.httpClient.get(API_URL).pipe();
   }
+  
 
 }

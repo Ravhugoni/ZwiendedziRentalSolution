@@ -41,7 +41,7 @@ export class CarProdComponent implements OnInit {
   imgUrl: any;
 
 
-  constructor(private productsService:ProductsService, private compService:CompanyService, private http:HttpClient) {
+  constructor(private productsService:ProductsService, private compService:CompanyService, private http:HttpClient, private toast: NgToastService) {
     
    }
 
@@ -150,14 +150,15 @@ export class CarProdComponent implements OnInit {
   //   /*this.pos = taskData+i;*/
   // }
 
-  // deleteCar( id: any): void {
-  //   this.productsService.deleteCar(id).subscribe((res:any) => {
-  //     this.cars=res;
-  //     console.log(this.cars);
-  //   })
-  //   this.cars.pop(carDetails);
+  deleteCar( id: number){
+    this.productsService.deleteCar(parseInt(this.id)).subscribe((res:any) => {
+      this.cars=res;
+      this.toast.success({detail:'success',summary:'Successfully Deleted!', sticky:false,position:'tr', duration:6000})
+      console.log(id);
+    })
+    //this.cars.pop(carDetails);
     
-  // }
+  }
   // updateCar(){
   //   this.productsService.updateCar(this.id,this.cars).subscribe((res:any) => {
   //     this.cars=res;
