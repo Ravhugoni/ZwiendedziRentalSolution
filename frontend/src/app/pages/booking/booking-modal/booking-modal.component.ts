@@ -120,7 +120,7 @@ export class BookingModalComponent implements OnInit {
       console.log(bookingDetails);
 
       this.bookingService.update(this.bid, bookingDetails).subscribe((next) => {
-        this.router.navigate(['/booking']);
+        this.router.navigate(['/admin/booking']);
         this.toast.success({detail:'Success',summary:'Successfully Updated!', sticky:false,position:'tr', duration:6000})
         this.submitted = false;
       })

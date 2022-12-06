@@ -31,10 +31,11 @@
             <td>{{user.phone}}</td>
             <td>{{user.usertype}}</td>
             <td>
-                <button [routerLink]="['/users',user.id]" class="btn btn-primary mx-2"> <i class="bi bi-pencil"></i> </button>
+                <button [routerLink]="['/admin/users',user.id]" class="btn btn-primary mx-2"> <i class="bi bi-pencil"></i> </button>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
+  <ngx-spinner bdColor = "rgba(0,0,0,0.8)" size = "large" color = "#ffbe16" type = "ball-atom" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
