@@ -30,7 +30,7 @@ export class ProductsService {
   GetCarsByCategory(category:any): Observable<any> {
     category = {
       category: "SUV"
-  }
+    }
     let API_URL = this.REST_API+ '/products/carsByCat';
     return this.httpClient.get("http://localhost:3001/products/carsByCat",category);
   }
@@ -53,4 +53,24 @@ export class ProductsService {
       catchError(this.errorHandler)
     )
   }
+
+  GetNumCars() {
+    return this.httpClient.get(this.REST_API + '/num/cars');
+  }
+
+  //getting cars by categories
+  GetAllByCat(){
+    
+    let API_URL = this.REST_API+ '/num/carByCat';
+    return this.httpClient.get(API_URL).pipe();
+  }
+
+  //getting cars in the current month
+  GetAllByDate(){
+    
+    let API_URL = this.REST_API+ '/num/carByDate';
+    return this.httpClient.get(API_URL).pipe();
+  }
+  
+
 }

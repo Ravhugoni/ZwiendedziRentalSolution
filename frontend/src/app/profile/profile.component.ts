@@ -23,6 +23,7 @@ export class ProfileComponent implements OnInit {
   public loggedEmail:string = sessionStorage.getItem('loggedEmail');
 
   public bookings!:any;
+  public cancelBookings!:any;
   public users!: any;
   sub!: any;
   uid!: any;
@@ -96,7 +97,33 @@ ngOnDestroy(): void {
     return this.EditProfileForm.controls;
   }
 
-  
+  cancelBooking(id:any) {
+    console.log(id);
+    this.bookingService.GetList().subscribe((res:any) => {
+      let result = res;
+      this.cancelBookings = result.filter(ress => String(ress.id) === String(id));
+      console.log(this.cancelBookings[0]);
+
+
+      let bookingDetails = {
+        comp_id:this.cancelBookings[0].comp_id,
+        user_id: this.users[0].id,
+        pickup_date: this.cancelBookings[0].pickup_date,
+        dropoff_date: this.cancelBookings[0].dropoff_date,
+        bk_status: 'Cancelled'
+      }
+
+      console.log(bookingDetails);
+      
+      this.bookingService.update(id, bookingDetails).subscribe((next) => {
+        this.router.navigate(['/profile']);
+        this.toast.success({detail:'Success',summary:'Successfully Cancelled!', sticky:false,position:'tr', duration:6000})
+        this.submitted = false;
+      })
+
+    })
+  }
+
   UpdateUser()
   {
     // let id=localStorage.getItem('user_id');

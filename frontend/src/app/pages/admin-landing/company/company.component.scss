@@ -1,0 +1,18 @@
+.card{
+    border-radius: 10px 10px 10px 10px;
+}
+.card-icon
+{
+    // background-color: var(--yellow);
+    border-radius: 100%;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    color: var(--white);
+}
+.card-icon i
+{
+    font-size: 20px;
+    line-height: 40px;
+    font-weight: bolder;
+}

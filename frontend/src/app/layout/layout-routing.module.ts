@@ -38,6 +38,6 @@ export const LayoutRoutes: Routes = [
   { path: 'car', component: CreateComponent },
   {  path: 'users',      component: UsersComponent },
   {  path: 'users/:id',      component: EditUserComponent },
-  {  path: 'editbooking/:id',      component: BookingModalComponent }
+  // {  path: 'editbooking/:id',      component: BookingModalComponent }
 
 ];

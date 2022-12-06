@@ -1,0 +1,38 @@
+<div class="card mb-3 shadow border-0">
+    <div class="card-header border-0 bg-white bordered">
+       <div class="row">
+           <div class="col-8">
+                <small>Company Brunces</small>
+           </div>
+           <div class="col-4">
+                <div class="card-icon bg-success">
+                    <strong><i class="bi bi-house-fill justify-content-end"></i></strong>
+                </div>
+            </div>
+       </div>
+    </div>
+
+    <div class="card-body" *ngFor="let item of company">
+      <h5 class="card-title"><strong style="font-size: 60px;" class="text-success">{{item.numcompany}}</strong> Companies</h5>
+
+      <div id="chart">
+        <apx-chart
+          [series]="chartOptions.series"
+          [chart]="chartOptions.chart"
+          [xaxis]="chartOptions.xaxis"
+          [dataLabels]="chartOptions.dataLabels"
+          [grid]="chartOptions.grid"
+          [stroke]="chartOptions.stroke"
+          [title]="chartOptions.title"
+        ></apx-chart>
+      </div>
+      
+      <div>
+        <form>
+            <div class="form-group">
+                <label for="username"></label>
+            </div>
+        </form>
+      </div>
+    </div>
+</div>
