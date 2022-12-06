@@ -47,11 +47,18 @@ export class ProductsService {
     )
   }
 
-  deleteCar(id:number): Observable<any> {
-    let API_URL = this.REST_API + '/cars/id' + id;
-    return this.httpClient.delete(API_URL).pipe(
-      catchError(this.errorHandler)
-    )
+  // deleteCar(id:number): Observable<any> {
+  //   let API_URL = this.REST_API + '/cars/'+ id;
+  //   return this.httpClient.delete(API_URL).pipe(
+  //     catchError(this.errorHandler)
+  //   )
+  // }
+
+  deleteCar(id: any): Observable<any> {
+    console.log("servc"+id);
+    
+    let API_URL = this.REST_API + '/cars/'+ id;
+    return this.httpClient.delete(API_URL);
   }
 
   GetNumCars() {
@@ -71,5 +78,6 @@ export class ProductsService {
     let API_URL = this.REST_API+ '/num/carByDate';
     return this.httpClient.get(API_URL).pipe();
   }
+
 
 }

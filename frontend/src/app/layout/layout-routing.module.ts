@@ -5,7 +5,6 @@ import { BookingModalComponent } from '../pages/booking/booking-modal/booking-mo
 import { BookingComponent } from '../pages/booking/booking.component';
 import { CarProdComponent } from '../pages/car-prod/car-prod.component';
 import { CreateComponent } from '../pages/create/create.component';
-import { EditComponent } from '../pages/edit/edit.component';
 import { EditUserComponent } from '../pages/edit-user/edit-user.component';
 import { HatchbackComponent } from '../pages/hatchback/hatchback.component';
 import { LandingComponent } from '../pages/landing/landing.component';
@@ -37,7 +36,6 @@ export const LayoutRoutes: Routes = [
   { path: 'editCar/:id', component: EditCarComponent},
   //{ path: 'post/:postId/view', component: ViewComponent },
   { path: 'car', component: CreateComponent },
-  { path: 'edit', component: EditComponent } ,
   {  path: 'users',      component: UsersComponent },
   {  path: 'users/:id',      component: EditUserComponent },
   // {  path: 'editbooking/:id',      component: BookingModalComponent }

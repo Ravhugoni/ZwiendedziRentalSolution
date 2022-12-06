@@ -69,6 +69,7 @@ const getCars = (request, response) => {
   
   const deleteCar = (request, response) => {
     const id = parseInt(request.params.id)
+    console.log(id);
   
     pool.query('DELETE FROM public.cars WHERE id = $1', [id], (error, results) => {
      
