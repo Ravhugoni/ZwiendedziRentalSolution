@@ -32,6 +32,6 @@ export class NotificationService {
   
   updateNotification(id: any, data: any): Observable<any> {
     let API_URL = this.REST_API + '/notification/'+id;
-    return this.httpClient.patch(API_URL, data).pipe();
+    return this.httpClient.put(API_URL, data).pipe();
   }  
 }
