@@ -12,9 +12,10 @@ const pool = require("../connection")
     })
   }
 
+
   const getUsersBYReg = (req,res)=>{
 
-    pool.query("SELECT count(id) as numuser, TO_CHAR(created_at, 'YYYY-mm') AS created_at FROM public.users GROUP BY TO_CHAR(created_at, 'YYYY-mm') ORDER BY TO_CHAR(created_at, 'YYYY-mm') ASC;",(error ,results)=>{
+    pool.query("SELECT count(id) as numuser, TO_CHAR(created_at, 'YYYY-mm') AS created_at FROM public.users WHERE TO_CHAR(created_at, 'yyyy-mm') = '2022-12' GROUP BY TO_CHAR(created_at, 'YYYY-mm') ORDER BY TO_CHAR(created_at, 'YYYY-mm') ASC;",(error ,results)=>{
     if(error){
         throw error
     }

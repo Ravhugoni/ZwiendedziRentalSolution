@@ -29,6 +29,7 @@ import { BookingModalComponent } from './pages/booking/booking-modal/booking-mod
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +47,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     CreateComponent,
     CarProdComponent,
     EditCarComponent,
+    
   ],
   imports: [
     BrowserModule,

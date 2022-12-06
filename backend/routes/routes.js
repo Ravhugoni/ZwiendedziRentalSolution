@@ -12,7 +12,8 @@ const numBooking = require('../Controllers/numBooking')
 // const port = 3001
 const port = process.env.PORT || 3001;
 const login = require("../Controllers/login")
-const numCars = require("../Controllers/numUsers")
+const numUsers = require("../Controllers/numUsers")
+const numCars = require("../Controllers/numCars")
 const reg = require("../Controllers/register")
 const bookings = require ("../Controllers/bookings")
 const search = require ("../Controllers/search")
@@ -102,8 +103,8 @@ router.put('/cars/:id', products.updateCar)
 router.delete('/cars/:id', products.deleteCar)
 
 //route for number of users
-router.get('/num/users', numCars.getAllUsers)
-router.get('/num/usersByReg', numCars.getUsersBYReg)
+router.get('/num/users', numUsers.getAllUsers)
+router.get('/num/usersByReg', numUsers.getUsersBYReg)
 
 //route for number of Companies
 router.get('/num/company', numCompany.getAllCompany)
@@ -126,6 +127,12 @@ router.post('/products/cars', products.postCar)
 router.get('/products/carsByCat', products.getCarById)
 router.put('/products/cars/:id', products.updateCar)
 router.delete('/cars/:id', products.deleteCar)
+
+//routes for the number of cars
+router.get('/num/cars', numCars.getAllCars)
+router.get('/num/carByCat', numCars.getAllByCat)
+router.get('/num/carByDate', numCars.getNumByDate)
+
 
 //routes for company
 router.post('/notification', notification.addNotification)
