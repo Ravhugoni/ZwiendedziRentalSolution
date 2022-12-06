@@ -11,15 +11,20 @@ import { UserService } from 'src/app/services/user.service';
 export class HeaderComponent implements OnInit {
 
   public logEmail: any;
-  users: any;
+  users: any[];
   notifications :any =[]
+  isNotReadNotifications :any =[]
 
   showBadge :boolean = true;
 
   constructor(private userServive:UserService,private router: Router,private notificationService:NotificationService) { }
 
   ngOnInit(): void {
+    this.userInfo();
+  }
 
+  userInfo()
+  {
     if('loggedEmail' in sessionStorage)
     {
         this.getNotifications(),
@@ -37,7 +42,6 @@ export class HeaderComponent implements OnInit {
     {
       console.log('nonononoo');
     }
-
   }
 
   LogOut()
@@ -49,9 +53,14 @@ export class HeaderComponent implements OnInit {
 
   getNotifications()
   {
-    this.notificationService.GetAllNotification().subscribe((data:any)=>{
-      console.log(data);
-      this.notifications = data    
+    this.notificationService.GetAllNotification().subscribe(async(data:any)=>{
+      let result = data;
+
+      await this.userInfo();
+
+      this.notifications = result.filter(res => Number(res.RecipientId) === Number(this.users[0].id))
+      this.isNotReadNotifications = this.notifications.filter(ress => ress.Read === false)
+
     })
 
   }
@@ -59,7 +68,17 @@ export class HeaderComponent implements OnInit {
   hideBadge()
   {
     this.showBadge = false;
-    // this.notificationService.updateNotification(id, data)
+
+    this.isNotReadNotifications.forEach(element => {
+
+      let notificationData = {
+        Read: true
+      }
+      this.notificationService.updateNotification(element.Id, notificationData).subscribe((next) => {
+      })
+
+    });
+
   }
 
 }

@@ -16,7 +16,7 @@ const addNotification = (req,res)=>{
 //GET ALL NOTIFICATION
 const getAllNotification = (req,res)=>{
 
-  pool.query('SELECT * FROM public."Notifications" WHERE "Read" = $1',[false],(error ,results)=>{
+  pool.query('SELECT * FROM public."Notifications";',(error ,results)=>{
   if(error){
       throw error
   }
@@ -38,13 +38,13 @@ const getNotificationById = (request, response) => {
 
 //PUT__UPDATE companies BY ID
 const updateNotification = (req,res)=>{
-  const {Message, address} = req.body;
+  const {Read} = req.body;
   // const companyID = parseInt(req.params.companyID);
   const id = parseInt(req.params.id)
 
-  pool.query('UPDATE public."Notifications" SET "Message"=$1 WHERE "Id"= $3',
+  pool.query('UPDATE public."Notifications" SET "Read"=$1 WHERE "Id"= $2',
   
-  [Message, address, id],
+  [Read, id],
 
   (error, results)=>{
       if(error){
