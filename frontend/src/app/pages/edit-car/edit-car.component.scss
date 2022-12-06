@@ -4,8 +4,11 @@
     background-color: #FFBE16;
 }
 
-.container{
-    box-shadow: 4px 4px 4px 4px  #08013a;
-
-
+.header
+{
+    background-color: var(--main-bg);
+    border-radius: 15px;
+    height: 120px;
+    color: var(--white);
+    text-align: center;
 }
