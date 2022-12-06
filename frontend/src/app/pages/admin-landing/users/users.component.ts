@@ -59,7 +59,8 @@ export class UsersComponent implements OnInit {
   {
     this.userService.GetNumUsersByReg().subscribe((res:any) =>{
       this.usersByReg = res;
-      //console.log(this.usersByReg)
+      console.log(this.usersByReg)
+      // console.log(this.usersByReg)
       // console.log(this.usersByReg.numuser)
 
       // this.usersByReg.forEach(function (value) 
@@ -81,15 +82,21 @@ export class UsersComponent implements OnInit {
      });
    // console.log(this.mydata);
     //console.log(this.mydata2);
+    // console.log(this.mydata);
+    // console.log(this.mydata2);
       
     });
 
       this.temp = this.mydata
       this.temp2 = this.mydata2
       //console.log('temp ', this.temp);
-     // console.log('2nd ',this.mydata);
+    //  console.log('usrr ',this.mydata);
       //console.log('temp2 ', this.temp2);
       //console.log('3nd ',this.mydata2);
+      // console.log('temp ', this.temp);
+      // console.log('2nd ',this.mydata);
+      // console.log('temp2 ', this.temp2);
+      // console.log('usrr ',this.mydata2);
     await this.mychart();
   }
 

@@ -11,6 +11,9 @@ import { UsersComponent } from '../pages/admin-landing/users/users.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { CarsComponent } from '../pages/admin-landing/cars/cars.component';
 import { ReportComponent } from '../pages/admin-landing/report/report.component';
+import { CompanyComponent } from '../pages/admin-landing/company/company.component';
+import { BookingComponent } from '../pages/admin-landing/booking/booking.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -21,10 +24,14 @@ import { ReportComponent } from '../pages/admin-landing/report/report.component'
     UsersComponent,
     CarsComponent,
     ReportComponent,
+    CompanyComponent,
+    BookingComponent,
+    
   ],
   imports: [
     CommonModule,
     NgApexchartsModule,
+    NgxSpinnerModule,
     // AdminLayoutRoutingModule
     RouterModule.forChild(AdminLayoutRoutes),
   ]
