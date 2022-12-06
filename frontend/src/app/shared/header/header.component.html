@@ -47,7 +47,7 @@
             <div *ngIf="logEmail" class="icon-badge-group mx-5 dropdown">
                 <div class="icon-badge-container" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="hideBadge()" >
                     <i class="bi bi-bell icon-badge-icon"></i>
-                    <div class="icon-badge" *ngIf="showBadge">{{notifications.length}}</div>
+                    <div class="icon-badge" *ngIf="showBadge">{{isNotReadNotifications.length}}</div>
                 </div>
 
                 <div >
