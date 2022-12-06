@@ -1,6 +1,6 @@
-<div class="mt-5" id="htmlData">
+<div class="mt-5 htmlData" id="htmlData" >
     <div class="header ">
-        <h1>Zwiendedzi Current Month Report</h1>
+        <label>Zwiendedzi Current Month Report</label>
     </div>
     
     <div class="col-md-8">
@@ -25,7 +25,7 @@
             <tr class="table-myprimary">
                 
                 <th>Registered Users</th>
-                <th>Users Per Month</th>
+                <th>Current Month</th>
             </tr>
             <tr *ngFor="let user of usersByReg">
                 <td>{{user.numuser}}</td>
@@ -48,8 +48,7 @@
         </table>
     </div>
    
-</div>
-<footer class="footer text-center text-white" style="background-color: var(--main-bg);">
+<footer class="footer text-center color: var(--main-bg);" style="background-color: var(--white);">
     <!-- Grid container -->
     <div class="container pt-4">
       <!-- Section: Social media -->
@@ -127,6 +126,8 @@
     </div>
     <!-- Copyright -->
   </footer>
+
+</div>
 
 <div class="text-center my-4 mx-auto">
     <button class="btn btn-success btn-block Download-btn" (click)="openPDF()">Download PDF</button>

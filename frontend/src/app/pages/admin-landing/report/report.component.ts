@@ -124,38 +124,23 @@ export class ReportComponent implements OnInit {
   getUserByReg()
   {
     this.userService.GetNumUsersByReg().subscribe((res:any) =>{
-      this.usersByReg = res;
-      //console.log(this.usersByReg)
-      // console.log(this.usersByReg.numuser)
+      let result = res;
+      let currentdt = new Date()
 
-      // this.usersByReg.forEach(function (value) 
-      // {
-      //   console.log('value ', value.numuser) 
-      //   this.mydata.push(value.numuser)
-      //   console.log('data ',this.mydata);
-        
-      //  // console.log(value.created_at) 
-      // }); 
+      this.usersByReg = result.filter(ress => ress.created_at === currentdt.toISOString().slice(0, 7))
      
       this.usersByReg.forEach(element => {
-           //console.log('value ', ) 
            let temp3 = parseInt(element.numuser)
            let temp4 = String(element.created_at)
            this.mydata3.push(temp3)
            this.mydata4.push(temp4)
        
      });
-   // console.log(this.mydata3);
-    //console.log(this.mydata2);
       
     });
 
       this.temp3 = this.mydata3
       this.temp4 = this.mydata4
-      //console.log('temp ', this.temp3);
-      //console.log('users ',this.mydata3);
-     // console.log('temp2 ', this.temp4);
-      //console.log('months ',this.mydata4);
    
   }
 
@@ -171,9 +156,6 @@ export class ReportComponent implements OnInit {
     this.prodService.GetNumCars().subscribe((res:any) =>{
       this.cars = res;
       this.carsByDate3 = this.cars;
-      console.log('total',this.carsByDate3);
-      
-        //console.log('cars',this.cars);
 
        this.carsByDate3.forEach(element => {
         
@@ -183,7 +165,6 @@ export class ReportComponent implements OnInit {
         
     
        });
-      console.log('tot',this.mydata5);
     });
 
   }
