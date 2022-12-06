@@ -57,10 +57,12 @@ const updateBooking = (req,res)=>{
     )
   }
   catch(error)
+
   {
     console.log('didnt update')
   }
 
+  
 }
 
 
