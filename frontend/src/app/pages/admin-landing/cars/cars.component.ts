@@ -31,46 +31,6 @@ export type ChartOptions = {
 };
 
 
-// import {
-//   ChartComponent,
-//   ApexAxisChartSeries,
-//   ApexChart,
-//   ApexXAxis,
-//   ApexDataLabels,
-//   ApexTitleSubtitle,
-//   ApexStroke,
-//   ApexGrid,
-//   ApexPlotOptions,
-//   ApexResponsive,
-//   ApexLegend,
-//   ApexFill
-// } from "ng-apexcharts";
-
-// export type ChartOptions = {
-//   series: ApexAxisChartSeries;
-//   chart: ApexChart;
-//   plotOptions: ApexPlotOptions;
-//   xaxis: ApexXAxis;
-//   title: ApexTitleSubtitle;
-//   dataLabels: ApexDataLabels;
-//   grid: ApexGrid;
-//   stroke: ApexStroke;
-//   responsive: ApexResponsive[];
-//   legend: ApexLegend;
-//   fill: ApexFill;
-// };
-//import * as ApexCharts from 'apexcharts';
-
-// export type ChartOptions = {
-//   series: ApexAxisChartSeries;
-//   chart: ApexChart;
-//   xaxis: ApexXAxis;
-//   dataLabels: ApexDataLabels;
-//   grid: ApexGrid;
-//   stroke: ApexStroke;
-//   title: ApexTitleSubtitle;
-// };
-
 @Component({
   selector: 'app-cars',
   templateUrl: './cars.component.html',
@@ -91,6 +51,7 @@ export class CarsComponent implements OnInit {
   carsByCat4: Car[] = [];
   mydata = [];
   temp:any;
+  temp1: any;
   mydata2 = [];
   temp2:any;
   mydata3 = [];
@@ -99,25 +60,16 @@ export class CarsComponent implements OnInit {
   temp4:any;
   cat: any;
 
+  
+
   ngOnInit(): void {
 
     this.GetCarByCat();
 
     this.ProductsService.GetNumCars().subscribe((res:any) =>{
       this.cars = res;
-       console.log(this.cars);
     });
   }
-
-  // GetCarByCat(){
-
-  //   this.ProductsService.GetAllByCat().subscribe((res:any) =>{
-  //       this.carsByCat = res;
-  //       console.log(this.carsByCat)
-
-  //   });
-
-  // }
 
   async GetCarByCat()
   {
@@ -128,57 +80,39 @@ export class CarsComponent implements OnInit {
       this.carsByCat2 = result.filter(ress => (ress.category).toLowerCase() === ("HATCHBACK").toLowerCase())
       this.carsByCat3 = result.filter(ress => (ress.category).toLowerCase() === ("SEDAN").toLowerCase())
       this.carsByCat4 = result;
-
-      console.log('SUV',this.carsByCat1)
-      console.log('Hatchback',this.carsByCat2)
-      console.log('Seden',this.carsByCat3)
-
+      
+        //COUNTING THE SUVs
       this.carsByCat1.forEach(element => {
            let temp = parseInt(element.count)
-          //  let temp3 = String(element.to_char)
            this.mydata.push(temp)
+           
      });
-
+      //COUNTING THE HATCHBACKs
      this.carsByCat2.forEach(element => {
         let temp1 = parseInt(element.count)
-        // let temp3 = String(element.to_char)
         this.mydata2.push(temp1)
       });
-
+      //COUNTING THE SEDANs
       this.carsByCat3.forEach(element => {
         let temp2 = parseInt(element.count)
-        // let temp3 = String(element.to_char)
         this.mydata3.push(temp2)
       });
 
-      //for the date
+      //the date the cars were posted
       this.carsByCat4.forEach(element => {
         let temp4 = String(element.to_char)
-        
-        // if (element.to_char === element.to_char){
-        //   this.mydata4.push(temp4)
-        // }
+
         this.mydata4.push(temp4)
       });
       
-    // console.log(this.mydata);
-    // console.log(this.mydata2);
-    // console.log(this.mydata3);
-    console.log(this.mydata4);
       
     });
 
       this.temp = this.mydata
-      this.temp2 = this.mydata2
+      this.temp1 = this.mydata2
       this.temp2 = this.mydata3
       this.temp4 = this.mydata4
 
-      console.log('temp ', this.temp);
-      console.log('2nd ',this.mydata);
-      console.log('temp2 ', this.temp2);
-      console.log('3rd ',this.mydata2);
-      console.log('temp4', this.temp4);
-      console.log('4th ',this.mydata4);
     await this.mychart();
   }
 
@@ -195,7 +129,7 @@ export class CarsComponent implements OnInit {
           data: this.mydata2
         },
         {
-          name: "SEDEN",
+          name: "SEDAN",
           data: this.mydata3
         }
       ],

@@ -91,7 +91,7 @@ onFileChange(event :any)
 
       this.carService.postCar(carDetails).subscribe((next:any) => {
         console.log('Car has been added successfully!');
-        this.router.navigate(['/carlist']);
+        this.router.navigate(['/admin/carlist']);
         this.toast.success({detail:'Success',summary:'Car has been added successfully!', sticky:false,position:'tr', duration:6000})
       
         this.submitted = false;

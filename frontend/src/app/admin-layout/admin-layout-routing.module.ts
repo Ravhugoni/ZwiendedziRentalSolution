@@ -6,6 +6,9 @@ import { BookingListComponent } from '../pages/booking/booking-list/booking-list
 import { BookingModalComponent } from '../pages/booking/booking-modal/booking-modal.component';
 import { BookingComponent } from '../pages/booking/booking.component';
 import { CarProdComponent } from '../pages/car-prod/car-prod.component';
+import { CreateComponent } from '../pages/create/create.component';
+import { EditCarComponent } from '../pages/edit-car/edit-car.component';
+import { EditUserComponent } from '../pages/edit-user/edit-user.component';
 import { UsersComponent } from '../pages/users/users.component';
 
 export const AdminLayoutRoutes: Routes = [
@@ -15,5 +18,8 @@ export const AdminLayoutRoutes: Routes = [
   { path: 'booking/:id',      component: BookingComponent },
   { path: 'carlist', component: CarProdComponent },
   { path: 'users', component: UsersComponent },
-  { path: 'editbooking/:id',      component: BookingModalComponent }
+  { path: 'users/:id',      component: EditUserComponent },
+  { path: 'editbooking/:id',      component: BookingModalComponent },
+  { path: 'editCar/:id', component: EditCarComponent},
+  { path: 'car', component: CreateComponent },
 ];

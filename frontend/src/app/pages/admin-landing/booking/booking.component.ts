@@ -55,7 +55,7 @@ export class BookingComponent implements OnInit {
 
     this.bookingService.getTotalBookings().subscribe((res:any) =>{
       this.booking = res;
-      console.log(this.booking)
+      // console.log(this.booking)
     });
     
     
@@ -65,7 +65,7 @@ export class BookingComponent implements OnInit {
   {
     this.bookingService.getTotalBookingsByReg().subscribe((res:any) =>{
       this.bookingByReg = res;
-      console.log(this.bookingByReg)
+      // console.log(this.bookingByReg)
 
       this.bookingByReg.forEach(element => {
 
