@@ -29,7 +29,7 @@ const getAllBookings = (req,res)=>{
 const getBookingById = (request, response) => {
   const id = parseInt(request.params.id)
 
-  pool.query('SELECT * FROM bookings,users where users.id =bookings.id and users.id = $1',[id], (error,results)=>{
+  pool.query('SELECT * FROM booking,users where users.id =bookings.id and users.id = $1',[id], (error,results)=>{
       if(error){
           throw error
       }
@@ -69,7 +69,7 @@ const updateBooking = (req,res)=>{
 const deleteBooking = (request, response)=>{
   const id = parseInt(request.params.id)
 
-  pool.query('DELETE FROM public.bookings WHERE id = $1', [id], (error,results)=>{
+  pool.query('DELETE FROM public.booking WHERE id = $1', [id], (error,results)=>{
       if(error){
           throw error
       }
