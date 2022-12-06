@@ -20,4 +20,14 @@
     border-color: var(--main-bg);
     
 }
+.footer{
+    width: 66%;
+}
+@media screen and (max-width: 768px){
+    .footer{
+        
+        width: 98%;
+    
+}
+}
 
