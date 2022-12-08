@@ -82,7 +82,10 @@
                 <td>{{booking.numberPlate}}</td>
                 <td>{{booking.fuelType}}</td>
                 <td>{{booking.bk_status}}</td>
-                <td><button type="button" class="btn btn-secondary btn-lg" (click)="cancelBooking(booking.id)">Cancel</button></td>
+                <td>
+                  <button type="button" class="btn btn-secondary btn-lg" (click)="cancelBooking(booking.id)">Cancel</button>
+                  <button type="button" class="btn btn-warning btn-lg" [routerLink]="['/editbooking',booking.id]">Edit</button>
+                </td>
             </tr>
               
              

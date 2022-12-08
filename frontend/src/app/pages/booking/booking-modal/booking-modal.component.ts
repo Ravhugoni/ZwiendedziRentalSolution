@@ -10,6 +10,7 @@ import { ProductsService } from 'src/app/services/products.service';
 import { UserService } from 'src/app/services/user.service';
 import jwt_decode from 'jwt-decode';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-booking-modal',
@@ -34,13 +35,15 @@ export class BookingModalComponent implements OnInit {
   company!:any;
   bookings!: Booking;
   users!:any;
+  recipientId!:any;
   decoded!:any;
   public loggedEmail:string = sessionStorage.getItem('loggedEmail');
   submitted = false;
 
   constructor(private modalService: NgbModal, private bookingService: BookingService, private productsService: ProductsService, 
     private companyService: CompanyService, private userServive:UserService, private router: Router,
-    private route: ActivatedRoute, private toast: NgToastService, public fb: FormBuilder, private spinnerService: NgxSpinnerService) { 
+    private route: ActivatedRoute, private toast: NgToastService, public fb: FormBuilder, private spinnerService: NgxSpinnerService,
+    private notificationService: NotificationService) { 
     
     this.bookingService.GetList().subscribe((res:any) => {
       // this.bookings = res;
@@ -57,6 +60,8 @@ export class BookingModalComponent implements OnInit {
           bk_status:this.bookings[0].bk_status,
           bk_statuss:this.bookings[0].bk_status
           }); 
+
+          this.recipientId = this.bookings[0].user_id
       }
       
     });
@@ -117,9 +122,25 @@ export class BookingModalComponent implements OnInit {
         bk_status: this.BookingForm.value.bk_statuss
       }
 
+      var dat = new Date();
+
+      var date = dat.toISOString().slice(0, 10)
+
+      let notificationDetail = {
+        CreatedDate: date,
+        Deleted: false,
+        Message: 'Your booking number ' + this.bid + ' has been ' + this.BookingForm.value.bk_statuss,
+        Read: false,
+        RecipientId: this.recipientId,
+        SenderId: this.users[0].id
+      }
+
       console.log(bookingDetails);
+      console.log(notificationDetail);
 
       this.bookingService.update(this.bid, bookingDetails).subscribe((next) => {
+        this.Notify(notificationDetail);
+
         this.router.navigate(['/admin/booking']);
         this.toast.success({detail:'Success',summary:'Successfully Updated!', sticky:false,position:'tr', duration:6000})
         this.submitted = false;
@@ -147,6 +168,16 @@ export class BookingModalComponent implements OnInit {
     }
 
 
+  }
+
+  Notify(notificationDetails:any)
+  {
+
+    this.notificationService.AddNotification(notificationDetails).subscribe((next:any) => {
+      console.log('User successfully notified!');
+      this.toast.success({detail:'Success',summary:'User successfully notified!', sticky:false,position:'tr', duration:3000})
+      this.submitted = false;
+    });
   }
 
   get formValidation(): { [key: string]: AbstractControl } {

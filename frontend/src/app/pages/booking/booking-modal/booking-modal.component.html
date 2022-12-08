@@ -114,8 +114,11 @@
                 <button class="btn btn-warning" (click)="updateBooking()">Udpdate<i class="bi bi-arrow"></i></button>
               </div>
 
-              <div class="mb-3 col-auto">
+              <div class="mb-3 col-auto" *ngIf="user.usertype =='admin'">
                 <a routerLink="/admin/booking" class="btn btn-warning">Back</a>
+              </div>
+              <div class="mb-3 col-auto" *ngIf="user.usertype =='client'">
+                <a routerLink="/profile" class="btn btn-warning">Back</a>
               </div>
           </div>
     </div>

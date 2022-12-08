@@ -20,6 +20,9 @@
 
               <div *ngIf="submitted && formValidation['firstname'].errors" class="invalid-feedback">
                 <div *ngIf="formValidation['firstname'].errors['required']">Firstname is required</div>
+                <div *ngIf="formValidation['first name'].errors['minlength']">
+                  first name must be at least 2 characters or more
+                </div>
               </div>
           </div>
         </div>
@@ -35,6 +38,9 @@
 
             <div *ngIf="submitted && formValidation['lastname'].errors" class="invalid-feedback">
               <div *ngIf="formValidation['lastname'].errors['required']">Lastname is required</div>
+              <div *ngIf="formValidation['lastname'].errors['minlength']">
+                last name must be at least 2 characters or more
+              </div>
             </div>
           </div>
         </div>

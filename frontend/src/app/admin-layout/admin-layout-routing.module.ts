@@ -9,6 +9,7 @@ import { CarProdComponent } from '../pages/car-prod/car-prod.component';
 import { CreateComponent } from '../pages/create/create.component';
 import { EditCarComponent } from '../pages/edit-car/edit-car.component';
 import { EditUserComponent } from '../pages/edit-user/edit-user.component';
+import { UploadsComponent } from '../pages/uploads/uploads.component';
 import { UsersComponent } from '../pages/users/users.component';
 
 export const AdminLayoutRoutes: Routes = [
@@ -22,4 +23,5 @@ export const AdminLayoutRoutes: Routes = [
   { path: 'editbooking/:id',      component: BookingModalComponent },
   { path: 'editCar/:id', component: EditCarComponent},
   { path: 'car', component: CreateComponent },
+  { path: 'upload', component: UploadsComponent },
 ];

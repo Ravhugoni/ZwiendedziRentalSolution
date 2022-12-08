@@ -28,6 +28,7 @@ import { CreateComponent } from './pages/create/create.component';
 import { BookingModalComponent } from './pages/booking/booking-modal/booking-modal.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { UploadsComponent } from './pages/uploads/uploads.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     CreateComponent,
     CarProdComponent,
     EditCarComponent,
+    UploadsComponent
     
   ],
   imports: [
