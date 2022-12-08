@@ -14,6 +14,7 @@ import { ReportComponent } from '../pages/admin-landing/report/report.component'
 import { CompanyComponent } from '../pages/admin-landing/company/company.component';
 import { BookingComponent } from '../pages/admin-landing/booking/booking.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { UploadsComponent } from '../pages/uploads/uploads.component';
 
 @NgModule({
   declarations: [

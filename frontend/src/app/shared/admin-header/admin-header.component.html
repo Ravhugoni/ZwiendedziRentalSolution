@@ -1,7 +1,7 @@
 
   <div class="row nav shadow" *ngFor="let user of users">
     <div class="col-8 my-auto">
-        <img src="../../../assets/logo.png" class="logo-img">
+        <a [routerLink]="['/']" ><img src="../../../assets/logo.png" class="logo-img"></a>
     </div>
     <div class="col-4 my-auto ">
       <div class="row justify-content-end float-right">

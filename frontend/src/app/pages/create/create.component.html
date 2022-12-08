@@ -1,7 +1,7 @@
 <div class="container">
-    <h1>Create New Post</h1>
-  
-    <a href="#" routerLink="/carlist" class="btn btn-sm">Back</a>
+    <div class="header my-5">
+        <h1 class="pt-4">Create New Car</h1>
+      </div>
     
     <form [formGroup]="CarForm" novalidate>
   
@@ -111,7 +111,7 @@
             </div>
             <div class="col-3">
                 <div class="form-group">
-                    <label for="fuelType">fuelType:</label>
+                    <label for="fuelType">fuel Type:</label>
         
                         <select id="fuelType" class="form-control" formControlName="fuelType">
                             <option [ngClass]="null" selected>Select status...</option>
@@ -155,9 +155,18 @@
                 </div>
             </div>
         </div>
-        <div>
-            <button type="submit" (click)="postCar()" class="btn btn-sm"> SUBMIT</button>
-        </div>
+        <div class="d-flex justify-content-center mx-auto">
+            
+            <div class=" text-center mt-5">
+              <div class="mb-3 col-auto">
+                <button type="submit" (click)="postCar()" class="btn btn-sm"> SUBMIT</button>
+              </div>
+
+              <div class="mb-3 col-auto">
+                <a routerLink="/admin/carlist" class="btn btn-sm">Back</a>
+              </div>
+          </div>
+    </div>
         
 <br>
     </form>

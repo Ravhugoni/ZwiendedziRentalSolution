@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Subject } from 'rxjs';
 import { UserService } from 'src/app/services/user.service';
 
@@ -9,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UsersComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private spinnerService: NgxSpinnerService) { }
 
   users: any[];
   dtOptions: DataTables.Settings = {};
@@ -28,10 +29,19 @@ export class UsersComponent implements OnInit {
       lengthMenu : [5, 10, 25],
       processing: true
      };
+     this.showSpinner();
 
   }
 
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();
+  }
+
+  showSpinner(): void {
+    this.spinnerService.show();
+
+    setTimeout(() => {
+      this.spinnerService.hide();
+    }, 1000); // 2 seconds
   }
 }

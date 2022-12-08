@@ -59,7 +59,7 @@ export class UsersComponent implements OnInit {
   {
     this.userService.GetNumUsersByReg().subscribe((res:any) =>{
       this.usersByReg = res;
-      console.log(this.usersByReg)
+      // console.log('users',this.usersByReg)
       // console.log(this.usersByReg)
       // console.log(this.usersByReg.numuser)
 
@@ -80,8 +80,8 @@ export class UsersComponent implements OnInit {
            this.mydata2.push(temp2)
        
      });
-   // console.log(this.mydata);
-    //console.log(this.mydata2);
+  //  console.log('users',this.mydata);
+  //   console.log('date',this.mydata2);
     // console.log(this.mydata);
     // console.log(this.mydata2);
       

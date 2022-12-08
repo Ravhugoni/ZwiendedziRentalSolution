@@ -1,6 +1,13 @@
 .btn{
-    background-color: #ffbe16; 
-    color: white;
+    background-color: var(--yellow); 
+    color: var(--main-bg);
     font-weight: bold;
-    border-radius: .4rem;
  }
+ .header
+{
+    background-color: var(--main-bg);
+    border-radius: 15px;
+    height: 120px;
+    color: var(--white);
+    text-align: center;
+}

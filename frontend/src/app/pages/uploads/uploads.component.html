@@ -1,0 +1,34 @@
+
+<div class="container">
+
+    <form class="uploads" [formGroup]="UploadForm" novalidate>
+  
+    <div class="head">
+        <h1>Upload Documents</h1>
+    </div>
+  
+        <div class="form-group">
+            <label class="form-label" for="customFile">ID Document</label>
+            <input type="file" class="form-control" id="customFile" formControlName="identity" (change)="onFileChange($event)"/>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" for="customFile">Licence Document</label>
+            <input type="file" class="form-control" id="customFile" formControlName="licence" (change)="onFileChange($event)"/>
+        </div>
+
+
+      
+        <div class="but">
+            <button type="submit" (click)="uploadDocx()" class="submit btn btn-sm">Submit</button>
+            <button class="back" [routerLink]="['/profile']" routerLinkActive="router-link-active" >Return</button>
+        </div>
+
+        <!-- <div class="low">
+            <button type="submit" (click)="uploadDocx()" class="btn btn-sm"> View Uploaded Docx</button>
+            <button type="submit" (click)="uploadDocx()" class="btn btn-sm"> Edit Uploads</button>
+        </div> -->
+        
+
+    </form>
+</div>

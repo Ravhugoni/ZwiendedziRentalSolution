@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Users } from 'src/app/model/users';
 import { UserService } from 'src/app/services/user.service';
 
@@ -32,12 +33,13 @@ export class EditUserComponent implements OnInit {
 
   public usertype: any;
  
-  constructor(private userServive:UserService, private router: Router,private route: ActivatedRoute, private toast: NgToastService, public fb: FormBuilder) { }
+  constructor(private userServive:UserService, private router: Router,private route: ActivatedRoute,
+     private toast: NgToastService, public fb: FormBuilder, private spinnerService: NgxSpinnerService) { }
 
   myForm() {
     this.EditUserForm = this.fb.group({
-      firstname: ['', [ Validators.required ]],
-      lastname: ['', [ Validators.required ]],
+      firstname: ['', [ Validators.required, Validators.minLength(2)]],
+      lastname: ['', [ Validators.required, Validators.minLength(2),]],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', [Validators.required,Validators.minLength(10),Validators.maxLength(10)]]
     });
@@ -46,6 +48,7 @@ export class EditUserComponent implements OnInit {
   ngOnInit(): void {
 
     this.myForm();
+    this.showSpinner();
 
     this.sub = this.route.params.subscribe(params => {
       return this.uid = params['id'];
@@ -97,7 +100,7 @@ export class EditUserComponent implements OnInit {
         this.userServive.updateUser(this.uid, userDetails).subscribe((next) => {
             // console.log('Successfully Updated!');
             this.openSuccess();
-            this.router.navigate(['/users']);
+            this.router.navigate(['/admin/users']);
  
             this.toast.success({detail:'success',summary:'Successfully Updated!', sticky:false,position:'tr', duration:6000})
             this.submitted = false;
@@ -109,6 +112,14 @@ export class EditUserComponent implements OnInit {
         this.openWarning();
       }
    
+  }
+
+  showSpinner(): void {
+    this.spinnerService.show();
+
+    setTimeout(() => {
+      this.spinnerService.hide();
+    }, 1000); // 2 seconds
   }
 
   openWarning(){

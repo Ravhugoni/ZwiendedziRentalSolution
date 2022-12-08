@@ -43,7 +43,7 @@
 <div class="col-lg-8 py-5">
     <div class="row">
         <div class="float-left col bookings pl-4"><label>CURENT BOOKINGS</label></div>
-        <div class="float-right  col"><button type="button" class="rentbut btn-primary btn-lg">New Booking</button></div>
+        <!-- <div class="float-right  col"><button type="button" class="rentbut btn-primary btn-lg">New Booking</button></div> -->
     </div>
     <div class="row container-fluid mx-auto">
         <table class="table table-responsive shadow p-3 mb-5 bg-body table-hover" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
@@ -82,14 +82,17 @@
                 <td>{{booking.numberPlate}}</td>
                 <td>{{booking.fuelType}}</td>
                 <td>{{booking.bk_status}}</td>
-                <td><button type="button" class="btn btn-secondary btn-lg" (click)="cancelBooking(booking.id)">Cancel</button></td>
+                <td>
+                  <button type="button" class="btn btn-secondary btn-lg" (click)="cancelBooking(booking.id)">Cancel</button>
+                  <button type="button" class="btn btn-warning btn-lg" [routerLink]="['/editbooking',booking.id]">Edit</button>
+                </td>
             </tr>
               
              
             </tbody>
           </table>
     
-          <!-------second table-->
+          <!-- -----second table
           <div class="bookings" >
             <label>History</label>
     
@@ -108,7 +111,7 @@
               </thead>
               <tbody>
                 <tr>
-                    <!-- <th scope="row">1</th> -->
+                    <th scope="row">1</th> 
                     <td>AUDI A4</td>
                     <td>10/11/22</td>
                     <td>10:00</td>
@@ -118,7 +121,7 @@
                 
                 </tr>
                 <tr>
-                    <!-- <th scope="row">2</th> -->
+                    <th scope="row">2</th>
                     <td>POLO VIVO</td>
                     <td>11/22/22</td>
                     <td>10:22</td>
@@ -130,7 +133,7 @@
               </tbody>
               
     
-        </table>
+        </table> -->
     </div>
 </div>
 </div>
